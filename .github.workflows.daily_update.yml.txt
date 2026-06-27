@@ -1,0 +1,2 @@
+This file is unused. The active workflow file is located in .github/workflows/daily_update.yml.
+You can safely delete this file.

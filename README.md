@@ -2,72 +2,120 @@
 
 > *"Foresight is the weapon of the wise against future adversity."*
 
-**ViduraAgent** is an autonomous, lightweight market intelligence agent built using **Google Antigravity**. Named after the legendary ancient strategist known for his unmatched foresight, this agent tracks macro shifts, technological evolutions, and regulatory risks over 5-year and 10-year horizons, while delivering a daily pulse of social media and market realities.
+**ViduraAgent** is an autonomous, lightweight macro-economic and technology intelligence strategist built using **Google Antigravity**. Named after the legendary ancient Indian master of foresight, this agent tracks long-term structural shifts, technology adoption curves, and regulatory risks over 5-year and 10-year horizons, while maintaining a daily pulse on current market realities.
 
 ---
 
-## 🧭 Core Intelligence Capabilities
+## 🧭 Core Strategic Domain Mandates
 
 ### 1. Dual-Horizon Projections (5 & 10 Years)
-*   📈 **Stock Market**: Structural capital flows, macro-economic cycles, and sector rotations.
-*   💻 **Information Technology**: Infrastructure scaling, SaaS evolution, and cloud paradigms.
-*   🤖 **Artificial Intelligence**: Agentic workflows, hardware supply chains, and LLM commercialization.
+*   📈 **Stock Market**: Structural capital flows, mutual fund retail participation (SIP trends), index re-ratings, and capital flow vectors.
+*   💻 **Information Technology**: Global Capability Centers (GCCs), SaaS-to-PaaS migrations, enterprise cloud paradigms, and tech talent corridors.
+*   🤖 **Artificial Intelligence**: Sovereign GPU clusters (IndiaAI Mission), agentic workflow scaling, chip assembly ecosystems, and AGI knowledge economy transition.
 
-### 2. India-First Strategic Focus
-*   Mapping of national initiatives like the **IndiaAI Mission** and **Digital India**.
-*   **Geographical Deep-Dives**: Seamless lookup of the top 5 government-focused tech hubs:
-    *   *Bengaluru*: DeepTech, Aerospace, and GCC networks.
-    *   *Hyderabad*: AI Centers of Excellence and Data Center Hubs.
-    *   *NCR (Noida/Gurugram)*: Electronic Manufacturing & AI Operations.
-    *   *Pune*: Enterprise Software & Industrial IoT.
-    *   *Chennai*: FinTech Cities & Hardware Scale.
-
-### 3. Daily Pulse & Risk Meter
-*   **Social Listening**: Continuous scraping of media sentiment across financial networks.
-*   **Risk Vector Mapping**: Real-time identification of regulatory blocks, geopolitical friction, and technological obsolescence.
+### 2. India-First Strategic Bias
+*   Deep mapping of national programs (IndiaAI Mission, Production Linked Incentives (PLI 2.0), Digital Public Infrastructure (UPI, ONDC, Account Aggregators)).
+*   **Geographical Hub Tracking**: Focus on India's top 5 tech and DeepTech clusters:
+    *   *Bengaluru*: DeepTech, Aerospace, and global GCC networks.
+    *   *Hyderabad*: Enterprise SaaS, AI CoEs, and renewable data center spires.
+    *   *NCR (Noida/Gurugram)*: AI operations, hardware scale, and mobile manufacturing.
+    *   *Pune*: Embedded systems, industrial IoT, and enterprise middleware.
+    *   *Chennai*: SaaS hubs, fintech cities, and hardware fabrication.
 
 ---
 
-## 🏗️ Lightweight Tech Stack
+## 🔌 Data Sources & Intel Feeds
 
-To ensure zero maintenance costs and instantaneous load times, ViduraAgent uses a decoupled **JSON-as-Database** architecture:
-
-*   **Brain / Core**: Google Antigravity Agent & Python SDK.
-*   **Data Aggregation**: `yfinance` (market metrics) and `duckduckgo_search` (media stream).
-*   **Storage**: A single flat, auto-updating `dashboard_data.json` file.
-*   **Frontend**: Vanilla HTML5, Tailwind CSS (via CDN), and asynchronous JavaScript.
-*   **Hosting & Automation**: GitHub Pages (UI) + GitHub Actions (Daily CRON execution).
+ViduraAgent pulls intelligence programmatically using raw APIs and headless search indexers:
+*   📊 **Financial Market Indicators**: Live feeds from **Yahoo Finance (`yfinance`)** tracking:
+    *   **NIFTY 50** (`^NSEI`) — Indian large-cap benchmark indicator.
+    *   **SENSEX** (`^BSESN`) — BSE flagship index.
+    *   **Gold (USD)** (`GC=F`) — Global safe-haven asset gauge.
+    *   **Brent Crude** (`BZ=F`) — Global energy inflation indicator.
+    *   **USD/INR** (`USDINR=X`) — Sovereign currency corridor.
+*   📰 **Macro & Regulatory News**: Custom query streams via **DuckDuckGo News Indexer (`duckduckgo_search`)** to extract real-time geopolitical policy changes, central bank policy shifts (RBI/Fed/ECB), and technology adoption curves.
 
 ---
 
-## 🚀 Directory Structure
+## 🏗️ Premium Tech Stack & Architecture
+
+ViduraAgent is designed with a decoupled **Zero-Infrastructure-Cost** design:
+*   **Intelligence Engine**: Python 3.11 script compiling dynamic web updates into a flat, valid JSON feed.
+*   **Database**: Standard JSON state storage (`docs/dashboard_data.json`) acting as a lightweight, zero-maintenance state store.
+*   **Orchestration / CI**: **GitHub Actions** executing automatically every morning at **08:00 AM IST** (`30 2 * * *` CRON) to gather updates, validate JSON schemas, and commit/push changes.
+*   **Dashboard Frontend**: Vanilla HTML5 and pure CSS3 using advanced HSL color tokens for transition animations.
+*   **Hosting**: Serverless delivery via **GitHub Pages** serving straight from the `/docs` folder.
+*   **Theme Engine**: Custom LocalStorage-based theme engine supporting **☀️ Light**, **🌙 Dark**, and **⚙️ Auto** (system OS theme matching and live change event monitoring).
+*   **XSS Protection**: Complete context-escaping on all dynamic elements using custom escaping routines, plus absolute URL scheme verification on publisher links.
+
+---
+
+## 🎨 Architectural Icon Design
+
+To reflect ViduraAgent's identity, all dashboard layout items utilize AI-generated, flat-vector symbols inspired by ancient Indian temple architecture and sacred geometry:
+
+| Icon | Architectural Representation | Concept |
+|---|---|---|
+| 🏛️ **Logo** | Sarnath Ashoka Pillar + Temple Shikhara arch + Lotus base | Master of Indian foresight and governance |
+| 📈 **Stocks** | Stylized Dravidian Gopuram temple tower | Tiers rising upward like an ascending bar chart |
+| 💻 **IT** | Sacred Sri Yantra geometric mandala | Complex network systems, cloud nodes, and code paths |
+| 🤖 **AI** | Sun God Surya with radiating geometric lines | Radiance, higher vision, and synthetic intelligence |
+| 🐚 **Pulse** | Sacred Conch (Shankha) | Proclaiming daily news, announcements, and market pulse |
+| 🛕 **Horizon 5** | Solid Sanchi Stupa dome | Grounded, stable near-term milestones |
+| 🕌 **Horizon 10** | Curvilinear Nagara Shikhara spire | Aspirational, long-term heights pointing to the future |
+| 🪷 **Scroll** | 8-Petal Lotus (Padma) | Symmetrical global feed loop and holistic view |
+
+*Note: All elements contain automatic, inline SVG fallbacks and CSS filter maps to guarantee perfect visibility in both light and dark themes.*
+
+---
+
+## 🚀 Repository Structure
 
 ```text
 ViduraAgent/
 ├── .github/
 │   └── workflows/
-│       └── daily_update.yml  # Automated daily trigger (08:00 AM IST)
+│       └── daily_update.yml   # Daily Action CRON (08:00 AM IST)
 ├── agent/
 │   └── skills/
 │       └── vidura_core/
 │           └── agent/
-│               └── skill.md  # 5/10-year macro strategic routing
-├── tools/
-│   └── daily_digest.py       # Live data gathering engine
-└── frontend/
-    ├── index.html            # Ultra-lightweight user dashboard
-    └── dashboard_data.json   # Real-time state cache (overwritten daily)
+│               └── SKILL.md   # Core strategist mandate and system persona
+├── docs/                      # Primary site directory for GitHub Pages
+│   ├── index.html             # UI with light/dark toggles & SVG fallbacks
+│   ├── dashboard_data.json    # Real-time state cache (refreshed daily)
+│   └── icons/                 # Custom generated Indian style vector assets
+│       ├── logo.png
+│       ├── stocks.png
+│       ├── it.png
+│       ├── ai.png
+│       ├── pulse.png
+│       ├── horizon5.png
+│       ├── horizon10.png
+│       └── scroll.png
+└── tools/
+    ├── daily_digest.py        # Python scraper & analyzer (saves to docs/)
+    ├── setup_icons.py         # Copies generated PNG icons to docs/icons/
+    └── cleanup.py             # Removes legacy duplicate folders and files
 ```
 
 ---
 
-## 🛠️ Local Initialization with Antigravity
+## 🛠️ Local Installation & Development
 
-1. Clone your fresh repository:
-   ```bash
-   git clone https://github.com
-   cd ViduraAgent
-   ```
+### 1. Setup the Files
+Ensure you run setup to populate the custom icons and remove duplicate folders:
+```bash
+python tools/setup_icons.py
+python tools/cleanup.py
+```
 
-2. Instruct your Antigravity environment to begin orchestration:
-   > *"Vidura, parse the codebase structure, establish the daily_digest.py routine, and link the frontend interface to track dashboard_data.json autonomously."*
+### 2. Manual Data Generation
+To pull fresh live feed data locally:
+```bash
+pip install yfinance duckduckgo-search
+python tools/daily_digest.py
+```
+
+### 3. Serving
+Simply open `docs/index.html` in your web browser. It contains an inline data cache that guarantees it will render cleanly using a `file://` protocol fallback even if closed behind CORS restrictions!
