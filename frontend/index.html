@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- ViduraAgent Dashboard — works from file:// AND http:// -->
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,14 +11,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <style>
-    /* ─── Design Tokens ─────────────────────────────────────────────────── */
+    /* ─── Theme Variables ───────────────────────────────────────────────── */
     :root {
+      --transition: background 0.35s ease, color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    /* DARK MODE (default) */
+    [data-theme="dark"] {
       --bg-base:       #080c14;
       --bg-surface:    #0d1424;
       --bg-card:       #111a2e;
       --bg-card-hover: #162036;
+      --bg-header:     rgba(13, 20, 36, 0.85);
       --border:        rgba(99, 179, 237, 0.10);
-      --border-accent: rgba(99, 179, 237, 0.25);
+      --border-accent: rgba(99, 179, 237, 0.28);
 
       --text-primary:   #e8f0fe;
       --text-secondary: #8ba3c7;
@@ -34,17 +40,58 @@
       --red:    #f76b6b;
       --amber:  #f5c842;
 
-      --radius-sm: 6px;
-      --radius-md: 12px;
-      --radius-lg: 18px;
-
       --shadow-card: 0 4px 24px rgba(0,0,0,0.5);
       --shadow-glow: 0 0 30px rgba(79,156,249,0.08);
+
+      --ticker-bg:   rgba(13, 20, 36, 0.95);
+      --market-bg:   var(--bg-surface);
+
+      --mode-bg-start: rgba(79,156,249,0.07);
+      --mode-bg-end:   rgba(167,139,250,0.06);
+
+      --logo-color: #f5c842;
+      --logo-bg: rgba(245,200,66,0.12);
     }
 
-    /* ─── Reset & Base ──────────────────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    /* LIGHT MODE */
+    [data-theme="light"] {
+      --bg-base:       #f0f4fb;
+      --bg-surface:    #ffffff;
+      --bg-card:       #ffffff;
+      --bg-card-hover: #f5f8ff;
+      --bg-header:     rgba(255, 255, 255, 0.92);
+      --border:        rgba(79, 109, 180, 0.14);
+      --border-accent: rgba(79, 109, 180, 0.35);
 
+      --text-primary:   #0f1929;
+      --text-secondary: #3a5070;
+      --text-muted:     #8aa0c0;
+
+      --accent-blue:   #2563eb;
+      --accent-teal:   #0d9488;
+      --accent-gold:   #b45309;
+      --accent-rose:   #dc2626;
+      --accent-violet: #7c3aed;
+
+      --green:  #059669;
+      --red:    #dc2626;
+      --amber:  #d97706;
+
+      --shadow-card: 0 2px 16px rgba(0,0,0,0.08);
+      --shadow-glow: 0 0 24px rgba(37,99,235,0.07);
+
+      --ticker-bg:   #e8eef8;
+      --market-bg:   #ffffff;
+
+      --mode-bg-start: rgba(37,99,235,0.04);
+      --mode-bg-end:   rgba(124,58,237,0.03);
+
+      --logo-color: #b45309;
+      --logo-bg: rgba(180,83,9,0.10);
+    }
+
+    /* ─── Reset ─────────────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
     body {
@@ -54,21 +101,21 @@
       min-height: 100vh;
       line-height: 1.6;
       overflow-x: hidden;
+      transition: var(--transition);
     }
 
-    /* ─── Background Ambiance ───────────────────────────────────────────── */
     body::before {
       content: '';
       position: fixed;
       inset: 0;
       background:
-        radial-gradient(ellipse 80% 50% at 10% -10%, rgba(79,156,249,0.07) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 40% at 90% 110%, rgba(167,139,250,0.06) 0%, transparent 60%);
+        radial-gradient(ellipse 80% 50% at 10% -10%, var(--mode-bg-start) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 90% 110%, var(--mode-bg-end) 0%, transparent 60%);
       pointer-events: none;
       z-index: 0;
+      transition: var(--transition);
     }
 
-    /* ─── Layout ────────────────────────────────────────────────────────── */
     .app-wrapper { position: relative; z-index: 1; }
 
     /* ─── Header ────────────────────────────────────────────────────────── */
@@ -76,598 +123,367 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 18px 32px;
-      background: rgba(13, 20, 36, 0.85);
+      padding: 14px 32px;
+      background: var(--bg-header);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
       z-index: 100;
+      transition: var(--transition);
     }
 
-    .header-brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+    .header-brand { display: flex; align-items: center; gap: 12px; }
 
-    .brand-emblem {
-      width: 40px;
-      height: 40px;
-      background: linear-gradient(135deg, var(--accent-blue), var(--accent-violet));
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
+    /* ─── Logo SVG ───────────────────────────────────────────────────────── */
+    .brand-logo {
+      width: 42px;
+      height: 42px;
       flex-shrink: 0;
-      box-shadow: 0 0 16px rgba(79,156,249,0.3);
+      filter: drop-shadow(0 0 8px rgba(245,200,66,0.4));
+      transition: filter 0.35s;
     }
+
+    [data-theme="light"] .brand-logo {
+      filter: drop-shadow(0 0 6px rgba(180,83,9,0.3));
+    }
+
+    .brand-logo .logo-fill { fill: var(--logo-color); transition: fill 0.35s; }
 
     .brand-text h1 {
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: -0.3px;
-      color: var(--text-primary);
+      font-size: 18px; font-weight: 700; letter-spacing: -0.3px;
+      color: var(--text-primary); transition: color 0.35s;
     }
-
     .brand-text p {
-      font-size: 11px;
-      color: var(--text-muted);
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
+      font-size: 11px; color: var(--text-muted); letter-spacing: 0.8px;
+      text-transform: uppercase; transition: color 0.35s;
     }
 
-    .header-meta {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
+    .header-right { display: flex; align-items: center; gap: 14px; }
 
-    .last-updated {
-      font-size: 11px;
-      color: var(--text-muted);
-      font-family: 'JetBrains Mono', monospace;
-    }
+    .last-updated { font-size: 11px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
 
     .live-badge {
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      display: flex; align-items: center; gap: 6px;
       padding: 4px 10px;
       background: rgba(34, 211, 160, 0.1);
       border: 1px solid rgba(34, 211, 160, 0.25);
       border-radius: 20px;
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--green);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      font-size: 11px; font-weight: 600; color: var(--green);
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+
+    [data-theme="light"] .live-badge {
+      background: rgba(5,150,105,0.08);
+      border-color: rgba(5,150,105,0.25);
     }
 
     .live-dot {
-      width: 7px;
-      height: 7px;
-      background: var(--green);
-      border-radius: 50%;
+      width: 7px; height: 7px;
+      background: var(--green); border-radius: 50%;
       animation: pulse-dot 2s ease-in-out infinite;
     }
-
     @keyframes pulse-dot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(0.75); }
+      0%, 100% { opacity:1; transform:scale(1); }
+      50%       { opacity:0.5; transform:scale(0.75); }
     }
 
-    /* ─── Global Scroll Ticker ──────────────────────────────────────────── */
-    .ticker-bar {
-      background: rgba(13, 20, 36, 0.95);
-      border-bottom: 1px solid var(--border);
-      overflow: hidden;
-      height: 40px;
+    /* ─── Theme Switcher ─────────────────────────────────────────────────── */
+    .theme-switcher {
       display: flex;
       align-items: center;
+      gap: 2px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 3px;
+      transition: var(--transition);
+    }
+
+    .theme-btn {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 11px;
+      border-radius: 7px;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 11.5px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .theme-btn:hover { color: var(--text-primary); }
+
+    .theme-btn.active {
+      background: var(--bg-surface);
+      color: var(--accent-blue);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+    }
+
+    [data-theme="light"] .theme-btn.active {
+      box-shadow: 0 1px 6px rgba(0,0,0,0.10);
+    }
+
+    .theme-btn .btn-icon { font-size: 13px; }
+
+    /* ─── Global Scroll Ticker ───────────────────────────────────────────── */
+    .ticker-bar {
+      background: var(--ticker-bg);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden; height: 40px;
+      display: flex; align-items: center;
+      transition: var(--transition);
     }
 
     .ticker-label {
-      flex-shrink: 0;
-      padding: 0 16px;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      color: var(--accent-blue);
+      flex-shrink: 0; padding: 0 16px;
+      font-size: 10px; font-weight: 700; letter-spacing: 1.2px;
+      text-transform: uppercase; color: var(--accent-blue);
       background: rgba(79,156,249,0.08);
       border-right: 1px solid var(--border);
-      height: 100%;
-      display: flex;
-      align-items: center;
-      white-space: nowrap;
+      height: 100%; display: flex; align-items: center; white-space: nowrap;
     }
 
-    .ticker-track-wrap {
-      flex: 1;
-      overflow: hidden;
-      position: relative;
-    }
+    [data-theme="light"] .ticker-label { background: rgba(37,99,235,0.06); }
 
-    .ticker-track {
-      display: flex;
-      gap: 0;
-      white-space: nowrap;
-      will-change: transform;
-    }
-
+    .ticker-track-wrap { flex: 1; overflow: hidden; position: relative; }
+    .ticker-track { display: flex; gap: 0; white-space: nowrap; will-change: transform; }
     .ticker-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 0 28px;
-      font-size: 12.5px;
-      color: var(--text-secondary);
-      border-right: 1px solid var(--border);
-      height: 40px;
-      flex-shrink: 0;
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 0 28px; font-size: 12.5px; color: var(--text-secondary);
+      border-right: 1px solid var(--border); height: 40px; flex-shrink: 0;
     }
-
-    .ticker-item .impact-pip {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
+    .ticker-item .impact-pip { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
     .pip-positive { background: var(--green); }
     .pip-negative { background: var(--red); }
     .pip-neutral  { background: var(--amber); }
 
-    /* ─── Market Bar ────────────────────────────────────────────────────── */
+    /* ─── Market Bar ─────────────────────────────────────────────────────── */
     .market-bar {
-      display: flex;
-      gap: 1px;
-      padding: 0;
-      background: var(--border);
-      border-bottom: 1px solid var(--border);
+      display: flex; gap: 1px; padding: 0;
+      background: var(--border); border-bottom: 1px solid var(--border);
+      transition: var(--transition);
     }
-
     .market-chip {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 10px 16px;
-      background: var(--bg-surface);
-      font-size: 12.5px;
-      transition: background 0.2s;
+      flex: 1; display: flex; align-items: center; justify-content: center;
+      gap: 10px; padding: 10px 16px;
+      background: var(--market-bg); font-size: 12.5px; transition: var(--transition);
     }
-
-    .market-chip:hover { background: var(--bg-card); }
-
-    .market-label {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-
-    .market-price {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text-primary);
-    }
-
-    .market-change {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      font-weight: 600;
-      padding: 2px 6px;
-      border-radius: 4px;
-    }
-
+    .market-chip:hover { background: var(--bg-card-hover); }
+    .market-label  { font-size: 10px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; color: var(--text-muted); }
+    .market-price  { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; color: var(--text-primary); }
+    .market-change { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; padding: 2px 6px; border-radius: 4px; }
     .change-up   { color: var(--green); background: rgba(34,211,160,0.1); }
     .change-down { color: var(--red);   background: rgba(247,107,107,0.1); }
     .change-flat { color: var(--amber); background: rgba(245,200,66,0.1); }
 
-    /* ─── Main Content ──────────────────────────────────────────────────── */
-    .main-content {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 28px 24px;
-      display: grid;
-      gap: 24px;
-    }
+    [data-theme="light"] .change-up   { background: rgba(5,150,105,0.08); }
+    [data-theme="light"] .change-down { background: rgba(220,38,38,0.08); }
+    [data-theme="light"] .change-flat { background: rgba(217,119,6,0.08); }
 
-    /* ─── Daily Pulse Card ──────────────────────────────────────────────── */
+    /* ─── Main Content ───────────────────────────────────────────────────── */
+    .main-content { max-width: 1400px; margin: 0 auto; padding: 28px 24px; display: grid; gap: 24px; }
+
+    /* ─── Daily Pulse Card ───────────────────────────────────────────────── */
     .pulse-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 24px 28px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 20px;
-      align-items: center;
-      box-shadow: var(--shadow-card);
-      position: relative;
-      overflow: hidden;
-      transition: border-color 0.3s;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 18px; padding: 24px 28px;
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 20px; align-items: center;
+      box-shadow: var(--shadow-card); position: relative; overflow: hidden;
+      transition: var(--transition), border-color 0.3s;
     }
-
     .pulse-card::before {
-      content: '';
-      position: absolute;
-      inset: 0;
+      content: ''; position: absolute; inset: 0;
       background: linear-gradient(135deg, rgba(79,156,249,0.04) 0%, transparent 60%);
       pointer-events: none;
     }
-
+    [data-theme="light"] .pulse-card::before {
+      background: linear-gradient(135deg, rgba(37,99,235,0.03) 0%, transparent 60%);
+    }
     .pulse-card:hover { border-color: var(--border-accent); }
 
-    .pulse-section-label {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1.4px;
-      text-transform: uppercase;
-      color: var(--accent-blue);
-      margin-bottom: 8px;
-    }
-
-    .pulse-headline {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--text-primary);
-      line-height: 1.5;
-      margin-bottom: 14px;
-    }
-
-    .pulse-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
+    .pulse-section-label { font-size: 10px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--accent-blue); margin-bottom: 8px; }
+    .pulse-headline { font-size: 16px; font-weight: 600; color: var(--text-primary); line-height: 1.5; margin-bottom: 14px; }
+    .pulse-tags { display: flex; flex-wrap: wrap; gap: 8px; }
     .tag-chip {
       padding: 3px 10px;
-      background: rgba(79,156,249,0.08);
-      border: 1px solid rgba(79,156,249,0.2);
-      border-radius: 20px;
-      font-size: 11.5px;
-      font-weight: 500;
-      color: var(--accent-blue);
-      transition: all 0.2s;
+      background: rgba(79,156,249,0.08); border: 1px solid rgba(79,156,249,0.2);
+      border-radius: 20px; font-size: 11.5px; font-weight: 500; color: var(--accent-blue); transition: all 0.2s;
     }
+    [data-theme="light"] .tag-chip { background: rgba(37,99,235,0.06); border-color: rgba(37,99,235,0.18); }
+    .tag-chip:hover { background: rgba(79,156,249,0.16); border-color: rgba(79,156,249,0.4); }
 
-    .tag-chip:hover {
-      background: rgba(79,156,249,0.16);
-      border-color: rgba(79,156,249,0.4);
+    .sentiment-block { display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 120px; }
+    .sentiment-label { font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--text-muted); }
+    .sentiment-pill  { padding: 10px 22px; border-radius: 30px; font-size: 15px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; text-align: center; }
+    .sentiment-bullish { background: rgba(34,211,160,0.12); color: var(--green); border: 1px solid rgba(34,211,160,0.3); }
+    .sentiment-bearish { background: rgba(247,107,107,0.12); color: var(--red);   border: 1px solid rgba(247,107,107,0.3); }
+    .sentiment-neutral { background: rgba(245,200,66,0.12);  color: var(--amber); border: 1px solid rgba(245,200,66,0.3); }
+    [data-theme="light"] .sentiment-bullish { background: rgba(5,150,105,0.08);   border-color: rgba(5,150,105,0.25); }
+    [data-theme="light"] .sentiment-bearish { background: rgba(220,38,38,0.08);   border-color: rgba(220,38,38,0.25); }
+    [data-theme="light"] .sentiment-neutral { background: rgba(217,119,6,0.08);   border-color: rgba(217,119,6,0.25); }
+    .sentiment-icon { font-size: 26px; }
+
+    /* ─── Section Divider ───────────────────────────────────────────────── */
+    .section-divider {
+      display: flex; align-items: center; gap: 16px;
+      color: var(--text-muted); font-size: 11px; font-weight: 600;
+      letter-spacing: 1.2px; text-transform: uppercase;
     }
+    .section-divider::before, .section-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-    .sentiment-block {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      min-width: 120px;
-    }
-
-    .sentiment-label {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      color: var(--text-muted);
-    }
-
-    .sentiment-pill {
-      padding: 10px 22px;
-      border-radius: 30px;
-      font-size: 15px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      text-align: center;
-    }
-
-    .sentiment-bullish  { background: rgba(34,211,160,0.12); color: var(--green); border: 1px solid rgba(34,211,160,0.3); }
-    .sentiment-bearish  { background: rgba(247,107,107,0.12); color: var(--red);   border: 1px solid rgba(247,107,107,0.3); }
-    .sentiment-neutral  { background: rgba(245,200,66,0.12);  color: var(--amber); border: 1px solid rgba(245,200,66,0.3); }
-
-    .sentiment-icon {
-      font-size: 26px;
-    }
-
-    /* ─── Horizon Section ───────────────────────────────────────────────── */
-    .horizon-section { }
-
-    .horizon-tabs {
-      display: flex;
-      gap: 4px;
-      margin-bottom: 20px;
-    }
-
+    /* ─── Horizon Tabs ───────────────────────────────────────────────────── */
+    .horizon-tabs { display: flex; gap: 4px; margin-bottom: 20px; }
     .horizon-tab {
-      padding: 10px 24px;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--border);
-      background: transparent;
-      color: var(--text-muted);
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.25s;
-      font-family: 'Inter', sans-serif;
+      padding: 10px 24px; border-radius: 6px;
+      border: 1px solid var(--border); background: transparent;
+      color: var(--text-muted); font-size: 13px; font-weight: 600;
+      cursor: pointer; transition: all 0.25s; font-family: 'Inter', sans-serif;
     }
-
     .horizon-tab:hover { color: var(--text-primary); border-color: var(--border-accent); }
-
-    .horizon-tab.active {
-      background: rgba(79,156,249,0.12);
-      border-color: rgba(79,156,249,0.4);
-      color: var(--accent-blue);
-    }
+    .horizon-tab.active { background: rgba(79,156,249,0.12); border-color: rgba(79,156,249,0.4); color: var(--accent-blue); }
+    [data-theme="light"] .horizon-tab.active { background: rgba(37,99,235,0.08); border-color: rgba(37,99,235,0.3); }
 
     .horizon-panel { display: none; }
     .horizon-panel.active { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
 
-    /* ─── Sector Cards ──────────────────────────────────────────────────── */
+    /* ─── Sector Cards ───────────────────────────────────────────────────── */
     .sector-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 22px;
-      box-shadow: var(--shadow-card);
-      transition: all 0.3s;
-      position: relative;
-      overflow: hidden;
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 18px; padding: 22px;
+      box-shadow: var(--shadow-card); transition: all 0.3s;
+      position: relative; overflow: hidden;
     }
-
     .sector-card::after {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; border-radius: 18px 18px 0 0;
     }
-
-    .sector-card.stocks::after  { background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue)); }
-    .sector-card.it::after      { background: linear-gradient(90deg, var(--accent-blue), var(--accent-teal)); }
-    .sector-card.ai::after      { background: linear-gradient(90deg, var(--accent-violet), var(--accent-rose)); }
-
+    .sector-card.stocks::after { background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue)); }
+    .sector-card.it::after     { background: linear-gradient(90deg, var(--accent-blue), var(--accent-teal)); }
+    .sector-card.ai::after     { background: linear-gradient(90deg, var(--accent-violet), var(--accent-rose)); }
     .sector-card:hover {
-      border-color: var(--border-accent);
-      background: var(--bg-card-hover);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-card), var(--shadow-glow);
+      border-color: var(--border-accent); background: var(--bg-card-hover);
+      transform: translateY(-2px); box-shadow: var(--shadow-card), var(--shadow-glow);
     }
-
-    .sector-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 18px;
-    }
-
-    .sector-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 9px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 17px;
-      flex-shrink: 0;
-    }
-
+    .sector-header  { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+    .sector-icon    { width: 36px; height: 36px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 17px; flex-shrink: 0; }
     .sector-card.stocks .sector-icon { background: rgba(245,200,66,0.12); }
     .sector-card.it     .sector-icon { background: rgba(79,156,249,0.12); }
     .sector-card.ai     .sector-icon { background: rgba(167,139,250,0.12); }
-
-    .sector-name {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-
-    .sector-subtitle {
-      font-size: 11px;
-      color: var(--text-muted);
-    }
-
+    [data-theme="light"] .sector-card.stocks .sector-icon { background: rgba(180,83,9,0.08); }
+    [data-theme="light"] .sector-card.it     .sector-icon { background: rgba(37,99,235,0.08); }
+    [data-theme="light"] .sector-card.ai     .sector-icon { background: rgba(124,58,237,0.08); }
+    .sector-name     { font-size: 14px; font-weight: 700; color: var(--text-primary); }
+    .sector-subtitle { font-size: 11px; color: var(--text-muted); }
     .opp-risk-block + .opp-risk-block { margin-top: 16px; }
-
     .block-title {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+      margin-bottom: 8px; display: flex; align-items: center; gap: 6px;
     }
-
-    .block-title.opps { color: var(--green); }
+    .block-title.opps  { color: var(--green); }
     .block-title.risks { color: var(--red); }
-
-    .bullet-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
+    .bullet-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
     .bullet-list li {
-      font-size: 12.5px;
-      color: var(--text-secondary);
-      line-height: 1.5;
-      display: flex;
-      gap: 8px;
-      padding: 7px 10px;
-      border-radius: var(--radius-sm);
-      transition: background 0.2s;
+      font-size: 12.5px; color: var(--text-secondary); line-height: 1.5;
+      display: flex; gap: 8px; padding: 7px 10px;
+      border-radius: 6px; transition: background 0.2s;
     }
-
-    .bullet-list li:hover { background: rgba(255,255,255,0.02); }
-
-    .bullet-list li::before {
-      content: '›';
-      flex-shrink: 0;
-      font-size: 14px;
-      margin-top: 0px;
-      line-height: 1.5;
-    }
-
+    .bullet-list li:hover { background: rgba(79,156,249,0.04); }
+    [data-theme="light"] .bullet-list li:hover { background: rgba(37,99,235,0.04); }
+    .bullet-list li::before { content: '›'; flex-shrink: 0; font-size: 14px; line-height: 1.5; }
     .bullet-list.opps  li::before { color: var(--green); }
     .bullet-list.risks li::before { color: var(--red); }
 
-    /* ─── Divider ────────────────────────────────────────────────────────── */
-    .section-divider {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      color: var(--text-muted);
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-    }
-
-    .section-divider::before, .section-divider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
-    /* ─── Footer ────────────────────────────────────────────────────────── */
+    /* ─── Footer ─────────────────────────────────────────────────────────── */
     .footer {
-      margin-top: 20px;
-      padding: 28px 24px;
-      background: var(--bg-surface);
-      border-top: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 100%;
+      margin-top: 20px; padding: 28px 32px;
+      background: var(--bg-surface); border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      transition: var(--transition);
     }
-
-    .publisher-badge {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
+    .publisher-badge { display: flex; align-items: center; gap: 14px; }
     .publisher-avatar {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
+      width: 44px; height: 44px; border-radius: 50%;
       background: linear-gradient(135deg, var(--accent-blue), var(--accent-violet));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 16px;
-      font-weight: 700;
-      color: #fff;
-      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 700; color: #fff; flex-shrink: 0;
       box-shadow: 0 0 14px rgba(79,156,249,0.3);
     }
-
-    .publisher-info p {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text-primary);
-    }
-
-    .publisher-info a {
-      font-size: 11.5px;
-      color: var(--accent-blue);
-      text-decoration: none;
-      transition: opacity 0.2s;
-    }
-
+    .publisher-info p { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+    .publisher-info a { font-size: 11.5px; color: var(--accent-blue); text-decoration: none; transition: opacity 0.2s; }
     .publisher-info a:hover { opacity: 0.7; }
+    .footer-tagline { font-size: 12px; color: var(--text-muted); font-style: italic; }
+    .refresh-info   { font-size: 11px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; text-align: right; }
 
-    .footer-tagline {
-      font-size: 12px;
-      color: var(--text-muted);
-      font-style: italic;
+    /* ─── Indian Architecture Icons ──────────────────────────────────── */
+    .arch-icon {
+      display: inline-block;
+      width: 36px; height: 36px;
+      object-fit: contain;
+      vertical-align: middle;
     }
-
-    .refresh-info {
-      font-size: 11px;
-      color: var(--text-muted);
-      font-family: 'JetBrains Mono', monospace;
-      text-align: right;
+    .arch-icon-sm {
+      display: inline-block;
+      width: 20px; height: 20px;
+      object-fit: contain;
+      vertical-align: middle;
     }
+    .arch-icon-lg {
+      display: inline-block;
+      width: 28px; height: 28px;
+      object-fit: contain;
+      vertical-align: middle;
+    }
+    .arch-icon-xl {
+      display: inline-block;
+      width: 44px; height: 44px;
+      object-fit: contain;
+      vertical-align: middle;
+    }
+    /* fallback SVG wrapper */
+    .icon-wrap { display:flex; align-items:center; justify-content:center; }
 
-    /* ─── Loading State ─────────────────────────────────────────────────── */
     .loading-overlay {
-      position: fixed;
-      inset: 0;
-      background: var(--bg-base);
-      z-index: 999;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      transition: opacity 0.5s;
+      position: fixed; inset: 0; background: var(--bg-base); z-index: 999;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 20px; transition: opacity 0.5s;
     }
-
     .loading-overlay.hidden { opacity: 0; pointer-events: none; }
-
     .loader-icon { font-size: 48px; animation: float 2s ease-in-out infinite; }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    .loader-text {
-      font-size: 14px;
-      color: var(--text-muted);
-      letter-spacing: 1px;
-    }
-
-    .loader-bar {
-      width: 200px;
-      height: 2px;
-      background: var(--border);
-      border-radius: 2px;
-      overflow: hidden;
-    }
-
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    .loader-text { font-size: 14px; color: var(--text-muted); letter-spacing: 1px; }
+    .loader-bar  { width: 200px; height: 2px; background: var(--border); border-radius: 2px; overflow: hidden; }
     .loader-bar-fill {
       height: 100%;
       background: linear-gradient(90deg, var(--accent-blue), var(--accent-violet));
-      animation: load-fill 1.5s ease-in-out infinite;
-      border-radius: 2px;
+      animation: load-fill 1.5s ease-in-out infinite; border-radius: 2px;
     }
-
     @keyframes load-fill {
-      0% { width: 0%; margin-left: 0; }
-      50% { width: 70%; margin-left: 15%; }
-      100% { width: 0%; margin-left: 100%; }
+      0%   { width: 0%;  margin-left: 0; }
+      50%  { width: 70%; margin-left: 15%; }
+      100% { width: 0%;  margin-left: 100%; }
     }
 
-    /* ─── Empty State ───────────────────────────────────────────────────── */
     .empty { color: var(--text-muted); font-size: 12px; font-style: italic; }
 
-    /* ─── Responsive ────────────────────────────────────────────────────── */
-    @media (max-width: 1024px) {
-      .horizon-panel.active { grid-template-columns: 1fr 1fr; }
-    }
-
+    /* ─── Responsive ─────────────────────────────────────────────────────── */
+    @media (max-width: 1024px) { .horizon-panel.active { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 768px) {
-      .header { padding: 14px 16px; }
+      .header { padding: 12px 16px; flex-wrap: wrap; gap: 10px; }
+      .header-right { flex-wrap: wrap; gap: 8px; }
+      .theme-switcher { order: -1; }
       .main-content { padding: 16px; }
       .market-bar { flex-wrap: wrap; }
       .market-chip { min-width: 50%; }
       .horizon-panel.active { grid-template-columns: 1fr; }
       .pulse-card { grid-template-columns: 1fr; }
-      .footer { flex-direction: column; gap: 16px; align-items: flex-start; }
+      .footer { flex-direction: column; gap: 16px; align-items: flex-start; padding: 20px 16px; }
     }
   </style>
 </head>
@@ -675,7 +491,9 @@
 
   <!-- Loading Overlay -->
   <div class="loading-overlay" id="loadingOverlay">
-    <div class="loader-icon">🏛️</div>
+    <div class="loader-icon">
+      <img src="icons/logo.png" class="arch-icon-xl" alt="Loading" />
+    </div>
     <div class="loader-text">Initialising ViduraAgent Intelligence Feed…</div>
     <div class="loader-bar"><div class="loader-bar-fill"></div></div>
   </div>
@@ -685,14 +503,75 @@
     <!-- Header -->
     <header class="header">
       <div class="header-brand">
-        <div class="brand-emblem">🏛️</div>
+        <!-- ViduraAgent Logo: AI-generated Indian Ancient Architecture -->
+        <img
+          src="icons/logo.png"
+          alt="ViduraAgent Logo — Ashoka Pillar & Temple"
+          class="arch-icon-xl"
+          style="filter: drop-shadow(0 0 8px rgba(245,200,66,0.5)); border-radius:6px;"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <!-- SVG Fallback -->
+        <svg class="brand-logo" width="42" height="48" viewBox="0 0 56 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="ViduraAgent Logo" style="display:none;">
+          <g class="logo-fill">
+            <ellipse cx="28" cy="4" rx="3" ry="4" fill="currentColor" opacity="0.9"/>
+            <path d="M6 52 Q6 20 28 12 Q50 20 50 52" stroke="currentColor" stroke-width="2.2" fill="none"/>
+            <!-- Temple steps left -->
+            <rect x="4"  y="48" width="8"  height="4" rx="1" fill="currentColor"/>
+            <rect x="2"  y="52" width="12" height="4" rx="1" fill="currentColor"/>
+            <!-- Temple steps right -->
+            <rect x="44" y="48" width="8"  height="4" rx="1" fill="currentColor"/>
+            <rect x="42" y="52" width="12" height="4" rx="1" fill="currentColor"/>
+            <!-- Pillar shaft -->
+            <rect x="26" y="34" width="4" height="16" rx="1" fill="currentColor"/>
+            <!-- Abacus -->
+            <rect x="20" y="32" width="16" height="3" rx="1.5" fill="currentColor"/>
+            <!-- Lion capital -->
+            <rect x="22" y="26" width="12" height="6" rx="2" fill="currentColor"/>
+            <ellipse cx="28" cy="27.5" rx="4.5" ry="3" fill="currentColor"/>
+            <!-- Dharma Chakra -->
+            <circle cx="28" cy="19" r="6"   stroke="currentColor" stroke-width="1.8" fill="none"/>
+            <circle cx="28" cy="19" r="1.5" fill="currentColor"/>
+            <!-- 8 spokes -->
+            <line x1="28" y1="13"   x2="28" y2="15.5" stroke="currentColor" stroke-width="1.2"/>
+            <line x1="28" y1="22.5" x2="28" y2="25"   stroke="currentColor" stroke-width="1.2"/>
+            <line x1="22" y1="19"   x2="24.5" y2="19"  stroke="currentColor" stroke-width="1.2"/>
+            <line x1="31.5" y1="19" x2="34"   y2="19"  stroke="currentColor" stroke-width="1.2"/>
+            <line x1="23.8" y1="14.8" x2="25.5" y2="16.5" stroke="currentColor" stroke-width="1.2"/>
+            <line x1="30.5" y1="21.5" x2="32.2" y2="23.2" stroke="currentColor" stroke-width="1.2"/>
+            <line x1="32.2" y1="14.8" x2="30.5" y2="16.5" stroke="currentColor" stroke-width="1.2"/>
+            <line x1="25.5" y1="21.5" x2="23.8" y2="23.2" stroke="currentColor" stroke-width="1.2"/>
+            <!-- Lotus petals -->
+            <ellipse cx="20" cy="58" rx="5"   ry="3"   fill="currentColor" opacity="0.9"/>
+            <ellipse cx="28" cy="60" rx="5"   ry="3"   fill="currentColor" opacity="0.9"/>
+            <ellipse cx="36" cy="58" rx="5"   ry="3"   fill="currentColor" opacity="0.9"/>
+            <ellipse cx="24" cy="56" rx="3.5" ry="2.2" fill="currentColor" opacity="0.7"/>
+            <ellipse cx="32" cy="56" rx="3.5" ry="2.2" fill="currentColor" opacity="0.7"/>
+          </g>
+        </svg>
+
         <div class="brand-text">
           <h1>ViduraAgent <span style="font-weight:300; color:var(--text-muted);">विदुरएजण्ट</span></h1>
           <p>Macro · Technology · Intelligence</p>
         </div>
       </div>
-      <div class="header-meta">
+
+      <div class="header-right">
+        <!-- Theme Switcher -->
+        <div class="theme-switcher" role="group" aria-label="Theme selector">
+          <button class="theme-btn" id="btn-light" onclick="setTheme('light')" title="Light mode">
+            <span class="btn-icon">☀️</span> Light
+          </button>
+          <button class="theme-btn active" id="btn-dark" onclick="setTheme('dark')" title="Dark mode">
+            <span class="btn-icon">🌙</span> Dark
+          </button>
+          <button class="theme-btn" id="btn-auto" onclick="setTheme('auto')" title="Follow system preference">
+            <span class="btn-icon">⚙️</span> Auto
+          </button>
+        </div>
+
         <span class="last-updated" id="lastUpdatedLabel">—</span>
+
         <div class="live-badge">
           <div class="live-dot"></div>
           Live
@@ -702,26 +581,27 @@
 
     <!-- Global Scroll Ticker -->
     <div class="ticker-bar" id="tickerBar">
-      <div class="ticker-label">🌐 Global Scroll</div>
+      <div class="ticker-label">
+        <img src="icons/scroll.png" alt="Global" class="arch-icon-sm" style="margin-right:6px;" onerror="this.style.display='none'" /> Global Scroll
+      </div>
       <div class="ticker-track-wrap">
-        <div class="ticker-track" id="tickerTrack">
-          <!-- Injected by JS -->
-        </div>
+        <div class="ticker-track" id="tickerTrack"></div>
       </div>
     </div>
 
     <!-- Market Bar -->
-    <div class="market-bar" id="marketBar">
-      <!-- Injected by JS -->
-    </div>
+    <div class="market-bar" id="marketBar"></div>
 
     <!-- Main Content -->
     <main class="main-content">
 
-      <!-- Daily Pulse -->
+      <!-- Daily Pulse Card -->
       <div class="pulse-card" id="pulseCard">
         <div>
-          <div class="pulse-section-label">📡 Daily Pulse — India Market Intelligence</div>
+          <div class="pulse-section-label">
+          <img src="icons/pulse.png" alt="Pulse" class="arch-icon-sm" style="margin-right:5px;" onerror="this.style.display='none'" />
+          Daily Pulse — India Market Intelligence
+        </div>
           <div class="pulse-headline" id="pulseHeadline">Loading…</div>
           <div class="pulse-tags" id="pulseTags"></div>
         </div>
@@ -732,29 +612,29 @@
         </div>
       </div>
 
-      <!-- Section Label -->
       <div class="section-divider">Strategic Horizon Analysis</div>
 
-      <!-- Horizon Tabs + Panels -->
+      <!-- Horizon Panels -->
       <section class="horizon-section">
         <div class="horizon-tabs">
-          <button class="horizon-tab active" id="tab5y" onclick="switchHorizon('five_year')">📅 5-Year Horizon</button>
-          <button class="horizon-tab" id="tab10y" onclick="switchHorizon('ten_year')">🔭 10-Year Horizon</button>
+          <button class="horizon-tab active" id="tab5y"  onclick="switchHorizon('five_year')">
+            <img src="icons/horizon5.png" alt="5yr" class="arch-icon-sm" style="margin-right:5px; vertical-align:middle;" onerror="this.style.display='none'" />
+            5-Year Horizon
+          </button>
+          <button class="horizon-tab" id="tab10y" onclick="switchHorizon('ten_year')">
+            <img src="icons/horizon10.png" alt="10yr" class="arch-icon-sm" style="margin-right:5px; vertical-align:middle;" onerror="this.style.display='none'" />
+            10-Year Horizon
+          </button>
         </div>
-
-        <div class="horizon-panel active" id="panel_five_year">
-          <!-- Injected by JS -->
-        </div>
-        <div class="horizon-panel" id="panel_ten_year">
-          <!-- Injected by JS -->
-        </div>
+        <div class="horizon-panel active" id="panel_five_year"></div>
+        <div class="horizon-panel"        id="panel_ten_year"></div>
       </section>
 
     </main>
 
     <!-- Footer -->
     <footer class="footer">
-      <div class="publisher-badge" id="publisherBadge">
+      <div class="publisher-badge">
         <div class="publisher-avatar" id="publisherAvatar">V</div>
         <div class="publisher-info">
           <p id="publisherName">ViduraAgent</p>
@@ -773,47 +653,72 @@
   </div><!-- /.app-wrapper -->
 
   <script>
-    /* ═══════════════════════════════════════════════════════════════════════
+    /* ══════════════════════════════════════════════════════════════════════
        ViduraAgent — Dashboard Runtime
-       - Fetches dashboard_data.json on load and every 6 hours (cache-busted)
-       - Renders all sections declaratively from JSON
-    ═══════════════════════════════════════════════════════════════════════ */
+       - Theme: light / dark / auto (system preference)
+       - Data: fetches dashboard_data.json every 6 hours (cache-busted)
+    ══════════════════════════════════════════════════════════════════════ */
 
-    const POLL_INTERVAL_MS  = 21_600_000;   // 6 hours — per SKILL.md Rule 2
-    const DATA_FILE         = 'dashboard_data.json';
-    const IS_HTTP           = location.protocol.startsWith('http');
+    const POLL_INTERVAL_MS = 21_600_000;  // 6 hours — SKILL.md Rule 2
+    const DATA_FILE        = 'dashboard_data.json';
+    const IS_HTTP          = location.protocol.startsWith('http');
+    const THEME_KEY        = 'vidura_theme';
 
-    let   countdownTimer    = null;
-    let   nextRefreshAt     = null;
-    let   tickerAnimation   = null;
+    let countdownTimer  = null;
+    let nextRefreshAt   = null;
+    let tickerAnimation = null;
+    let sysThemeWatcher = null;
 
-    /* ── Inline Seed Data (fallback for file:// local viewing) ─────── */
-    const SEED_DATA = {"last_updated":"2026-06-27","publisher":{"name":"ViduraAgent Author","profile_url":"https://github.com"},"market_snapshot":{"NIFTY50":{"price":24850.25,"change_pct":0.42},"SENSEX":{"price":81520.18,"change_pct":0.38},"GOLD_USD":{"price":2342.6,"change_pct":-0.15},"BRENT":{"price":84.72,"change_pct":0.91},"USDINR":{"price":83.54,"change_pct":0.07}},"global_scroll":[{"headline":"Fed holds benchmark rate steady; signals two cuts possible in 2026 if disinflation resumes","impact":"Neutral"},{"headline":"RBI holds repo rate at 6.5%; MPC shifts stance to 'accommodative' on easing inflation","impact":"Positive"},{"headline":"Brent Crude climbs 0.9% on OPEC+ supply discipline signals from Riyadh summit","impact":"Neutral"},{"headline":"India-US semiconductor partnership yields first CHIPS Act co-investment in HCL fab project","impact":"Positive"},{"headline":"Global AI capex surges — hyperscalers commit $400B in 2025 data-center buildouts","impact":"Positive"},{"headline":"ECB cuts rates by 25bps; eurozone inflation drops to 2.1%, near target","impact":"Positive"},{"headline":"China's export controls on gallium and germanium tighten global chip supply further","impact":"Negative"},{"headline":"Dollar index softens to 102.3 as Fed pause expectations lift EM capital inflows","impact":"Positive"}],"daily_pulse":{"media_headline":"NIFTY 50 edges higher as FII inflows return; IT and banking sectors lead gains amid global risk-on mood","social_sentiment":"Bullish","trending_tags":["#Nifty50","#FIIInflows","#IndiaIT","#RBI","#AIInvest","#GCCIndia"]},"horizons":{"five_year":{"stocks":{"opportunities":["India's weight in MSCI EM Index rising steadily — passive FII flows to accelerate into large-caps through 2028","Domestic SIP flows crossing ₹25,000 Cr/month mark by 2027 — retail participation structurally re-rating mid-cap indices","PSU capex supercycle (railways, defence, power) driving earnings growth in public-sector stocks through 2029"],"risks":["SEBI tightening F&O margin rules may dampen speculative volumes and short-term index liquidity","Global recession risk from prolonged high US rates could trigger sharp FII reversals in 2025–2026","Concentration risk in Nifty 50 — top 10 stocks represent 57% of weight, amplifying drawdowns"]},"it":{"opportunities":["GCC headcount in India projected to grow from 1.66M to 2.5M by 2030 — Bengaluru and Hyderabad as primary absorbers","AI-augmented software development tools cutting dev cycle time by 35–40% — boosting IT margin expansion","USD revenue tailwinds for Indian IT as global enterprise cloud migration accelerates into second-wave modernization"],"risks":["US H-1B policy tightening forces onshore staffing cost inflation — eroding offshore arbitrage advantage","Commoditisation of routine coding tasks by LLMs could reduce headcount-dependent revenue models in Tier-2 IT firms","Client budget freezes in BFSI and retail verticals if US slowdown materialises in 2025–2026"]},"ai":{"opportunities":["IndiaAI Mission's ₹10,371 Cr allocation funding sovereign GPU clusters — democratising AI compute access for startups","Agentic AI adoption in BPO and KPO sectors: India positioned to capture $15B incremental AI-services market by 2028","Localised LLM fine-tuning in Indic languages (Hindi, Tamil, Telugu) opening 600M+ vernacular user addressable market"],"risks":["Dependence on NVIDIA H100/H200 imports — export control escalation could delay GPU delivery timelines by 6–18 months","AI talent concentration risk: 80% of AI researchers clustered in Bengaluru and Hyderabad; salary inflation outpacing revenue","Regulatory uncertainty around India's DPDP Act enforcement could stall AI data-pipeline investments"]}},"ten_year":{"stocks":{"opportunities":["India poised to overtake Japan as 4th largest equity market by 2035 — index weight expansion drives sustained passive inflows","Generational wealth transfer from property to financial assets underway — equity mutual fund AUM to cross ₹200 Lakh Cr by 2035","Manufacturing renaissance under PLI 2.0 could add 3–4% to listed corporate earnings CAGR over decade"],"risks":["Climate-related physical risks (extreme heat, erratic monsoons) emerging as systemic threat to agri, power, and infra sectors","Geopolitical fragmentation creating supply-chain bifurcation — India's export markets could shrink if dollar trade-bloc erodes","Ageing demographic dividend turning liability post-2038 without accelerated skilling and productivity gains"]},"it":{"opportunities":["India-headquartered AI software platforms (not just services) will emerge by 2032 — SaaS-to-PaaS transition creates new export class","Quantum computing infrastructure buildout creating new engineering discipline — India's IIT pipeline well-positioned to lead R&D","Digital public infrastructure (UPI, ONDC, AA framework) becoming global export — ITeS firms building on top of DPI stack"],"risks":["Full agentic automation of software development by 2033–2035 structurally eliminates junior-to-mid engineer headcount tiers","Brain drain acceleration if India-US visa pathways remain constrained — top AI talent migrating permanently","Legacy COBOL/mainframe systems still running in global BFSI — India IT firms carrying technical debt risk as modernisation deadline approaches"]},"ai":{"opportunities":["India's chip design ecosystem (Qualcomm, Intel, AMD design centers) maturing into sovereign IP creation by 2033","AGI-adjacent systems driving India's ₹5 Lakh Cr AI economy target — healthcare, agriculture, and judiciary automation as key verticals","Hyderabad and Chennai emerging as global AI inference data-center hubs leveraging renewable energy and submarine cable access"],"risks":["AGI capability overhang: if general-purpose AI reaches human parity by 2030, entire knowledge-worker economy requires structural redesign","Chip sovereignty gap — India lacks domestic foundry capability below 28nm; TSMC dependency a single-point geopolitical failure","AI-driven misinformation at scale could destabilise retail investor sentiment and regulatory trust in financial markets"]}}}};
+    /* ─── Theme Engine ──────────────────────────────────────────────── */
+    function applyTheme(mode) {
+      const root = document.documentElement;
+      if (mode === 'auto') {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        root.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+      } else {
+        root.setAttribute('data-theme', mode);
+      }
+    }
 
-    /* ── Sector config ───────────────────────────────────────────────── */
+    function setTheme(mode) {
+      localStorage.setItem(THEME_KEY, mode);
+      applyTheme(mode);
+      // Update active button
+      ['light','dark','auto'].forEach(m => {
+        document.getElementById(`btn-${m}`).classList.toggle('active', m === mode);
+      });
+      // Watch system changes if in auto mode
+      if (sysThemeWatcher) { sysThemeWatcher.removeEventListener('change', onSysChange); }
+      if (mode === 'auto') {
+        sysThemeWatcher = window.matchMedia('(prefers-color-scheme: dark)');
+        sysThemeWatcher.addEventListener('change', onSysChange);
+      }
+    }
+
+    function onSysChange() { applyTheme('auto'); }
+
+    function initTheme() {
+      const saved = localStorage.getItem(THEME_KEY) || 'dark';
+      setTheme(saved);
+    }
+
+    /* ─── Seed Data ─────────────────────────────────────────────────── */
+    const SEED_DATA = {"last_updated":"2026-06-27","publisher":{"name":"Kurma Rao Palli","profile_url":"https://kurmaraopalli.github.io/About-Me/"},"market_snapshot":{"NIFTY50":{"price":24850.25,"change_pct":0.42},"SENSEX":{"price":81520.18,"change_pct":0.38},"GOLD_USD":{"price":2342.6,"change_pct":-0.15},"BRENT":{"price":84.72,"change_pct":0.91},"USDINR":{"price":83.54,"change_pct":0.07}},"global_scroll":[{"headline":"Fed holds benchmark rate steady; signals two cuts possible in 2026 if disinflation resumes","impact":"Neutral"},{"headline":"RBI holds repo rate at 6.5%; MPC shifts stance to 'accommodative' on easing inflation","impact":"Positive"},{"headline":"Brent Crude climbs 0.9% on OPEC+ supply discipline signals from Riyadh summit","impact":"Neutral"},{"headline":"India-US semiconductor partnership yields first CHIPS Act co-investment in HCL fab project","impact":"Positive"},{"headline":"Global AI capex surges — hyperscalers commit $400B in 2025 data-center buildouts","impact":"Positive"},{"headline":"ECB cuts rates by 25bps; eurozone inflation drops to 2.1%, near target","impact":"Positive"},{"headline":"China's export controls on gallium and germanium tighten global chip supply further","impact":"Negative"},{"headline":"Dollar index softens to 102.3 as Fed pause expectations lift EM capital inflows","impact":"Positive"}],"daily_pulse":{"media_headline":"NIFTY 50 edges higher as FII inflows return; IT and banking sectors lead gains amid global risk-on mood","social_sentiment":"Bullish","trending_tags":["#Nifty50","#FIIInflows","#IndiaIT","#RBI","#AIInvest","#GCCIndia"]},"horizons":{"five_year":{"stocks":{"opportunities":["India's weight in MSCI EM Index rising steadily — passive FII flows to accelerate into large-caps through 2028","Domestic SIP flows crossing ₹25,000 Cr/month mark by 2027 — retail participation structurally re-rating mid-cap indices","PSU capex supercycle (railways, defence, power) driving earnings growth in public-sector stocks through 2029"],"risks":["SEBI tightening F&O margin rules may dampen speculative volumes and short-term index liquidity","Global recession risk from prolonged high US rates could trigger sharp FII reversals in 2025–2026","Concentration risk in Nifty 50 — top 10 stocks represent 57% of weight, amplifying drawdowns"]},"it":{"opportunities":["GCC headcount in India projected to grow from 1.66M to 2.5M by 2030 — Bengaluru and Hyderabad as primary absorbers","AI-augmented software development tools cutting dev cycle time by 35–40% — boosting IT margin expansion","USD revenue tailwinds for Indian IT as global enterprise cloud migration accelerates into second-wave modernization"],"risks":["US H-1B policy tightening forces onshore staffing cost inflation — eroding offshore arbitrage advantage","Commoditisation of routine coding tasks by LLMs could reduce headcount-dependent revenue models in Tier-2 IT firms","Client budget freezes in BFSI and retail verticals if US slowdown materialises in 2025–2026"]},"ai":{"opportunities":["IndiaAI Mission's ₹10,371 Cr allocation funding sovereign GPU clusters — democratising AI compute access for startups","Agentic AI adoption in BPO and KPO sectors: India positioned to capture $15B incremental AI-services market by 2028","Localised LLM fine-tuning in Indic languages (Hindi, Tamil, Telugu) opening 600M+ vernacular user addressable market"],"risks":["Dependence on NVIDIA H100/H200 imports — export control escalation could delay GPU delivery timelines by 6–18 months","AI talent concentration risk: 80% of AI researchers clustered in Bengaluru and Hyderabad; salary inflation outpacing revenue","Regulatory uncertainty around India's DPDP Act enforcement could stall AI data-pipeline investments"]}},"ten_year":{"stocks":{"opportunities":["India poised to overtake Japan as 4th largest equity market by 2035 — index weight expansion drives sustained passive inflows","Generational wealth transfer from property to financial assets underway — equity mutual fund AUM to cross ₹200 Lakh Cr by 2035","Manufacturing renaissance under PLI 2.0 could add 3–4% to listed corporate earnings CAGR over decade"],"risks":["Climate-related physical risks (extreme heat, erratic monsoons) emerging as systemic threat to agri, power, and infra sectors","Geopolitical fragmentation creating supply-chain bifurcation — India's export markets could shrink if dollar trade-bloc erodes","Ageing demographic dividend turning liability post-2038 without accelerated skilling and productivity gains"]},"it":{"opportunities":["India-headquartered AI software platforms (not just services) will emerge by 2032 — SaaS-to-PaaS transition creates new export class","Quantum computing infrastructure buildout creating new engineering discipline — India's IIT pipeline well-positioned to lead R&D","Digital public infrastructure (UPI, ONDC, AA framework) becoming global export — ITeS firms building on top of DPI stack"],"risks":["Full agentic automation of software development by 2033–2035 structurally eliminates junior-to-mid engineer headcount tiers","Brain drain acceleration if India-US visa pathways remain constrained — top AI talent migrating permanently","Legacy COBOL/mainframe systems still running in global BFSI — India IT firms carrying technical debt risk as modernisation deadline approaches"]},"ai":{"opportunities":["India's chip design ecosystem (Qualcomm, Intel, AMD design centers) maturing into sovereign IP creation by 2033","AGI-adjacent systems driving India's ₹5 Lakh Cr AI economy target — healthcare, agriculture, and judiciary automation as key verticals","Hyderabad and Chennai emerging as global AI inference data-center hubs leveraging renewable energy and submarine cable access"],"risks":["AGI capability overhang: if general-purpose AI reaches human parity by 2030, entire knowledge-worker economy requires structural redesign","Chip sovereignty gap — India lacks domestic foundry capability below 28nm; TSMC dependency a single-point geopolitical failure","AI-driven misinformation at scale could destabilise retail investor sentiment and regulatory trust in financial markets"]}}}};
+
+    /* ─── Sector config ─────────────────────────────────────────────── */
     const SECTORS = [
-      { key: 'stocks', label: 'Stock Market', icon: '📈',
-        subtitle: 'Capital Flows · Sector Rotations · Index Trajectories' },
-      { key: 'it',     label: 'Information Technology', icon: '💻',
-        subtitle: 'GCCs · SaaS · Cloud Infrastructure · Talent Pipelines' },
-      { key: 'ai',     label: 'Artificial Intelligence', icon: '🤖',
-        subtitle: 'LLMs · Agentic Workflows · Compute · Chip Assembly' },
+      { key: 'stocks', label: 'Stock Market',            icon: '<img src="icons/stocks.png" class="arch-icon" alt="Stocks" onerror="this.outerHTML=\'📈\'"/>', subtitle: 'Capital Flows · Sector Rotations · Index Trajectories' },
+      { key: 'it',     label: 'Information Technology',  icon: '<img src="icons/it.png"     class="arch-icon" alt="IT"     onerror="this.outerHTML=\'💻\'"/>', subtitle: 'GCCs · SaaS · Cloud Infrastructure · Talent Pipelines' },
+      { key: 'ai',     label: 'Artificial Intelligence', icon: '<img src="icons/ai.png"     class="arch-icon" alt="AI"     onerror="this.outerHTML=\'🤖\'"/>', subtitle: 'LLMs · Agentic Workflows · Compute · Chip Assembly' },
     ];
 
-    const MARKET_LABELS = {
-      NIFTY50:  'NIFTY 50',
-      SENSEX:   'SENSEX',
-      GOLD_USD: 'Gold (USD)',
-      BRENT:    'Brent Crude',
-      USDINR:   'USD/INR',
-    };
+    const MARKET_LABELS = { NIFTY50:'NIFTY 50', SENSEX:'SENSEX', GOLD_USD:'Gold (USD)', BRENT:'Brent Crude', USDINR:'USD/INR' };
 
-    /* ── Fetch & Render ──────────────────────────────────────────────── */
+    /* ─── Data Fetch ────────────────────────────────────────────────── */
     async function fetchData() {
-      const url = `${DATA_FILE}?t=${Date.now()}`;
-      const response = await fetch(url);
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      return response.json();
+      const r = await fetch(`${DATA_FILE}?t=${Date.now()}`);
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      return r.json();
     }
 
     function renderAll(data) {
@@ -821,165 +726,104 @@
       renderTicker(data.global_scroll || []);
       renderMarketBar(data.market_snapshot || {});
       renderPulse(data.daily_pulse || {});
-      renderHorizon('five_year',  data.horizons?.five_year || {});
-      renderHorizon('ten_year',   data.horizons?.ten_year  || {});
+      renderHorizon('five_year', data.horizons?.five_year || {});
+      renderHorizon('ten_year',  data.horizons?.ten_year  || {});
       renderPublisher(data.publisher || {});
     }
 
-    /* ── Header ──────────────────────────────────────────────────────── */
     function renderHeader(data) {
-      const el = document.getElementById('lastUpdatedLabel');
-      if (data.last_updated) {
-        el.textContent = `Updated: ${data.last_updated}`;
-      }
+      if (data.last_updated)
+        document.getElementById('lastUpdatedLabel').textContent = `Updated: ${data.last_updated}`;
     }
 
-    /* ── Global Scroll Ticker ─────────────────────────────────────────── */
     function renderTicker(items) {
       if (!items.length) return;
-
-      const track  = document.getElementById('tickerTrack');
-      const wrap   = track.parentElement;
-
-      // Build doubled set for seamless loop
-      const buildItem = ({ headline, impact }) => {
-        const pip = impact === 'Positive' ? 'pip-positive'
-                  : impact === 'Negative' ? 'pip-negative'
-                  : 'pip-neutral';
-        const div = document.createElement('div');
-        div.className = 'ticker-item';
-        div.innerHTML = `<span class="impact-pip ${pip}"></span><span>${esc(headline)}</span>`;
-        return div;
+      const track = document.getElementById('tickerTrack');
+      const wrap  = track.parentElement;
+      const mk = ({ headline, impact }) => {
+        const pip = impact === 'Positive' ? 'pip-positive' : impact === 'Negative' ? 'pip-negative' : 'pip-neutral';
+        const d = document.createElement('div');
+        d.className = 'ticker-item';
+        d.innerHTML = `<span class="impact-pip ${pip}"></span><span>${esc(headline)}</span>`;
+        return d;
       };
-
       track.innerHTML = '';
-      [...items, ...items].forEach(item => track.appendChild(buildItem(item)));
-
-      // Animate ticker
+      [...items, ...items].forEach(i => track.appendChild(mk(i)));
       if (tickerAnimation) cancelAnimationFrame(tickerAnimation);
-
       let pos = 0;
-      const halfWidth = () => track.scrollWidth / 2;
-      const speed = 0.5;   // px per frame
-
-      const step = () => {
-        pos += speed;
-        if (pos >= halfWidth()) pos = 0;
-        track.style.transform = `translateX(-${pos}px)`;
-        tickerAnimation = requestAnimationFrame(step);
-      };
+      const hw = () => track.scrollWidth / 2;
+      const step = () => { pos += 0.5; if (pos >= hw()) pos = 0; track.style.transform = `translateX(-${pos}px)`; tickerAnimation = requestAnimationFrame(step); };
       tickerAnimation = requestAnimationFrame(step);
-
-      // Pause on hover
       wrap.addEventListener('mouseenter', () => cancelAnimationFrame(tickerAnimation));
       wrap.addEventListener('mouseleave', () => { tickerAnimation = requestAnimationFrame(step); });
     }
 
-    /* ── Market Bar ───────────────────────────────────────────────────── */
     function renderMarketBar(snapshot) {
       const bar = document.getElementById('marketBar');
       bar.innerHTML = '';
       for (const [key, label] of Object.entries(MARKET_LABELS)) {
-        const d = snapshot[key];
-        if (!d) continue;
-        const { price, change_pct } = d;
-        const chg = change_pct ?? 0;
+        const d = snapshot[key]; if (!d) continue;
+        const chg = d.change_pct ?? 0;
         const cls = chg > 0 ? 'change-up' : chg < 0 ? 'change-down' : 'change-flat';
-        const arrow = chg > 0 ? '▲' : chg < 0 ? '▼' : '●';
+        const arr = chg > 0 ? '▲' : chg < 0 ? '▼' : '●';
         const chip = document.createElement('div');
         chip.className = 'market-chip';
-        chip.innerHTML = `
-          <span class="market-label">${esc(label)}</span>
-          <span class="market-price">${price != null ? price.toLocaleString() : '—'}</span>
-          <span class="market-change ${cls}">${arrow} ${Math.abs(chg).toFixed(2)}%</span>
-        `;
+        chip.innerHTML = `<span class="market-label">${esc(label)}</span><span class="market-price">${d.price != null ? d.price.toLocaleString() : '—'}</span><span class="market-change ${cls}">${arr} ${Math.abs(chg).toFixed(2)}%</span>`;
         bar.appendChild(chip);
       }
     }
 
-    /* ── Daily Pulse ──────────────────────────────────────────────────── */
     function renderPulse(pulse) {
-      document.getElementById('pulseHeadline').textContent =
-        pulse.media_headline || 'No headline available.';
-
-      const sent     = (pulse.social_sentiment || 'Neutral').toLowerCase();
-      const pillEl   = document.getElementById('sentimentPill');
-      const iconEl   = document.getElementById('sentimentIcon');
-      pillEl.textContent = pulse.social_sentiment || 'Neutral';
-      pillEl.className   = `sentiment-pill sentiment-${sent}`;
-      iconEl.textContent = sent === 'bullish' ? '📈' : sent === 'bearish' ? '📉' : '〰️';
-
+      document.getElementById('pulseHeadline').textContent = pulse.media_headline || 'No headline available.';
+      const sent = (pulse.social_sentiment || 'Neutral').toLowerCase();
+      const pill = document.getElementById('sentimentPill');
+      pill.textContent = pulse.social_sentiment || 'Neutral';
+      pill.className   = `sentiment-pill sentiment-${sent}`;
+      // Indian architecture sentiment icons
+      const sentIcon = document.getElementById('sentimentIcon');
+      if (sent === 'bullish') {
+        sentIcon.innerHTML = '<img src="icons/horizon10.png" class="arch-icon-lg" alt="Bullish" style="filter:hue-rotate(120deg) saturate(1.5)" onerror="this.outerHTML=\'📈\'" />';
+      } else if (sent === 'bearish') {
+        sentIcon.innerHTML = '<img src="icons/horizon5.png" class="arch-icon-lg" alt="Bearish" style="filter:hue-rotate(-30deg) saturate(1.5)" onerror="this.outerHTML=\'📉\'" />';
+      } else {
+        sentIcon.innerHTML = '<img src="icons/scroll.png" class="arch-icon-lg" alt="Neutral" onerror="this.outerHTML=\'〰️\'" />';
+      }
       const tagsEl = document.getElementById('pulseTags');
       tagsEl.innerHTML = '';
       (pulse.trending_tags || []).forEach(tag => {
-        const chip = document.createElement('span');
-        chip.className   = 'tag-chip';
-        chip.textContent = tag;
-        tagsEl.appendChild(chip);
+        const c = document.createElement('span'); c.className = 'tag-chip'; c.textContent = tag; tagsEl.appendChild(c);
       });
     }
 
-    /* ── Horizon Panels ───────────────────────────────────────────────── */
     function renderHorizon(key, horizonData) {
       const panel = document.getElementById(`panel_${key}`);
       panel.innerHTML = '';
-
       SECTORS.forEach(({ key: sKey, label, icon, subtitle }) => {
-        const sector = horizonData[sKey] || {};
-        const opps   = sector.opportunities || [];
-        const risks  = sector.risks || [];
-
+        const s = horizonData[sKey] || {};
+        const opps = s.opportunities || [], risks = s.risks || [];
         const card = document.createElement('div');
         card.className = `sector-card ${sKey}`;
         card.innerHTML = `
-          <div class="sector-header">
-            <div class="sector-icon">${icon}</div>
-            <div>
-              <div class="sector-name">${esc(label)}</div>
-              <div class="sector-subtitle">${esc(subtitle)}</div>
-            </div>
-          </div>
-
-          <div class="opp-risk-block">
-            <div class="block-title opps">
-              <span>▲</span> Opportunities
-            </div>
-            <ul class="bullet-list opps">
-              ${opps.length
-                ? opps.map(o => `<li>${esc(o)}</li>`).join('')
-                : '<li class="empty">No data available</li>'}
-            </ul>
-          </div>
-
-          <div class="opp-risk-block">
-            <div class="block-title risks">
-              <span>▼</span> Risk Factors
-            </div>
-            <ul class="bullet-list risks">
-              ${risks.length
-                ? risks.map(r => `<li>${esc(r)}</li>`).join('')
-                : '<li class="empty">No data available</li>'}
-            </ul>
-          </div>
-        `;
+          <div class="sector-header"><div class="sector-icon">${icon}</div><div><div class="sector-name">${esc(label)}</div><div class="sector-subtitle">${esc(subtitle)}</div></div></div>
+          <div class="opp-risk-block"><div class="block-title opps"><span>▲</span> Opportunities</div>
+            <ul class="bullet-list opps">${opps.length ? opps.map(o=>`<li>${esc(o)}</li>`).join('') : '<li class="empty">No data</li>'}</ul></div>
+          <div class="opp-risk-block"><div class="block-title risks"><span>▼</span> Risk Factors</div>
+            <ul class="bullet-list risks">${risks.length ? risks.map(r=>`<li>${esc(r)}</li>`).join('') : '<li class="empty">No data</li>'}</ul></div>`;
         panel.appendChild(card);
       });
     }
 
-    /* ── Publisher Footer ─────────────────────────────────────────────── */
     function renderPublisher(pub) {
       if (!pub.name) return;
-      const initials = pub.name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
-      document.getElementById('publisherAvatar').textContent = initials;
+      document.getElementById('publisherAvatar').textContent = pub.name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
       document.getElementById('publisherName').textContent   = pub.name;
       const link = document.getElementById('publisherLink');
-      if (pub.profile_url) {
+      if (pub.profile_url && (pub.profile_url.startsWith('https://') || pub.profile_url.startsWith('http://'))) {
         link.href        = pub.profile_url;
         link.textContent = 'View Profile →';
       }
     }
 
-    /* ── Horizon Tab Switch ───────────────────────────────────────────── */
     function switchHorizon(key) {
       document.querySelectorAll('.horizon-panel').forEach(p => p.classList.remove('active'));
       document.querySelectorAll('.horizon-tab').forEach(t => t.classList.remove('active'));
@@ -987,81 +831,55 @@
       document.getElementById(key === 'five_year' ? 'tab5y' : 'tab10y').classList.add('active');
     }
 
-    /* ── Countdown Timer ──────────────────────────────────────────────── */
     function startCountdown() {
       nextRefreshAt = Date.now() + POLL_INTERVAL_MS;
       if (countdownTimer) clearInterval(countdownTimer);
       countdownTimer = setInterval(() => {
-        const remaining = Math.max(0, nextRefreshAt - Date.now());
-        const h = Math.floor(remaining / 3_600_000);
-        const m = Math.floor((remaining % 3_600_000) / 60_000);
-        const s = Math.floor((remaining % 60_000) / 1_000);
-        const pad = n => String(n).padStart(2, '0');
-        document.getElementById('refreshInfo').innerHTML =
-          `Next refresh in ${pad(h)}:${pad(m)}:${pad(s)}<br /><span style="font-size:10px;opacity:0.6;">Polling every 6 hours</span>`;
+        const rem = Math.max(0, nextRefreshAt - Date.now());
+        const h = Math.floor(rem / 3_600_000), m = Math.floor((rem%3_600_000)/60_000), s = Math.floor((rem%60_000)/1_000);
+        const p = n => String(n).padStart(2,'0');
+        document.getElementById('refreshInfo').innerHTML = `Next refresh in ${p(h)}:${p(m)}:${p(s)}<br/><span style="font-size:10px;opacity:0.6;">Polling every 6 hours</span>`;
       }, 1000);
     }
 
-    /* ── Utility ──────────────────────────────────────────────────────── */
     function esc(str) {
       if (typeof str !== 'string') return '';
-      return str
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;');
+      return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
     }
 
-    /* ── Bootstrap ────────────────────────────────────────────────────── */
     async function bootstrap() {
+      initTheme();
       try {
         let data;
         if (IS_HTTP) {
-          // Served via HTTP(S) — fetch live JSON
           data = await fetchData();
         } else {
-          // Local file:// — use embedded seed data, then attempt fetch as fallback
-          console.info('[ViduraAgent] Running from file:// — using embedded seed data.');
+          console.info('[ViduraAgent] file:// mode — using embedded seed data.');
           data = SEED_DATA;
-          // Still attempt a fetch in case the browser allows it (some do)
-          try { data = await fetchData(); } catch (_) { /* silent fallback */ }
+          try { data = await fetchData(); } catch(_) {}
         }
         renderAll(data);
-      } catch (err) {
-        console.error('ViduraAgent: Failed to load dashboard_data.json →', err);
-        // Last-resort: render seed data
+      } catch(err) {
+        console.error('[ViduraAgent] Load failed:', err);
         renderAll(SEED_DATA);
       } finally {
-        // Hide loader
-        const overlay = document.getElementById('loadingOverlay');
-        overlay.classList.add('hidden');
-        setTimeout(() => overlay.remove(), 600);
+        const ov = document.getElementById('loadingOverlay');
+        ov.classList.add('hidden');
+        setTimeout(() => ov.remove(), 600);
       }
-
       startCountdown();
     }
 
-    /* ── 6-Hour Polling Loop — per SKILL.md Rule 2 ────────────────────── */
     function schedulePoll() {
-      if (!IS_HTTP) return;   // No polling needed from file:// — GitHub Actions updates the file
+      if (!IS_HTTP) return;
       setTimeout(async () => {
-        console.log('[ViduraAgent] Polling for fresh data…');
-        try {
-          const data = await fetchData();
-          renderAll(data);
-        } catch (err) {
-          console.warn('[ViduraAgent] Refresh failed:', err);
-        }
+        try { renderAll(await fetchData()); } catch(e) { console.warn('[ViduraAgent] Poll failed:', e); }
         startCountdown();
-        schedulePoll();   // reschedule next
+        schedulePoll();
       }, POLL_INTERVAL_MS);
     }
 
-    /* ── Entry ────────────────────────────────────────────────────────── */
-    document.addEventListener('DOMContentLoaded', () => {
-      bootstrap();
-      schedulePoll();
-    });
+    document.addEventListener('DOMContentLoaded', () => { bootstrap(); schedulePoll(); });
   </script>
 </body>
 </html>

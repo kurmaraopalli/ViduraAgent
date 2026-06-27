@@ -32,8 +32,8 @@ except ImportError:
 # ---------------------------------------------------------------------------
 
 PUBLISHER = {
-    "name": "ViduraAgent Author",
-    "profile_url": "https://github.com"
+    "name": "Kurma Rao Palli",
+    "profile_url": "https://kurmaraopalli.github.io/About-Me/"
 }
 
 # Output path relative to repo root (script is called from repo root in CI)
