@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<!-- ViduraAgent Dashboard — works from file:// AND http:// -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ViduraAgent — Macro Intelligence Dashboard</title>
+  <meta name="description" content="ViduraAgent delivers autonomous macro-economic and technology intelligence across 5-year and 10-year horizons with an India-first strategic lens." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── Design Tokens ─────────────────────────────────────────────────── */
+    :root {
+      --bg-base:       #080c14;
+      --bg-surface:    #0d1424;
+      --bg-card:       #111a2e;
+      --bg-card-hover: #162036;
+      --border:        rgba(99, 179, 237, 0.10);
+      --border-accent: rgba(99, 179, 237, 0.25);
+
+      --text-primary:   #e8f0fe;
+      --text-secondary: #8ba3c7;
+      --text-muted:     #4a6080;
+
+      --accent-blue:   #4f9cf9;
+      --accent-teal:   #38d9b4;
+      --accent-gold:   #f5c842;
+      --accent-rose:   #f76b6b;
+      --accent-violet: #a78bfa;
+
+      --green:  #22d3a0;
+      --red:    #f76b6b;
+      --amber:  #f5c842;
+
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+
+      --shadow-card: 0 4px 24px rgba(0,0,0,0.5);
+      --shadow-glow: 0 0 30px rgba(79,156,249,0.08);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg-base);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 10% -10%, rgba(79,156,249,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 90% 110%, rgba(167,139,250,0.06) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .app-wrapper { position: relative; z-index: 1; }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 32px;
+      background: rgba(13, 20, 36, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-brand { display: flex; align-items: center; gap: 12px; }
+    .brand-emblem {
+      width: 40px; height: 40px;
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-violet));
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
+      box-shadow: 0 0 16px rgba(79,156,249,0.3);
+    }
+    .brand-text h1 { font-size: 18px; font-weight: 700; letter-spacing: -0.3px; color: var(--text-primary); }
+    .brand-text p  { font-size: 11px; color: var(--text-muted); letter-spacing: 0.8px; text-transform: uppercase; }
+    .header-meta   { display: flex; align-items: center; gap: 16px; }
+    .last-updated  { font-size: 11px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
+    .live-badge {
+      display: flex; align-items: center; gap: 6px;
+      padding: 4px 10px;
+      background: rgba(34, 211, 160, 0.1);
+      border: 1px solid rgba(34, 211, 160, 0.25);
+      border-radius: 20px;
+      font-size: 11px; font-weight: 600; color: var(--green);
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .live-dot {
+      width: 7px; height: 7px;
+      background: var(--green); border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(0.75); }
+    }
+
+    .ticker-bar {
+      background: rgba(13, 20, 36, 0.95);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden; height: 40px;
+      display: flex; align-items: center;
+    }
+    .ticker-label {
+      flex-shrink: 0; padding: 0 16px;
+      font-size: 10px; font-weight: 700; letter-spacing: 1.2px;
+      text-transform: uppercase; color: var(--accent-blue);
+      background: rgba(79,156,249,0.08);
+      border-right: 1px solid var(--border);
+      height: 100%; display: flex; align-items: center; white-space: nowrap;
+    }
+    .ticker-track-wrap { flex: 1; overflow: hidden; position: relative; }
+    .ticker-track { display: flex; gap: 0; white-space: nowrap; will-change: transform; }
+    .ticker-item {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 0 28px; font-size: 12.5px; color: var(--text-secondary);
+      border-right: 1px solid var(--border); height: 40px; flex-shrink: 0;
+    }
+    .ticker-item .impact-pip { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+    .pip-positive { background: var(--green); }
+    .pip-negative { background: var(--red); }
+    .pip-neutral  { background: var(--amber); }
+
+    .market-bar {
+      display: flex; gap: 1px; padding: 0;
+      background: var(--border); border-bottom: 1px solid var(--border);
+    }
+    .market-chip {
+      flex: 1; display: flex; align-items: center; justify-content: center;
+      gap: 10px; padding: 10px 16px;
+      background: var(--bg-surface); font-size: 12.5px; transition: background 0.2s;
+    }
+    .market-chip:hover { background: var(--bg-card); }
+    .market-label  { font-size: 10px; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; color: var(--text-muted); }
+    .market-price  { font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 500; color: var(--text-primary); }
+    .market-change { font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 600; padding: 2px 6px; border-radius: 4px; }
+    .change-up   { color: var(--green); background: rgba(34,211,160,0.1); }
+    .change-down { color: var(--red);   background: rgba(247,107,107,0.1); }
+    .change-flat { color: var(--amber); background: rgba(245,200,66,0.1); }
+
+    .main-content { max-width: 1400px; margin: 0 auto; padding: 28px 24px; display: grid; gap: 24px; }
+
+    .pulse-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 24px 28px;
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 20px; align-items: center;
+      box-shadow: var(--shadow-card); position: relative; overflow: hidden; transition: border-color 0.3s;
+    }
+    .pulse-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(79,156,249,0.04) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .pulse-card:hover { border-color: var(--border-accent); }
+    .pulse-section-label { font-size: 10px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: var(--accent-blue); margin-bottom: 8px; }
+    .pulse-headline { font-size: 16px; font-weight: 600; color: var(--text-primary); line-height: 1.5; margin-bottom: 14px; }
+    .pulse-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag-chip {
+      padding: 3px 10px;
+      background: rgba(79,156,249,0.08); border: 1px solid rgba(79,156,249,0.2);
+      border-radius: 20px; font-size: 11.5px; font-weight: 500; color: var(--accent-blue); transition: all 0.2s;
+    }
+    .tag-chip:hover { background: rgba(79,156,249,0.16); border-color: rgba(79,156,249,0.4); }
+    .sentiment-block { display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 120px; }
+    .sentiment-label { font-size: 10px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; color: var(--text-muted); }
+    .sentiment-pill  { padding: 10px 22px; border-radius: 30px; font-size: 15px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; text-align: center; }
+    .sentiment-bullish { background: rgba(34,211,160,0.12); color: var(--green); border: 1px solid rgba(34,211,160,0.3); }
+    .sentiment-bearish { background: rgba(247,107,107,0.12); color: var(--red);   border: 1px solid rgba(247,107,107,0.3); }
+    .sentiment-neutral { background: rgba(245,200,66,0.12);  color: var(--amber); border: 1px solid rgba(245,200,66,0.3); }
+    .sentiment-icon { font-size: 26px; }
+
+    .horizon-section {}
+    .horizon-tabs { display: flex; gap: 4px; margin-bottom: 20px; }
+    .horizon-tab {
+      padding: 10px 24px; border-radius: var(--radius-sm);
+      border: 1px solid var(--border); background: transparent;
+      color: var(--text-muted); font-size: 13px; font-weight: 600;
+      cursor: pointer; transition: all 0.25s; font-family: 'Inter', sans-serif;
+    }
+    .horizon-tab:hover { color: var(--text-primary); border-color: var(--border-accent); }
+    .horizon-tab.active { background: rgba(79,156,249,0.12); border-color: rgba(79,156,249,0.4); color: var(--accent-blue); }
+    .horizon-panel { display: none; }
+    .horizon-panel.active { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+
+    .sector-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 22px;
+      box-shadow: var(--shadow-card); transition: all 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .sector-card::after {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
+    .sector-card.stocks::after { background: linear-gradient(90deg, var(--accent-gold), var(--accent-blue)); }
+    .sector-card.it::after     { background: linear-gradient(90deg, var(--accent-blue), var(--accent-teal)); }
+    .sector-card.ai::after     { background: linear-gradient(90deg, var(--accent-violet), var(--accent-rose)); }
+    .sector-card:hover {
+      border-color: var(--border-accent); background: var(--bg-card-hover);
+      transform: translateY(-2px); box-shadow: var(--shadow-card), var(--shadow-glow);
+    }
+    .sector-header  { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+    .sector-icon    { width: 36px; height: 36px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 17px; flex-shrink: 0; }
+    .sector-card.stocks .sector-icon { background: rgba(245,200,66,0.12); }
+    .sector-card.it     .sector-icon { background: rgba(79,156,249,0.12); }
+    .sector-card.ai     .sector-icon { background: rgba(167,139,250,0.12); }
+    .sector-name     { font-size: 14px; font-weight: 700; color: var(--text-primary); }
+    .sector-subtitle { font-size: 11px; color: var(--text-muted); }
+    .opp-risk-block + .opp-risk-block { margin-top: 16px; }
+    .block-title {
+      font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+      margin-bottom: 8px; display: flex; align-items: center; gap: 6px;
+    }
+    .block-title.opps  { color: var(--green); }
+    .block-title.risks { color: var(--red); }
+    .bullet-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .bullet-list li {
+      font-size: 12.5px; color: var(--text-secondary); line-height: 1.5;
+      display: flex; gap: 8px; padding: 7px 10px;
+      border-radius: var(--radius-sm); transition: background 0.2s;
+    }
+    .bullet-list li:hover { background: rgba(255,255,255,0.02); }
+    .bullet-list li::before { content: '›'; flex-shrink: 0; font-size: 14px; line-height: 1.5; }
+    .bullet-list.opps  li::before { color: var(--green); }
+    .bullet-list.risks li::before { color: var(--red); }
+
+    .section-divider {
+      display: flex; align-items: center; gap: 16px;
+      color: var(--text-muted); font-size: 11px; font-weight: 600;
+      letter-spacing: 1.2px; text-transform: uppercase;
+    }
+    .section-divider::before, .section-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    .footer {
+      margin-top: 20px; padding: 28px 24px;
+      background: var(--bg-surface); border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between; max-width: 100%;
+    }
+    .publisher-badge { display: flex; align-items: center; gap: 14px; }
+    .publisher-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-violet));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 700; color: #fff; flex-shrink: 0;
+      box-shadow: 0 0 14px rgba(79,156,249,0.3);
+    }
+    .publisher-info p { font-size: 13px; font-weight: 600; color: var(--text-primary); }
+    .publisher-info a { font-size: 11.5px; color: var(--accent-blue); text-decoration: none; transition: opacity 0.2s; }
+    .publisher-info a:hover { opacity: 0.7; }
+    .footer-tagline { font-size: 12px; color: var(--text-muted); font-style: italic; }
+    .refresh-info   { font-size: 11px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; text-align: right; }
+
+    .loading-overlay {
+      position: fixed; inset: 0; background: var(--bg-base); z-index: 999;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 20px; transition: opacity 0.5s;
+    }
+    .loading-overlay.hidden { opacity: 0; pointer-events: none; }
+    .loader-icon { font-size: 48px; animation: float 2s ease-in-out infinite; }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    .loader-text { font-size: 14px; color: var(--text-muted); letter-spacing: 1px; }
+    .loader-bar  { width: 200px; height: 2px; background: var(--border); border-radius: 2px; overflow: hidden; }
+    .loader-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent-blue), var(--accent-violet));
+      animation: load-fill 1.5s ease-in-out infinite; border-radius: 2px;
+    }
+    @keyframes load-fill {
+      0%   { width: 0%;  margin-left: 0; }
+      50%  { width: 70%; margin-left: 15%; }
+      100% { width: 0%;  margin-left: 100%; }
+    }
+    .empty { color: var(--text-muted); font-size: 12px; font-style: italic; }
+
+    @media (max-width: 1024px) { .horizon-panel.active { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 768px) {
+      .header { padding: 14px 16px; }
+      .main-content { padding: 16px; }
+      .market-bar { flex-wrap: wrap; }
+      .market-chip { min-width: 50%; }
+      .horizon-panel.active { grid-template-columns: 1fr; }
+      .pulse-card { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; gap: 16px; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="loader-icon">🏛️</div>
+    <div class="loader-text">Initialising ViduraAgent Intelligence Feed…</div>
+    <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+  </div>
+
+  <div class="app-wrapper" id="appWrapper">
+
+    <header class="header">
+      <div class="header-brand">
+        <div class="brand-emblem">🏛️</div>
+        <div class="brand-text">
+          <h1>ViduraAgent <span style="font-weight:300; color:var(--text-muted);">विदुरएजण्ट</span></h1>
+          <p>Macro · Technology · Intelligence</p>
+        </div>
+      </div>
+      <div class="header-meta">
+        <span class="last-updated" id="lastUpdatedLabel">—</span>
+        <div class="live-badge">
+          <div class="live-dot"></div>
+          Live
+        </div>
+      </div>
+    </header>
+
+    <div class="ticker-bar" id="tickerBar">
+      <div class="ticker-label">🌐 Global Scroll</div>
+      <div class="ticker-track-wrap">
+        <div class="ticker-track" id="tickerTrack"></div>
+      </div>
+    </div>
+
+    <div class="market-bar" id="marketBar"></div>
+
+    <main class="main-content">
+      <div class="pulse-card" id="pulseCard">
+        <div>
+          <div class="pulse-section-label">📡 Daily Pulse — India Market Intelligence</div>
+          <div class="pulse-headline" id="pulseHeadline">Loading…</div>
+          <div class="pulse-tags" id="pulseTags"></div>
+        </div>
+        <div class="sentiment-block">
+          <div class="sentiment-label">Sentiment</div>
+          <div class="sentiment-icon" id="sentimentIcon">—</div>
+          <div class="sentiment-pill" id="sentimentPill">—</div>
+        </div>
+      </div>
+
+      <div class="section-divider">Strategic Horizon Analysis</div>
+
+      <section class="horizon-section">
+        <div class="horizon-tabs">
+          <button class="horizon-tab active" id="tab5y"  onclick="switchHorizon('five_year')">📅 5-Year Horizon</button>
+          <button class="horizon-tab"        id="tab10y" onclick="switchHorizon('ten_year')">🔭 10-Year Horizon</button>
+        </div>
+        <div class="horizon-panel active" id="panel_five_year"></div>
+        <div class="horizon-panel"        id="panel_ten_year"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="publisher-badge" id="publisherBadge">
+        <div class="publisher-avatar" id="publisherAvatar">V</div>
+        <div class="publisher-info">
+          <p id="publisherName">ViduraAgent</p>
+          <a id="publisherLink" href="#" target="_blank" rel="noopener">View Profile →</a>
+        </div>
+      </div>
+      <div class="footer-tagline">
+        <em>"Foresight is the weapon of the wise against future adversity."</em>
+      </div>
+      <div class="refresh-info" id="refreshInfo">
+        Next refresh in —<br />
+        <span style="font-size:10px; opacity:0.6;">Polling every 6 hours</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    const POLL_INTERVAL_MS = 21_600_000;
+    const DATA_FILE        = 'dashboard_data.json';
+    const IS_HTTP          = location.protocol.startsWith('http');
+
+    let countdownTimer  = null;
+    let nextRefreshAt   = null;
+    let tickerAnimation = null;
+
+    /* ── Inline Seed Data (fallback for file:// local viewing) ─────── */
+    const SEED_DATA = {"last_updated":"2026-06-27","publisher":{"name":"ViduraAgent Author","profile_url":"https://github.com"},"market_snapshot":{"NIFTY50":{"price":24850.25,"change_pct":0.42},"SENSEX":{"price":81520.18,"change_pct":0.38},"GOLD_USD":{"price":2342.6,"change_pct":-0.15},"BRENT":{"price":84.72,"change_pct":0.91},"USDINR":{"price":83.54,"change_pct":0.07}},"global_scroll":[{"headline":"Fed holds benchmark rate steady; signals two cuts possible in 2026 if disinflation resumes","impact":"Neutral"},{"headline":"RBI holds repo rate at 6.5%; MPC shifts stance to 'accommodative' on easing inflation","impact":"Positive"},{"headline":"Brent Crude climbs 0.9% on OPEC+ supply discipline signals from Riyadh summit","impact":"Neutral"},{"headline":"India-US semiconductor partnership yields first CHIPS Act co-investment in HCL fab project","impact":"Positive"},{"headline":"Global AI capex surges — hyperscalers commit $400B in 2025 data-center buildouts","impact":"Positive"},{"headline":"ECB cuts rates by 25bps; eurozone inflation drops to 2.1%, near target","impact":"Positive"},{"headline":"China's export controls on gallium and germanium tighten global chip supply further","impact":"Negative"},{"headline":"Dollar index softens to 102.3 as Fed pause expectations lift EM capital inflows","impact":"Positive"}],"daily_pulse":{"media_headline":"NIFTY 50 edges higher as FII inflows return; IT and banking sectors lead gains amid global risk-on mood","social_sentiment":"Bullish","trending_tags":["#Nifty50","#FIIInflows","#IndiaIT","#RBI","#AIInvest","#GCCIndia"]},"horizons":{"five_year":{"stocks":{"opportunities":["India's weight in MSCI EM Index rising steadily — passive FII flows to accelerate into large-caps through 2028","Domestic SIP flows crossing ₹25,000 Cr/month mark by 2027 — retail participation structurally re-rating mid-cap indices","PSU capex supercycle (railways, defence, power) driving earnings growth in public-sector stocks through 2029"],"risks":["SEBI tightening F&O margin rules may dampen speculative volumes and short-term index liquidity","Global recession risk from prolonged high US rates could trigger sharp FII reversals in 2025–2026","Concentration risk in Nifty 50 — top 10 stocks represent 57% of weight, amplifying drawdowns"]},"it":{"opportunities":["GCC headcount in India projected to grow from 1.66M to 2.5M by 2030 — Bengaluru and Hyderabad as primary absorbers","AI-augmented software development tools cutting dev cycle time by 35–40% — boosting IT margin expansion","USD revenue tailwinds for Indian IT as global enterprise cloud migration accelerates into second-wave modernization"],"risks":["US H-1B policy tightening forces onshore staffing cost inflation — eroding offshore arbitrage advantage","Commoditisation of routine coding tasks by LLMs could reduce headcount-dependent revenue models in Tier-2 IT firms","Client budget freezes in BFSI and retail verticals if US slowdown materialises in 2025–2026"]},"ai":{"opportunities":["IndiaAI Mission's ₹10,371 Cr allocation funding sovereign GPU clusters — democratising AI compute access for startups","Agentic AI adoption in BPO and KPO sectors: India positioned to capture $15B incremental AI-services market by 2028","Localised LLM fine-tuning in Indic languages (Hindi, Tamil, Telugu) opening 600M+ vernacular user addressable market"],"risks":["Dependence on NVIDIA H100/H200 imports — export control escalation could delay GPU delivery timelines by 6–18 months","AI talent concentration risk: 80% of AI researchers clustered in Bengaluru and Hyderabad; salary inflation outpacing revenue","Regulatory uncertainty around India's DPDP Act enforcement could stall AI data-pipeline investments"]}},"ten_year":{"stocks":{"opportunities":["India poised to overtake Japan as 4th largest equity market by 2035 — index weight expansion drives sustained passive inflows","Generational wealth transfer from property to financial assets underway — equity mutual fund AUM to cross ₹200 Lakh Cr by 2035","Manufacturing renaissance under PLI 2.0 could add 3–4% to listed corporate earnings CAGR over decade"],"risks":["Climate-related physical risks (extreme heat, erratic monsoons) emerging as systemic threat to agri, power, and infra sectors","Geopolitical fragmentation creating supply-chain bifurcation — India's export markets could shrink if dollar trade-bloc erodes","Ageing demographic dividend turning liability post-2038 without accelerated skilling and productivity gains"]},"it":{"opportunities":["India-headquartered AI software platforms (not just services) will emerge by 2032 — SaaS-to-PaaS transition creates new export class","Quantum computing infrastructure buildout creating new engineering discipline — India's IIT pipeline well-positioned to lead R&D","Digital public infrastructure (UPI, ONDC, AA framework) becoming global export — ITeS firms building on top of DPI stack"],"risks":["Full agentic automation of software development by 2033–2035 structurally eliminates junior-to-mid engineer headcount tiers","Brain drain acceleration if India-US visa pathways remain constrained — top AI talent migrating permanently","Legacy COBOL/mainframe systems still running in global BFSI — India IT firms carrying technical debt risk as modernisation deadline approaches"]},"ai":{"opportunities":["India's chip design ecosystem (Qualcomm, Intel, AMD design centers) maturing into sovereign IP creation by 2033","AGI-adjacent systems driving India's ₹5 Lakh Cr AI economy target — healthcare, agriculture, and judiciary automation as key verticals","Hyderabad and Chennai emerging as global AI inference data-center hubs leveraging renewable energy and submarine cable access"],"risks":["AGI capability overhang: if general-purpose AI reaches human parity by 2030, entire knowledge-worker economy requires structural redesign","Chip sovereignty gap — India lacks domestic foundry capability below 28nm; TSMC dependency a single-point geopolitical failure","AI-driven misinformation at scale could destabilise retail investor sentiment and regulatory trust in financial markets"]}}}};
+
+    const SECTORS = [
+      { key: 'stocks', label: 'Stock Market',             icon: '📈', subtitle: 'Capital Flows · Sector Rotations · Index Trajectories' },
+      { key: 'it',     label: 'Information Technology',   icon: '💻', subtitle: 'GCCs · SaaS · Cloud Infrastructure · Talent Pipelines' },
+      { key: 'ai',     label: 'Artificial Intelligence',  icon: '🤖', subtitle: 'LLMs · Agentic Workflows · Compute · Chip Assembly' },
+    ];
+
+    const MARKET_LABELS = { NIFTY50: 'NIFTY 50', SENSEX: 'SENSEX', GOLD_USD: 'Gold (USD)', BRENT: 'Brent Crude', USDINR: 'USD/INR' };
+
+    async function fetchData() {
+      const r = await fetch(`${DATA_FILE}?t=${Date.now()}`);
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      return r.json();
+    }
+
+    function renderAll(data) {
+      renderHeader(data);
+      renderTicker(data.global_scroll || []);
+      renderMarketBar(data.market_snapshot || {});
+      renderPulse(data.daily_pulse || {});
+      renderHorizon('five_year', data.horizons?.five_year || {});
+      renderHorizon('ten_year',  data.horizons?.ten_year  || {});
+      renderPublisher(data.publisher || {});
+    }
+
+    function renderHeader(data) {
+      if (data.last_updated) document.getElementById('lastUpdatedLabel').textContent = `Updated: ${data.last_updated}`;
+    }
+
+    function renderTicker(items) {
+      if (!items.length) return;
+      const track = document.getElementById('tickerTrack');
+      const wrap  = track.parentElement;
+      const buildItem = ({ headline, impact }) => {
+        const pip = impact === 'Positive' ? 'pip-positive' : impact === 'Negative' ? 'pip-negative' : 'pip-neutral';
+        const div = document.createElement('div');
+        div.className = 'ticker-item';
+        div.innerHTML = `<span class="impact-pip ${pip}"></span><span>${esc(headline)}</span>`;
+        return div;
+      };
+      track.innerHTML = '';
+      [...items, ...items].forEach(i => track.appendChild(buildItem(i)));
+      if (tickerAnimation) cancelAnimationFrame(tickerAnimation);
+      let pos = 0;
+      const halfWidth = () => track.scrollWidth / 2;
+      const step = () => {
+        pos += 0.5;
+        if (pos >= halfWidth()) pos = 0;
+        track.style.transform = `translateX(-${pos}px)`;
+        tickerAnimation = requestAnimationFrame(step);
+      };
+      tickerAnimation = requestAnimationFrame(step);
+      wrap.addEventListener('mouseenter', () => cancelAnimationFrame(tickerAnimation));
+      wrap.addEventListener('mouseleave', () => { tickerAnimation = requestAnimationFrame(step); });
+    }
+
+    function renderMarketBar(snapshot) {
+      const bar = document.getElementById('marketBar');
+      bar.innerHTML = '';
+      for (const [key, label] of Object.entries(MARKET_LABELS)) {
+        const d = snapshot[key]; if (!d) continue;
+        const chg = d.change_pct ?? 0;
+        const cls = chg > 0 ? 'change-up' : chg < 0 ? 'change-down' : 'change-flat';
+        const arr = chg > 0 ? '▲' : chg < 0 ? '▼' : '●';
+        const chip = document.createElement('div');
+        chip.className = 'market-chip';
+        chip.innerHTML = `<span class="market-label">${esc(label)}</span><span class="market-price">${d.price != null ? d.price.toLocaleString() : '—'}</span><span class="market-change ${cls}">${arr} ${Math.abs(chg).toFixed(2)}%</span>`;
+        bar.appendChild(chip);
+      }
+    }
+
+    function renderPulse(pulse) {
+      document.getElementById('pulseHeadline').textContent = pulse.media_headline || 'No headline available.';
+      const sent = (pulse.social_sentiment || 'Neutral').toLowerCase();
+      const pill = document.getElementById('sentimentPill');
+      pill.textContent = pulse.social_sentiment || 'Neutral';
+      pill.className   = `sentiment-pill sentiment-${sent}`;
+      document.getElementById('sentimentIcon').textContent = sent === 'bullish' ? '📈' : sent === 'bearish' ? '📉' : '〰️';
+      const tagsEl = document.getElementById('pulseTags');
+      tagsEl.innerHTML = '';
+      (pulse.trending_tags || []).forEach(tag => {
+        const c = document.createElement('span'); c.className = 'tag-chip'; c.textContent = tag; tagsEl.appendChild(c);
+      });
+    }
+
+    function renderHorizon(key, horizonData) {
+      const panel = document.getElementById(`panel_${key}`);
+      panel.innerHTML = '';
+      SECTORS.forEach(({ key: sKey, label, icon, subtitle }) => {
+        const sector = horizonData[sKey] || {};
+        const opps = sector.opportunities || [], risks = sector.risks || [];
+        const card = document.createElement('div');
+        card.className = `sector-card ${sKey}`;
+        card.innerHTML = `
+          <div class="sector-header"><div class="sector-icon">${icon}</div><div><div class="sector-name">${esc(label)}</div><div class="sector-subtitle">${esc(subtitle)}</div></div></div>
+          <div class="opp-risk-block"><div class="block-title opps"><span>▲</span> Opportunities</div>
+            <ul class="bullet-list opps">${opps.length ? opps.map(o => `<li>${esc(o)}</li>`).join('') : '<li class="empty">No data</li>'}</ul></div>
+          <div class="opp-risk-block"><div class="block-title risks"><span>▼</span> Risk Factors</div>
+            <ul class="bullet-list risks">${risks.length ? risks.map(r => `<li>${esc(r)}</li>`).join('') : '<li class="empty">No data</li>'}</ul></div>`;
+        panel.appendChild(card);
+      });
+    }
+
+    function renderPublisher(pub) {
+      if (!pub.name) return;
+      document.getElementById('publisherAvatar').textContent = pub.name.split(' ').map(w => w[0]).join('').slice(0,2).toUpperCase();
+      document.getElementById('publisherName').textContent   = pub.name;
+      const link = document.getElementById('publisherLink');
+      if (pub.profile_url) { link.href = pub.profile_url; link.textContent = 'View Profile →'; }
+    }
+
+    function switchHorizon(key) {
+      document.querySelectorAll('.horizon-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.horizon-tab').forEach(t => t.classList.remove('active'));
+      document.getElementById(`panel_${key}`).classList.add('active');
+      document.getElementById(key === 'five_year' ? 'tab5y' : 'tab10y').classList.add('active');
+    }
+
+    function startCountdown() {
+      nextRefreshAt = Date.now() + POLL_INTERVAL_MS;
+      if (countdownTimer) clearInterval(countdownTimer);
+      countdownTimer = setInterval(() => {
+        const rem = Math.max(0, nextRefreshAt - Date.now());
+        const h = Math.floor(rem / 3_600_000), m = Math.floor((rem % 3_600_000) / 60_000), s = Math.floor((rem % 60_000) / 1_000);
+        const p = n => String(n).padStart(2,'0');
+        document.getElementById('refreshInfo').innerHTML = `Next refresh in ${p(h)}:${p(m)}:${p(s)}<br /><span style="font-size:10px;opacity:0.6;">Polling every 6 hours</span>`;
+      }, 1000);
+    }
+
+    function esc(str) {
+      if (typeof str !== 'string') return '';
+      return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    async function bootstrap() {
+      try {
+        let data;
+        if (IS_HTTP) {
+          data = await fetchData();
+        } else {
+          console.info('[ViduraAgent] file:// mode — using embedded seed data.');
+          data = SEED_DATA;
+          try { data = await fetchData(); } catch (_) {}
+        }
+        renderAll(data);
+      } catch (err) {
+        console.error('[ViduraAgent] Load failed:', err);
+        renderAll(SEED_DATA);
+      } finally {
+        const ov = document.getElementById('loadingOverlay');
+        ov.classList.add('hidden');
+        setTimeout(() => ov.remove(), 600);
+      }
+      startCountdown();
+    }
+
+    function schedulePoll() {
+      if (!IS_HTTP) return;
+      setTimeout(async () => {
+        try { renderAll(await fetchData()); } catch (e) { console.warn('[ViduraAgent] Poll failed:', e); }
+        startCountdown();
+        schedulePoll();
+      }, POLL_INTERVAL_MS);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => { bootstrap(); schedulePoll(); });
+  </script>
+</body>
+</html>

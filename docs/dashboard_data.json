@@ -1,0 +1,107 @@
+{
+  "last_updated": "2026-06-27",
+  "publisher": {
+    "name": "ViduraAgent Author",
+    "profile_url": "https://github.com"
+  },
+  "market_snapshot": {
+    "NIFTY50":  { "price": 24850.25, "change_pct": 0.42 },
+    "SENSEX":   { "price": 81520.18, "change_pct": 0.38 },
+    "GOLD_USD": { "price": 2342.60,  "change_pct": -0.15 },
+    "BRENT":    { "price": 84.72,    "change_pct": 0.91 },
+    "USDINR":   { "price": 83.54,    "change_pct": 0.07 }
+  },
+  "global_scroll": [
+    { "headline": "Fed holds benchmark rate steady; signals two cuts possible in 2026 if disinflation resumes", "impact": "Neutral" },
+    { "headline": "RBI holds repo rate at 6.5%; MPC shifts stance to 'accommodative' on easing inflation", "impact": "Positive" },
+    { "headline": "Brent Crude climbs 0.9% on OPEC+ supply discipline signals from Riyadh summit", "impact": "Neutral" },
+    { "headline": "India-US semiconductor partnership yields first CHIPS Act co-investment in HCL fab project", "impact": "Positive" },
+    { "headline": "Global AI capex surges — hyperscalers commit $400B in 2025 data-center buildouts", "impact": "Positive" },
+    { "headline": "ECB cuts rates by 25bps; eurozone inflation drops to 2.1%, near target", "impact": "Positive" },
+    { "headline": "China's export controls on gallium and germanium tighten global chip supply further", "impact": "Negative" },
+    { "headline": "Dollar index softens to 102.3 as Fed pause expectations lift EM capital inflows", "impact": "Positive" }
+  ],
+  "daily_pulse": {
+    "media_headline": "NIFTY 50 edges higher as FII inflows return; IT and banking sectors lead gains amid global risk-on mood",
+    "social_sentiment": "Bullish",
+    "trending_tags": ["#Nifty50", "#FIIInflows", "#IndiaIT", "#RBI", "#AIInvest", "#GCCIndia"]
+  },
+  "horizons": {
+    "five_year": {
+      "stocks": {
+        "opportunities": [
+          "India's weight in MSCI EM Index rising steadily — passive FII flows to accelerate into large-caps through 2028",
+          "Domestic SIP flows crossing ₹25,000 Cr/month mark by 2027 — retail participation structurally re-rating mid-cap indices",
+          "PSU capex supercycle (railways, defence, power) driving earnings growth in public-sector stocks through 2029"
+        ],
+        "risks": [
+          "SEBI tightening F&O margin rules may dampen speculative volumes and short-term index liquidity",
+          "Global recession risk from prolonged high US rates could trigger sharp FII reversals in 2025–2026",
+          "Concentration risk in Nifty 50 — top 10 stocks represent 57% of weight, amplifying drawdowns"
+        ]
+      },
+      "it": {
+        "opportunities": [
+          "GCC headcount in India projected to grow from 1.66M to 2.5M by 2030 — Bengaluru and Hyderabad as primary absorbers",
+          "AI-augmented software development tools (GitHub Copilot-class) cutting dev cycle time by 35–40% — boosting IT margin expansion",
+          "USD revenue tailwinds for Indian IT as global enterprise cloud migration accelerates into second-wave modernization"
+        ],
+        "risks": [
+          "US H-1B policy tightening forces onshore staffing cost inflation — eroding offshore arbitrage advantage",
+          "Commoditisation of routine coding tasks by LLMs could reduce headcount-dependent revenue models in Tier-2 IT firms",
+          "Client budget freezes in BFSI and retail verticals if US slowdown materialises in 2025–2026"
+        ]
+      },
+      "ai": {
+        "opportunities": [
+          "IndiaAI Mission's ₹10,371 Cr allocation funding sovereign GPU clusters — democratising AI compute access for startups",
+          "Agentic AI adoption in BPO and KPO sectors: India positioned to capture $15B incremental AI-services market by 2028",
+          "Localized LLM fine-tuning in Indic languages (Hindi, Tamil, Telugu) opening 600M+ vernacular user addressable market"
+        ],
+        "risks": [
+          "Dependence on NVIDIA H100/H200 imports — export control escalation could delay GPU delivery timelines by 6–18 months",
+          "AI talent concentration risk: 80% of AI researchers clustered in Bengaluru and Hyderabad; salary inflation outpacing revenue",
+          "Regulatory uncertainty around India's DPDP Act enforcement could stall AI data-pipeline investments"
+        ]
+      }
+    },
+    "ten_year": {
+      "stocks": {
+        "opportunities": [
+          "India poised to overtake Japan as 4th largest equity market by 2035 — index weight expansion drives sustained passive inflows",
+          "Generational wealth transfer from property to financial assets underway — equity mutual fund AUM to cross ₹200 Lakh Cr by 2035",
+          "Manufacturing renaissance under PLI 2.0 could add 3–4% to listed corporate earnings CAGR over decade"
+        ],
+        "risks": [
+          "Climate-related physical risks (extreme heat, erratic monsoons) emerging as systemic threat to agri, power, and infra sectors",
+          "Geopolitical fragmentation creating supply-chain bifurcation — India's export markets could shrink if dollar trade-bloc erodes",
+          "Ageing demographic dividend turning liability post-2038 without accelerated skilling and productivity gains"
+        ]
+      },
+      "it": {
+        "opportunities": [
+          "India-headquartered AI software platforms (not just services) will emerge by 2032 — SaaS-to-PaaS transition creates new export class",
+          "Quantum computing infrastructure buildout creating new engineering discipline — India's IIT pipeline well-positioned to lead R&D",
+          "Digital public infrastructure (UPI, ONDC, AA framework) becoming global export — ITeS firms building on top of DPI stack"
+        ],
+        "risks": [
+          "Full agentic automation of software development by 2033–2035 structurally eliminates junior-to-mid engineer headcount tiers",
+          "Brain drain acceleration if India-US visa pathways remain constrained — top AI talent migrating permanently",
+          "Legacy COBOL/mainframe systems still running in global BFSI — India IT firms carrying technical debt risk as modernisation deadline approaches"
+        ]
+      },
+      "ai": {
+        "opportunities": [
+          "India's chip design ecosystem (Qualcomm, Intel, AMD design centers) maturing into sovereign IP creation by 2033",
+          "AGI-adjacent systems driving India's ₹5 Lakh Cr AI economy target — healthcare, agriculture, and judiciary automation as key verticals",
+          "Hyderabad and Chennai emerging as global AI inference data-center hubs leveraging renewable energy and submarine cable access"
+        ],
+        "risks": [
+          "AGI capability overhang: if general-purpose AI reaches human parity by 2030, entire knowledge-worker economy requires structural redesign",
+          "Chip sovereignty gap — India lacks domestic foundry capability below 28nm; TSMC dependency a single-point geopolitical failure",
+          "AI-driven misinformation at scale could destabilise retail investor sentiment and regulatory trust in financial markets"
+        ]
+      }
+    }
+  }
+}

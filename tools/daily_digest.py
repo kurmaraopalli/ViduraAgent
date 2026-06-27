@@ -39,7 +39,7 @@ PUBLISHER = {
 # Output path relative to repo root (script is called from repo root in CI)
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 REPO_ROOT   = os.path.dirname(SCRIPT_DIR)
-OUTPUT_PATH = os.path.join(REPO_ROOT, "frontend", "dashboard_data.json")
+OUTPUT_PATH = os.path.join(REPO_ROOT, "docs", "dashboard_data.json")
 
 IST = timezone(timedelta(hours=5, minutes=30))
 
