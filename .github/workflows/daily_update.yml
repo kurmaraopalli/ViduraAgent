@@ -1,0 +1,72 @@
+name: ViduraAgent — Daily Intelligence Update
+
+on:
+  schedule:
+    # 02:30 UTC = 08:00 AM IST (UTC+5:30)
+    - cron: '30 2 * * *'
+  workflow_dispatch:
+    # Allow manual trigger from GitHub Actions UI
+
+permissions:
+  contents: write   # Required to commit and push dashboard_data.json
+
+jobs:
+  daily-digest:
+    name: Run Daily Digest & Update Dashboard Data
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set Up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install Dependencies
+        run: |
+          pip install --upgrade pip
+          pip install yfinance duckduckgo-search
+
+      - name: Run ViduraAgent Daily Digest
+        run: python tools/daily_digest.py
+
+      - name: Verify Output File
+        run: |
+          if [ ! -f frontend/dashboard_data.json ]; then
+            echo "ERROR: dashboard_data.json was not created."
+            exit 1
+          fi
+          echo "dashboard_data.json generated successfully."
+          python -c "
+          import json, sys
+          with open('frontend/dashboard_data.json') as f:
+              d = json.load(f)
+          required = ['last_updated', 'publisher', 'global_scroll', 'daily_pulse', 'horizons']
+          missing  = [k for k in required if k not in d]
+          if missing:
+              print(f'ERROR: Missing keys: {missing}')
+              sys.exit(1)
+          print(f'Schema valid. Last updated: {d[\"last_updated\"]}')
+          print(f'Global scroll items: {len(d[\"global_scroll\"])}')
+          print(f'Sentiment: {d[\"daily_pulse\"][\"social_sentiment\"]}')
+          "
+
+      - name: Commit & Push Updated Dashboard Data
+        run: |
+          git config user.name  "ViduraAgent[bot]"
+          git config user.email "viduraagent-bot@users.noreply.github.com"
+          git add frontend/dashboard_data.json
+          if git diff --cached --quiet; then
+            echo "No changes to commit. Data unchanged."
+          else
+            IST_DATE=$(TZ='Asia/Kolkata' date '+%Y-%m-%d %H:%M IST')
+            git commit -m "🏛️ Daily intelligence update — ${IST_DATE}"
+            git push
+            echo "Changes committed and pushed."
+          fi
