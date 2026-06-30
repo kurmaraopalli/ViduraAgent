@@ -30,8 +30,8 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          pip install --upgrade pip
-          pip install yfinance duckduckgo-search
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
       - name: Run ViduraAgent Daily Digest
         run: python tools/daily_digest.py
