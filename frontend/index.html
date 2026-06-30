@@ -8,7 +8,7 @@
   <meta name="description" content="ViduraAgent delivers autonomous macro-economic and technology intelligence across 5-year and 10-year horizons with an India-first strategic lens." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+Telugu:wght@400;600&family=Noto+Sans+Devanagari:wght@400;600&family=Noto+Sans+Oriya:wght@400;600&family=Noto+Sans+Kannada:wght@400;600&family=Noto+Sans+Tamil:wght@400;600&display=swap" rel="stylesheet" />
 
   <style>
     /* ─── Theme Variables ───────────────────────────────────────────────── */
@@ -95,7 +95,7 @@
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', system-ui, sans-serif;
+      font-family: 'Inter', 'Noto Sans Telugu', 'Noto Sans Devanagari', 'Noto Sans Oriya', 'Noto Sans Kannada', 'Noto Sans Tamil', system-ui, sans-serif;
       background: var(--bg-base);
       color: var(--text-primary);
       min-height: 100vh;
@@ -485,6 +485,146 @@
       .pulse-card { grid-template-columns: 1fr; }
       .footer { flex-direction: column; gap: 16px; align-items: flex-start; padding: 20px 16px; }
     }
+
+    /* ─── Language Selector ─────────────────────────────────────────────── */
+    .lang-selector {
+      position: relative;
+    }
+    .lang-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text-secondary);
+      font-size: 11.5px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .lang-btn:hover {
+      color: var(--text-primary);
+      border-color: var(--border-accent);
+    }
+    .lang-dropdown {
+      position: absolute;
+      top: calc(100% + 6px);
+      right: 0;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 6px;
+      display: none;
+      flex-direction: column;
+      gap: 2px;
+      z-index: 1000;
+      min-width: 150px;
+      box-shadow: var(--shadow-card);
+    }
+    .lang-dropdown.show {
+      display: flex;
+    }
+    .lang-dropdown button {
+      padding: 8px 12px;
+      border: none;
+      background: transparent;
+      color: var(--text-secondary);
+      text-align: left;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: all 0.2s;
+      width: 100%;
+    }
+    .lang-dropdown button:hover {
+      background: var(--bg-card-hover);
+      color: var(--text-primary);
+    }
+    .lang-dropdown button.active {
+      color: var(--accent-blue);
+      background: rgba(79, 156, 249, 0.08);
+      font-weight: 600;
+    }
+    .arrow {
+      font-size: 8px;
+      opacity: 0.6;
+      margin-left: 2px;
+    }
+
+    /* ─── Refresh Button ───────────────────────────────────────────────── */
+    .refresh-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .refresh-btn:hover {
+      color: var(--text-primary);
+      border-color: var(--border-accent);
+    }
+    .refresh-btn.spinning .refresh-icon {
+      display: inline-block;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* ─── Toast Notification ───────────────────────────────────────────── */
+    .toast-notification {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--accent-blue);
+      border-radius: 12px;
+      padding: 12px 20px;
+      color: var(--text-primary);
+      box-shadow: var(--shadow-card);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transform: translateY(150%);
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .toast-notification.show {
+      transform: translateY(0);
+    }
+    .toast-icon {
+      color: var(--accent-teal);
+      font-size: 16px;
+    }
+
+    /* ─── Shimmer Flash Effect ────────────────────────────────────────── */
+    .shimmer-flash {
+      animation: flash-animation 0.5s ease-out;
+    }
+    @keyframes flash-animation {
+      0% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
+
+    /* ─── Google Translate Overrides ───────────────────────────────────── */
+    .skiptranslate, iframe.skiptranslate, #google_translate_element, .goog-te-banner-frame, #goog-gt-tt, .goog-te-balloon-frame {
+      display: none !important;
+      visibility: hidden !important;
+    }
+    body {
+      top: 0 !important;
+    }
   </style>
 </head>
 <body>
@@ -494,9 +634,12 @@
     <div class="loader-icon">
       <img src="icons/logo.png" class="arch-icon-xl" alt="Loading" />
     </div>
-    <div class="loader-text">Initialising ViduraAgent Intelligence Feed…</div>
+    <div class="loader-text" data-i18n="initializing">Initialising ViduraAgent Intelligence Feed…</div>
     <div class="loader-bar"><div class="loader-bar-fill"></div></div>
   </div>
+
+  <!-- Google Translate Hidden Element -->
+  <div id="google_translate_element" style="display:none !important;"></div>
 
   <div class="app-wrapper" id="appWrapper">
 
@@ -551,26 +694,50 @@
         </svg>
 
         <div class="brand-text">
-          <h1>ViduraAgent <span style="font-weight:300; color:var(--text-muted);">विदुरएजण्ट</span></h1>
-          <p>Macro · Technology · Intelligence</p>
+          <h1 data-i18n="title">ViduraAgent <span style="font-weight:300; color:var(--text-muted);">विदुरएजण्ट</span></h1>
+          <p data-i18n="tagline">Macro · Technology · Intelligence</p>
         </div>
       </div>
 
       <div class="header-right">
+        <!-- Language Selector -->
+        <div class="lang-selector">
+          <button class="lang-btn" id="langBtn" onclick="toggleLangDropdown()">
+            <span class="btn-icon">🌐</span> <span id="currentLangLabel">English</span> <span class="arrow">▼</span>
+          </button>
+          <div class="lang-dropdown" id="langDropdown">
+            <button onclick="changeLanguage('en')" class="active">English</button>
+            <button onclick="changeLanguage('te')">తెలుగు (Telugu)</button>
+            <button onclick="changeLanguage('hi')">हिन्दी (Hindi)</button>
+            <button onclick="changeLanguage('or')">ଓଡ଼ିଆ (Odia)</button>
+            <button onclick="changeLanguage('kn')">ಕನ್ನಡ (Kannada)</button>
+            <button onclick="changeLanguage('ta')">தமிழ் (Tamil)</button>
+            <button onclick="changeLanguage('mr')">मराठी (Marathi)</button>
+          </div>
+        </div>
+
         <!-- Theme Switcher -->
         <div class="theme-switcher" role="group" aria-label="Theme selector">
           <button class="theme-btn" id="btn-light" onclick="setTheme('light')" title="Light mode">
-            <span class="btn-icon">☀️</span> Light
+            <span class="btn-icon">☀️</span> <span data-i18n="light">Light</span>
           </button>
           <button class="theme-btn active" id="btn-dark" onclick="setTheme('dark')" title="Dark mode">
-            <span class="btn-icon">🌙</span> Dark
+            <span class="btn-icon">🌙</span> <span data-i18n="dark">Dark</span>
           </button>
           <button class="theme-btn" id="btn-auto" onclick="setTheme('auto')" title="Follow system preference">
-            <span class="btn-icon">⚙️</span> Auto
+            <span class="btn-icon">⚙️</span> <span data-i18n="auto">Auto</span>
           </button>
         </div>
 
-        <span class="last-updated" id="lastUpdatedLabel">—</span>
+        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px;">
+          <span class="last-updated" id="lastUpdatedLabel">—</span>
+          <span class="last-updated" id="lastRefreshedLabel" style="opacity: 0.7; font-size: 10px;">Refreshed: Just now</span>
+        </div>
+
+        <!-- Manual Refresh Button -->
+        <button class="refresh-btn" id="refreshBtn" onclick="triggerDataFetch()" title="Refresh data">
+          <span class="refresh-icon">🔄</span>
+        </button>
 
         <div class="live-badge">
           <div class="live-dot"></div>
@@ -600,30 +767,30 @@
         <div>
           <div class="pulse-section-label">
           <img src="icons/pulse.png" alt="Pulse" class="arch-icon-sm" style="margin-right:5px;" onerror="this.style.display='none'" />
-          Daily Pulse — India Market Intelligence
+          <span data-i18n="daily_pulse">Daily Pulse — India Market Intelligence</span>
         </div>
           <div class="pulse-headline" id="pulseHeadline">Loading…</div>
           <div class="pulse-tags" id="pulseTags"></div>
         </div>
         <div class="sentiment-block">
-          <div class="sentiment-label">Sentiment</div>
+          <div class="sentiment-label" data-i18n="sentiment">Sentiment</div>
           <div class="sentiment-icon" id="sentimentIcon">—</div>
           <div class="sentiment-pill" id="sentimentPill">—</div>
         </div>
       </div>
 
-      <div class="section-divider">Strategic Horizon Analysis</div>
+      <div class="section-divider" data-i18n="horizon_analysis">Strategic Horizon Analysis</div>
 
       <!-- Horizon Panels -->
       <section class="horizon-section">
         <div class="horizon-tabs">
           <button class="horizon-tab active" id="tab5y"  onclick="switchHorizon('five_year')">
             <img src="icons/horizon5.png" alt="5yr" class="arch-icon-sm" style="margin-right:5px; vertical-align:middle;" onerror="this.style.display='none'" />
-            5-Year Horizon
+            <span data-i18n="five_year">5-Year Horizon</span>
           </button>
           <button class="horizon-tab" id="tab10y" onclick="switchHorizon('ten_year')">
             <img src="icons/horizon10.png" alt="10yr" class="arch-icon-sm" style="margin-right:5px; vertical-align:middle;" onerror="this.style.display='none'" />
-            10-Year Horizon
+            <span data-i18n="ten_year">10-Year Horizon</span>
           </button>
         </div>
         <div class="horizon-panel active" id="panel_five_year"></div>
@@ -638,15 +805,15 @@
         <div class="publisher-avatar" id="publisherAvatar">V</div>
         <div class="publisher-info">
           <p id="publisherName">ViduraAgent</p>
-          <a id="publisherLink" href="#" target="_blank" rel="noopener">View Profile →</a>
+          <a id="publisherLink" href="#" target="_blank" rel="noopener" data-i18n="view_profile">View Profile →</a>
         </div>
       </div>
       <div class="footer-tagline">
-        <em>"Foresight is the weapon of the wise against future adversity."</em>
+        <em data-i18n="footer_tagline">"Foresight is the weapon of the wise against future adversity."</em>
       </div>
       <div class="refresh-info" id="refreshInfo">
-        Next refresh in —<br />
-        <span style="font-size:10px; opacity:0.6;">Polling every 10 minutes</span>
+        <span data-i18n="next_refresh">Next refresh in</span> —<br />
+        <span style="font-size:10px; opacity:0.6;" data-i18n="polling_info">Polling every 10 minutes</span>
       </div>
     </footer>
 
@@ -657,17 +824,267 @@
        ViduraAgent — Dashboard Runtime
        - Theme: light / dark / auto (system preference)
        - Data: fetches dashboard_data.json every 10 minutes (cache-busted)
+       - Languages: native UI translations + dynamic Google Translate fallbacks
+       - Polling: visibility-aware smart polling and manual refresh button
     ══════════════════════════════════════════════════════════════════════ */
 
     const POLL_INTERVAL_MS = 600_000;  // 10 minutes — user configured
     const DATA_FILE        = 'dashboard_data.json';
     const IS_HTTP          = location.protocol.startsWith('http');
     const THEME_KEY        = 'vidura_theme';
+    const LANG_KEY         = 'vidura_lang';
 
-    let countdownTimer  = null;
-    let nextRefreshAt   = null;
-    let tickerAnimation = null;
-    let sysThemeWatcher = null;
+    let countdownTimer   = null;
+    let relativeTimer    = null;
+    let nextRefreshAt    = null;
+    let lastFetchTime    = Date.now();
+    let tickerAnimation  = null;
+    let sysThemeWatcher  = null;
+    let currentLang      = 'en';
+
+    /* ─── Translations Dictionary ───────────────────────────────────── */
+    const TRANSLATIONS = {
+      en: {
+        title: "ViduraAgent",
+        tagline: "Macro · Technology · Intelligence",
+        global_scroll: "Global Scroll",
+        daily_pulse: "Daily Pulse — India Market Intelligence",
+        sentiment: "Sentiment",
+        horizon_analysis: "Strategic Horizon Analysis",
+        five_year: "5-Year Horizon",
+        ten_year: "10-Year Horizon",
+        opportunities: "Opportunities",
+        risks: "Risk Factors",
+        view_profile: "View Profile →",
+        footer_tagline: '"Foresight is the weapon of the wise against future adversity."',
+        polling_info: "Polling every 10 minutes",
+        next_refresh: "Next refresh in",
+        updated: "Updated",
+        light: "Light",
+        dark: "Dark",
+        auto: "Auto",
+        initializing: "Initialising ViduraAgent Intelligence Feed…",
+        no_data: "No data"
+      },
+      te: {
+        title: "విదురఏజెంట్",
+        tagline: "స్థూల ఆర్థిక · సాంకేతిక · మేధో సమాచారం",
+        global_scroll: "ప్రపంచ సమాచార ప్రవాహం",
+        daily_pulse: "రోజువారీ పల్స్ — భారత మార్కెట్ మేధో సమాచారం",
+        sentiment: "సెంటిమెంట్",
+        horizon_analysis: "వ్యూహాత్మక హారిజన్ విశ్లేషణ",
+        five_year: "5-సంవత్సరాల హారిజన్",
+        ten_year: "10-సంవత్సరాల హారిజన్",
+        opportunities: "అవకాశాలు",
+        risks: "ప్రమాద కారకాలు",
+        view_profile: "ప్రొఫైల్ చూడండి →",
+        footer_tagline: '"ముందుచూపే భవిష్యత్తు ఆపదలకు వ్యతిరేకంగా జ్ఞానుల ఆయుధం."',
+        polling_info: "ప్రతి 10 నిమిషాలకు నవీకరణ",
+        next_refresh: "తదుపరి నవీకరణ",
+        updated: "నవీకరించబడింది",
+        light: "లైట్",
+        dark: "డార్క్",
+        auto: "ఆటో",
+        initializing: "విదురఏజెంట్ ఇంటెలిజెన్స్ ఫీడ్ ప్రారంభించబడుతోంది…",
+        no_data: "సమాచారం లేదు"
+      },
+      hi: {
+        title: "विदुरएजेंट",
+        tagline: "मैक्रो · टेक्नोलॉजी · इंटेलिजेंस",
+        global_scroll: "ग्लोबल स्क्रॉल",
+        daily_pulse: "डेली पल्स — भारतीय बाजार इंटेलिजेंस",
+        sentiment: "भावना",
+        horizon_analysis: "रणनीतिक क्षितिज विश्लेषण",
+        five_year: "5-वर्षीय क्षितिज",
+        ten_year: "10-वर्षीय क्षितिज",
+        opportunities: "अवसर",
+        risks: "जोखिम कारक",
+        view_profile: "प्रोफाइल देखें →",
+        footer_tagline: '"पूर्वाभास भविष्य की विपत्ति के खिलाफ बुद्धिमानों का हथियार है।"',
+        polling_info: "हर 10 मिनट में पोलिंग",
+        next_refresh: "अगला रिफ्रेश",
+        updated: "अद्यतन",
+        light: "लाइट",
+        dark: "डार्क",
+        auto: "ऑटो",
+        initializing: "विदुरएजेंट इंटेलिजेंस फीड शुरू हो रहा है…",
+        no_data: "कोई डेटा नहीं"
+      },
+      or: {
+        title: "ବିଦୁରଏଜେଣ୍ଟ",
+        tagline: "ମାକ୍ରୋ · ଟେକ୍ନୋଲୋଜି · ଇଣ୍ଟେଲିଜେନ୍ସ",
+        global_scroll: "ଗ୍ଲୋବାଲ୍ ସ୍କ୍ରୋଲ୍",
+        daily_pulse: "ଦୈନିକ ପଲ୍ସ — ଭାରତୀୟ ବଜାର ସୂଚନା",
+        sentiment: "ସେଣ୍ଟିମେଣ୍ଟ",
+        horizon_analysis: "ରଣନୀତିକ ହୋରାଇଜନ୍ ବିଶ୍ଳେଷଣ",
+        five_year: "୫-ବର୍ଷର ହୋରାଇଜନ୍",
+        ten_year: "୧୦-ବର୍ଷର ହୋରାଇଜନ୍",
+        opportunities: "ସୁଯୋଗ",
+        risks: "ବିପଦ କାରକ",
+        view_profile: "ପ୍ରୋଫାଇଲ୍ ଦେଖନ୍ତୁ →",
+        footer_tagline: '"ଭବିଷ୍ୟତର ବିପତ୍ତି ବିରୁଦ୍ଧରେ ଦୂରଦୃଷ୍ଟି ହେଉଛି ଜ୍ଞାନୀମାନଙ୍କର ଅସ୍ତ୍ର।"',
+        polling_info: "ପ୍ରତି ୧୦ ମିନିଟରେ ଅପଡେଟ୍",
+        next_refresh: "ପରବର୍ତ୍ତୀ ଅପଡେଟ୍",
+        updated: "ଅପଡେଟ୍ ହୋଇଛି",
+        light: "ଲାଇଟ୍",
+        dark: "ଡାର୍କ",
+        auto: "ଅଟୋ",
+        initializing: "ବିଦୁରଏଜେଣ୍ଟ ଇଣ୍ଟେଲିଜେନ୍ସ ଫିଡ୍ ଆରମ୍ଭ ହେଉଛି…",
+        no_data: "କୌଣସି ତଥ୍ୟ ନାହିଁ"
+      },
+      kn: {
+        title: "ವಿದುರಏಜೆಂಟ್",
+        tagline: "ಮ್ಯಾಕ್ರೋ · ತಂತ್ರಜ್ಞಾನ · ಬುದ್ಧಿಮತ್ತೆ",
+        global_scroll: "ಜಾಗತಿಕ ಸ್ಕ್ರಾಲ್",
+        daily_pulse: "ದೈನಂದಿನ ಪಲ್ಸ್ — ಭಾರತೀಯ ಮಾರುಕಟ್ಟೆ ಬುದ್ಧಿಮತ್ತೆ",
+        sentiment: "ಭಾವನೆ",
+        horizon_analysis: "ಕಾರ್ಯತಂತ್ರದ ಹರವು ವಿಶ್ಲೇಷಣೆ",
+        five_year: "5-ವರ್ಷದ ಹರವು",
+        ten_year: "10-ವರ್ಷದ ಹರವು",
+        opportunities: "ಅವಕಾಶಗಳು",
+        risks: "ಅಪಾಯದ ಅಂಶಗಳು",
+        view_profile: "ಪ್ರೊಫೈಲ್ ವೀಕ್ಷಿಸಿ →",
+        footer_tagline: '"ಮುನ್ನೋಟವು ಭವಿಷ್ಯದ ಪ್ರತಿಕೂಲತೆಯ ವಿರುದ್ಧ ಜ್ಞಾನಿಗಳಿಗೆ ಇರುವ ಅಸ್ತ್ರವಾಗಿದೆ."',
+        polling_info: "ಪ್ರತಿ 10 ನಿಮಿಷಕ್ಕೆ ನವೀಕರಣ",
+        next_refresh: "ಮುಂದಿನ ನವೀಕರಣ",
+        updated: "ನವೀಕರಿಸಲಾಗಿದೆ",
+        light: "ಲೈಟ್",
+        dark: "ಡಾರ್ಕ್",
+        auto: "ಆಟೋ",
+        initializing: "ವಿದುರಏಜೆಂಟ್ ಬುದ್ಧಿಮತ್ತೆ ಫೀಡ್ ಪ್ರಾರಂಭವಾಗುತ್ತಿದೆ…",
+        no_data: "ಯಾವುದೇ ಮಾಹಿತಿ ಇಲ್ಲ"
+      },
+      ta: {
+        title: "விதுரஏஜென்ட்",
+        tagline: "மேக்ரோ · தொழில்நுட்பம் · உளவுத்துறை",
+        global_scroll: "உலகளாவிய ஸ்க்ரோல்",
+        daily_pulse: "தினசரி பல்ஸ் — இந்திய சந்தை உளவுத்துறை",
+        sentiment: "சென்டிமென்ட்",
+        horizon_analysis: "மூலோபாய ஹொரைசன் பகுப்பாய்வு",
+        five_year: "5-ஆண்டு ஹொரைசன்",
+        ten_year: "10-ஆண்டு ஹொரைசன்",
+        opportunities: "வாய்ப்புகள்",
+        risks: "ஆபத்து காரணிகள்",
+        view_profile: "விவரக்குறிப்பைக் காண்க →",
+        footer_tagline: '"முன்னோக்கு சிந்தனையே வருங்கால துன்பத்திற்கு எதிரான அறிஞர்களின் ஆயுதம்."',
+        polling_info: "ஒவ்வொரு 10 நிமிடங்களுக்கும் புதுப்பிப்பு",
+        next_refresh: "அடுத்த புதுப்பிப்பு",
+        updated: "புதுப்பிக்கப்பட்டது",
+        light: "லைட்",
+        dark: "டார்க்",
+        auto: "ஆட்டோ",
+        initializing: "விதுரஏஜென்ட் நுண்ணறிவு ஊட்டம் தொடங்கப்படுகிறது…",
+        no_data: "தகவல் இல்லை"
+      },
+      mr: {
+        title: "विदुरएजंट",
+        tagline: "मॅक्रो · तंत्रज्ञान · इंटेलिजन्स",
+        global_scroll: "ग्लोबल स्क्रॉल",
+        daily_pulse: "डेली पल्स — भारतीय बाजार इंटेलिजन्स",
+        sentiment: "भावना",
+        horizon_analysis: "रणनीतिक क्षितिज विश्लेषण",
+        five_year: "५-वर्षीय क्षितिज",
+        ten_year: "१०-वर्षीय क्षितिज",
+        opportunities: "संधी",
+        risks: "धोके आणि आव्हाने",
+        view_profile: "प्रोफाइल पहा →",
+        footer_tagline: '"दूरदृष्टी हे भविष्यातील संकटाविरुद्ध शहाण्यांचे शस्त्र आहे."',
+        polling_info: "दर १० मिनिटांनी पोलिंग",
+        next_refresh: "पुढील रिफ्रेश",
+        updated: "अपडेट केले",
+        light: "लाइट",
+        dark: "डार्क",
+        auto: "ऑटो",
+        initializing: "विदुरएजंट इंटेलिजन्स फीड सुरू होत आहे…",
+        no_data: "माहिती उपलब्ध नाही"
+      }
+    };
+
+    /* ─── Language & Google Translate Engine ────────────────────────── */
+    function toggleLangDropdown() {
+      document.getElementById('langDropdown').classList.toggle('show');
+    }
+
+    function applyNativeTranslations(lang) {
+      currentLang = lang;
+      const dict = TRANSLATIONS[lang] || TRANSLATIONS['en'];
+      
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) {
+          if (key === 'title') {
+            el.innerHTML = `ViduraAgent <span style="font-weight:300; color:var(--text-muted);">${lang === 'en' ? 'विदुरएजण्ट' : dict[key]}</span>`;
+          } else {
+            el.textContent = dict[key];
+          }
+        }
+      });
+    }
+
+    function changeLanguage(langCode) {
+      localStorage.setItem(LANG_KEY, langCode);
+      applyNativeTranslations(langCode);
+
+      // Highlight selected dropdown option
+      document.querySelectorAll('.lang-dropdown button').forEach(btn => {
+        const onclickAttr = btn.getAttribute('onclick');
+        btn.classList.toggle('active', onclickAttr && onclickAttr.includes(`'${langCode}'`));
+      });
+
+      // Update dropdown main button text
+      const langLabels = {
+        en: 'English',
+        te: 'తెలుగు',
+        hi: 'हिन्दी',
+        or: 'ଓଡ଼ିଆ',
+        kn: 'ಕನ್ನಡ',
+        ta: 'தமிழ்',
+        mr: 'मराठी'
+      };
+      document.getElementById('currentLangLabel').textContent = langLabels[langCode] || 'English';
+
+      // Programmatically trigger Google Translate
+      const selectEl = document.querySelector('.goog-te-combo');
+      if (selectEl) {
+        selectEl.value = langCode === 'en' ? '' : langCode;
+        selectEl.dispatchEvent(new Event('change'));
+      } else {
+        if (langCode === 'en') {
+          document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+          document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=" + window.location.hostname + "; path=/;";
+        } else {
+          document.cookie = "googtrans=/en/" + langCode + "; path=/";
+          document.cookie = "googtrans=/en/" + langCode + "; domain=" + window.location.hostname + "; path=/";
+        }
+      }
+
+      document.getElementById('langDropdown').classList.remove('show');
+    }
+
+    window.googleTranslateElementInit = function() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,te,hi,or,kn,ta,mr',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+      }, 'google_translate_element');
+
+      // Sync selector option with saved language
+      setTimeout(() => {
+        const savedLang = localStorage.getItem(LANG_KEY) || 'en';
+        if (savedLang !== 'en') {
+          changeLanguage(savedLang);
+        }
+      }, 800);
+    };
+
+    // Close language selector when clicking outside
+    window.addEventListener('click', (e) => {
+      const selector = document.querySelector('.lang-selector');
+      if (selector && !selector.contains(e.target)) {
+        document.getElementById('langDropdown').classList.remove('show');
+      }
+    });
 
     /* ─── Theme Engine ──────────────────────────────────────────────── */
     function applyTheme(mode) {
@@ -683,11 +1100,10 @@
     function setTheme(mode) {
       localStorage.setItem(THEME_KEY, mode);
       applyTheme(mode);
-      // Update active button
       ['light','dark','auto'].forEach(m => {
-        document.getElementById(`btn-${m}`).classList.toggle('active', m === mode);
+        const btn = document.getElementById(`btn-${m}`);
+        if (btn) btn.classList.toggle('active', m === mode);
       });
-      // Watch system changes if in auto mode
       if (sysThemeWatcher) { sysThemeWatcher.removeEventListener('change', onSysChange); }
       if (mode === 'auto') {
         sysThemeWatcher = window.matchMedia('(prefers-color-scheme: dark)');
@@ -714,13 +1130,69 @@
 
     const MARKET_LABELS = { NIFTY50:'NIFTY 50', SENSEX:'SENSEX', GOLD_USD:'Gold (USD)', BRENT:'Brent Crude', USDINR:'USD/INR' };
 
-    /* ─── Data Fetch ────────────────────────────────────────────────── */
+    /* ─── Data Fetch & Toast ────────────────────────────────────────── */
     async function fetchData() {
       const r = await fetch(`${DATA_FILE}?t=${Date.now()}`);
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return r.json();
     }
 
+    function showToast(message) {
+      let toast = document.getElementById('toastNotification');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'toastNotification';
+        toast.className = 'toast-notification';
+        toast.innerHTML = '<span class="toast-icon">✓</span><span class="toast-message"></span>';
+        document.body.appendChild(toast);
+      }
+      toast.querySelector('.toast-message').textContent = message;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    async function triggerDataFetch() {
+      const btn = document.getElementById('refreshBtn');
+      if (btn) btn.classList.add('spinning');
+      try {
+        const data = await fetchData();
+        lastFetchTime = Date.now();
+        lastRefreshTime = Date.now();
+        renderAll(data);
+        showToast("Intelligence feed updated!");
+
+        // Card shimmer flash effect
+        document.querySelectorAll('.pulse-card, .sector-card, .market-chip').forEach(c => {
+          c.classList.add('shimmer-flash');
+          setTimeout(() => c.classList.remove('shimmer-flash'), 500);
+        });
+      } catch (err) {
+        console.warn('[ViduraAgent] Polling refresh failed:', err);
+        showToast("Refresh failed. Offline cache active.");
+      } finally {
+        if (btn) btn.classList.remove('spinning');
+        startCountdown();
+        updateRelativeTime();
+      }
+    }
+
+    /* ─── Relative Time Updater ─────────────────────────────────────── */
+    let lastRefreshTime = Date.now();
+
+    function updateRelativeTime() {
+      const diffMs = Date.now() - lastRefreshTime;
+      const mins = Math.floor(diffMs / 60000);
+      let text = 'Refreshed: Just now';
+      if (mins > 0) {
+        text = `Refreshed: ${mins}m ago`;
+      }
+      const label = document.getElementById('lastRefreshedLabel');
+      if (label) label.textContent = text;
+    }
+
+    /* ─── Render Pipeline ───────────────────────────────────────────── */
     function renderAll(data) {
       renderHeader(data);
       renderTicker(data.global_scroll || []);
@@ -729,16 +1201,20 @@
       renderHorizon('five_year', data.horizons?.five_year || {});
       renderHorizon('ten_year',  data.horizons?.ten_year  || {});
       renderPublisher(data.publisher || {});
+      applyNativeTranslations(currentLang);
     }
 
     function renderHeader(data) {
-      if (data.last_updated)
-        document.getElementById('lastUpdatedLabel').textContent = `Updated: ${data.last_updated}`;
+      if (data.last_updated) {
+        const dict = TRANSLATIONS[currentLang] || TRANSLATIONS['en'];
+        document.getElementById('lastUpdatedLabel').textContent = `${dict.updated || 'Updated'}: ${data.last_updated}`;
+      }
     }
 
     function renderTicker(items) {
       if (!items.length) return;
       const track = document.getElementById('tickerTrack');
+      if (!track) return;
       const wrap  = track.parentElement;
       const mk = ({ headline, impact }) => {
         const pip = impact === 'Positive' ? 'pip-positive' : impact === 'Negative' ? 'pip-negative' : 'pip-neutral';
@@ -760,6 +1236,7 @@
 
     function renderMarketBar(snapshot) {
       const bar = document.getElementById('marketBar');
+      if (!bar) return;
       bar.innerHTML = '';
       for (const [key, label] of Object.entries(MARKET_LABELS)) {
         const d = snapshot[key]; if (!d) continue;
@@ -774,30 +1251,38 @@
     }
 
     function renderPulse(pulse) {
-      document.getElementById('pulseHeadline').textContent = pulse.media_headline || 'No headline available.';
+      const hl = document.getElementById('pulseHeadline');
+      if (hl) hl.textContent = pulse.media_headline || 'No headline available.';
       const sent = (pulse.social_sentiment || 'Neutral').toLowerCase();
       const pill = document.getElementById('sentimentPill');
-      pill.textContent = pulse.social_sentiment || 'Neutral';
-      pill.className   = `sentiment-pill sentiment-${sent}`;
-      // Indian architecture sentiment icons
+      if (pill) {
+        pill.textContent = pulse.social_sentiment || 'Neutral';
+        pill.className   = `sentiment-pill sentiment-${sent}`;
+      }
       const sentIcon = document.getElementById('sentimentIcon');
-      if (sent === 'bullish') {
-        sentIcon.innerHTML = '<img src="icons/horizon10.png" class="arch-icon-lg" alt="Bullish" style="filter:hue-rotate(120deg) saturate(1.5)" onerror="this.outerHTML=\'📈\'" />';
-      } else if (sent === 'bearish') {
-        sentIcon.innerHTML = '<img src="icons/horizon5.png" class="arch-icon-lg" alt="Bearish" style="filter:hue-rotate(-30deg) saturate(1.5)" onerror="this.outerHTML=\'📉\'" />';
-      } else {
-        sentIcon.innerHTML = '<img src="icons/scroll.png" class="arch-icon-lg" alt="Neutral" onerror="this.outerHTML=\'〰️\'" />';
+      if (sentIcon) {
+        if (sent === 'bullish') {
+          sentIcon.innerHTML = '<img src="icons/horizon10.png" class="arch-icon-lg" alt="Bullish" style="filter:hue-rotate(120deg) saturate(1.5)" onerror="this.outerHTML=\'📈\'" />';
+        } else if (sent === 'bearish') {
+          sentIcon.innerHTML = '<img src="icons/horizon5.png" class="arch-icon-lg" alt="Bearish" style="filter:hue-rotate(-30deg) saturate(1.5)" onerror="this.outerHTML=\'📉\'" />';
+        } else {
+          sentIcon.innerHTML = '<img src="icons/scroll.png" class="arch-icon-lg" alt="Neutral" onerror="this.outerHTML=\'〰️\'" />';
+        }
       }
       const tagsEl = document.getElementById('pulseTags');
-      tagsEl.innerHTML = '';
-      (pulse.trending_tags || []).forEach(tag => {
-        const c = document.createElement('span'); c.className = 'tag-chip'; c.textContent = tag; tagsEl.appendChild(c);
-      });
+      if (tagsEl) {
+        tagsEl.innerHTML = '';
+        (pulse.trending_tags || []).forEach(tag => {
+          const c = document.createElement('span'); c.className = 'tag-chip'; c.textContent = tag; tagsEl.appendChild(c);
+        });
+      }
     }
 
     function renderHorizon(key, horizonData) {
       const panel = document.getElementById(`panel_${key}`);
+      if (!panel) return;
       panel.innerHTML = '';
+      const dict = TRANSLATIONS[currentLang] || TRANSLATIONS['en'];
       SECTORS.forEach(({ key: sKey, label, icon, subtitle }) => {
         const s = horizonData[sKey] || {};
         const opps = s.opportunities || [], risks = s.risks || [];
@@ -805,30 +1290,35 @@
         card.className = `sector-card ${sKey}`;
         card.innerHTML = `
           <div class="sector-header"><div class="sector-icon">${icon}</div><div><div class="sector-name">${esc(label)}</div><div class="sector-subtitle">${esc(subtitle)}</div></div></div>
-          <div class="opp-risk-block"><div class="block-title opps"><span>▲</span> Opportunities</div>
-            <ul class="bullet-list opps">${opps.length ? opps.map(o=>`<li>${esc(o)}</li>`).join('') : '<li class="empty">No data</li>'}</ul></div>
-          <div class="opp-risk-block"><div class="block-title risks"><span>▼</span> Risk Factors</div>
-            <ul class="bullet-list risks">${risks.length ? risks.map(r=>`<li>${esc(r)}</li>`).join('') : '<li class="empty">No data</li>'}</ul></div>`;
+          <div class="opp-risk-block"><div class="block-title opps"><span>▲</span> <span data-i18n="opportunities">${dict.opportunities || 'Opportunities'}</span></div>
+            <ul class="bullet-list opps">${opps.length ? opps.map(o=>`<li>${esc(o)}</li>`).join('') : `<li class="empty" data-i18n="no_data">${dict.no_data || 'No data'}</li>`}</ul></div>
+          <div class="opp-risk-block"><div class="block-title risks"><span>▼</span> <span data-i18n="risks">${dict.risks || 'Risk Factors'}</span></div>
+            <ul class="bullet-list risks">${risks.length ? risks.map(r=>`<li>${esc(r)}</li>`).join('') : `<li class="empty" data-i18n="no_data">${dict.no_data || 'No data'}</li>`}</ul></div>`;
         panel.appendChild(card);
       });
     }
 
     function renderPublisher(pub) {
       if (!pub.name) return;
-      document.getElementById('publisherAvatar').textContent = pub.name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
-      document.getElementById('publisherName').textContent   = pub.name;
+      const avatar = document.getElementById('publisherAvatar');
+      if (avatar) avatar.textContent = pub.name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
+      const name = document.getElementById('publisherName');
+      if (name) name.textContent = pub.name;
       const link = document.getElementById('publisherLink');
-      if (pub.profile_url && (pub.profile_url.startsWith('https://') || pub.profile_url.startsWith('http://'))) {
-        link.href        = pub.profile_url;
-        link.textContent = 'View Profile →';
+      if (link && pub.profile_url && (pub.profile_url.startsWith('https://') || pub.profile_url.startsWith('http://'))) {
+        link.href = pub.profile_url;
+        const dict = TRANSLATIONS[currentLang] || TRANSLATIONS['en'];
+        link.textContent = dict.view_profile || 'View Profile →';
       }
     }
 
     function switchHorizon(key) {
       document.querySelectorAll('.horizon-panel').forEach(p => p.classList.remove('active'));
       document.querySelectorAll('.horizon-tab').forEach(t => t.classList.remove('active'));
-      document.getElementById(`panel_${key}`).classList.add('active');
-      document.getElementById(key === 'five_year' ? 'tab5y' : 'tab10y').classList.add('active');
+      const activePanel = document.getElementById(`panel_${key}`);
+      if (activePanel) activePanel.classList.add('active');
+      const activeTab = document.getElementById(key === 'five_year' ? 'tab5y' : 'tab10y');
+      if (activeTab) activeTab.classList.add('active');
     }
 
     function startCountdown() {
@@ -838,7 +1328,11 @@
         const rem = Math.max(0, nextRefreshAt - Date.now());
         const h = Math.floor(rem / 3_600_000), m = Math.floor((rem%3_600_000)/60_000), s = Math.floor((rem%60_000)/1_000);
         const p = n => String(n).padStart(2,'0');
-        document.getElementById('refreshInfo').innerHTML = `Next refresh in ${p(h)}:${p(m)}:${p(s)}<br/><span style="font-size:10px;opacity:0.6;">Polling every 10 minutes</span>`;
+        const dict = TRANSLATIONS[currentLang] || TRANSLATIONS['en'];
+        const info = document.getElementById('refreshInfo');
+        if (info) {
+          info.innerHTML = `${dict.next_refresh || 'Next refresh in'} ${p(h)}:${p(m)}:${p(s)}<br/><span style="font-size:10px;opacity:0.6;">${dict.polling_info || 'Polling every 10 minutes'}</span>`;
+        }
       }, 1000);
     }
 
@@ -846,6 +1340,20 @@
       if (typeof str !== 'string') return '';
       return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
     }
+
+    /* ─── Visibility API Polling Control ────────────────────────────── */
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') {
+        const timeSinceLast = Date.now() - lastFetchTime;
+        if (timeSinceLast >= POLL_INTERVAL_MS) {
+          triggerDataFetch();
+        } else {
+          startCountdown();
+        }
+      } else {
+        if (countdownTimer) clearInterval(countdownTimer);
+      }
+    });
 
     async function bootstrap() {
       initTheme();
@@ -864,17 +1372,37 @@
         renderAll(SEED_DATA);
       } finally {
         const ov = document.getElementById('loadingOverlay');
-        ov.classList.add('hidden');
-        setTimeout(() => ov.remove(), 600);
+        if (ov) {
+          ov.classList.add('hidden');
+          setTimeout(() => ov.remove(), 600);
+        }
       }
+      
+      // Load Google Translate Widget Script
+      const script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+      document.body.appendChild(script);
+
       startCountdown();
+
+      // Start relative time updater
+      if (relativeTimer) clearInterval(relativeTimer);
+      relativeTimer = setInterval(updateRelativeTime, 30000);
+      
+      // Load saved language
+      const savedLang = localStorage.getItem(LANG_KEY) || 'en';
+      if (savedLang !== 'en') {
+        applyNativeTranslations(savedLang);
+      }
     }
 
     function schedulePoll() {
       if (!IS_HTTP) return;
       setTimeout(async () => {
-        try { renderAll(await fetchData()); } catch(e) { console.warn('[ViduraAgent] Poll failed:', e); }
-        startCountdown();
+        if (document.visibilityState === 'visible') {
+          await triggerDataFetch();
+        }
         schedulePoll();
       }, POLL_INTERVAL_MS);
     }

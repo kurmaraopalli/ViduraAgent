@@ -46,6 +46,8 @@ ViduraAgent is designed with a decoupled **Zero-Infrastructure-Cost** design:
 *   **Dashboard Frontend**: Vanilla HTML5 and pure CSS3 using advanced HSL color tokens for transition animations.
 *   **Hosting**: Serverless delivery via **GitHub Pages** serving straight from the `/docs` folder.
 *   **Theme Engine**: Custom LocalStorage-based theme engine supporting **☀️ Light**, **🌙 Dark**, and **⚙️ Auto** (system OS theme matching and live change event monitoring).
+*   **Localization Support**: Elegant custom selector supporting **English**, **Telugu (తెలుగు)**, **Hindi (हिन्दी)**, **Odiya (ଓଡ଼ିଆ)**, **Kannada (ಕನ್ನಡ)**, **Tamil (தமிழ்)**, and **Marathi (मराठी)**. Combines a native UI label mapper with programmatic Google Translate widget controls (hidden behind clean CSS overrides).
+*   **Smart Polling & Auto-Refresh**: Background polling loop (every 10 minutes) controlled by the browser Page Visibility API to pause data requests when backgrounded. Features an interactive manual refresh trigger (🔄), card shimmer animations, and real-time relative update age labels ("Refreshed: 3m ago").
 *   **XSS Protection**: Complete context-escaping on all dynamic elements using custom escaping routines, plus absolute URL scheme verification on publisher links.
 
 ---
