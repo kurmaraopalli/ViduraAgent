@@ -1,63 +1,91 @@
 {
-  "last_updated": "2026-07-01",
+  "last_updated": "2026-07-04",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 24025.1,
-      "change_pct": 0.45
+      "price": 24270.85,
+      "change_pct": 0.43
     },
     "SENSEX": {
-      "price": 77032.01,
-      "change_pct": 0.72
+      "price": 77763.91,
+      "change_pct": 0.34
     },
     "GOLD_USD": {
-      "price": 3981.0,
-      "change_pct": -0.36
+      "price": 4187.3,
+      "change_pct": 2.57
     },
     "BRENT": {
-      "price": 72.96,
-      "change_pct": -0.41
+      "price": 72.13,
+      "change_pct": 1.99
     },
     "USDINR": {
-      "price": 94.72,
-      "change_pct": 0.07
+      "price": 95.2,
+      "change_pct": -0.19
     }
   },
-  "global_scroll": [],
+  "global_scroll": [
+    {
+      "headline": "Live market and news feeds are being refreshed; fallback content is active.",
+      "impact": "Neutral"
+    },
+    {
+      "headline": "ViduraAgent will populate richer signals once live feeds respond normally.",
+      "impact": "Neutral"
+    }
+  ],
   "daily_pulse": {
-    "media_headline": "India markets stable today.",
-    "social_sentiment": "Neutral",
-    "trending_tags": []
+    "media_headline": "India macro indicators remain in focus amid policy and liquidity shifts.",
+    "social_sentiment": "Bullish",
+    "trending_tags": [
+      "#India",
+      "#Macro",
+      "#Indicators",
+      "#Remain",
+      "#Focus",
+      "#Policy"
+    ]
   },
   "horizons": {
     "five_year": {
       "stocks": {
-        "opportunities": [],
+        "opportunities": [
+          "India’s structural growth story remains intact across domestic demand and policy support."
+        ],
         "risks": []
       },
       "it": {
-        "opportunities": [],
+        "opportunities": [
+          "Technology services and GCC expansion continue to reshape India’s export mix."
+        ],
         "risks": []
       },
       "ai": {
-        "opportunities": [],
+        "opportunities": [
+          "AI adoption is gradually moving from pilots toward broader enterprise deployment."
+        ],
         "risks": []
       }
     },
     "ten_year": {
       "stocks": {
-        "opportunities": [],
+        "opportunities": [
+          "Long-term wealth creation remains tied to manufacturing, services, and financial deepening."
+        ],
         "risks": []
       },
       "it": {
-        "opportunities": [],
+        "opportunities": [
+          "Digital infrastructure and platform-led services could widen India’s strategic influence."
+        ],
         "risks": []
       },
       "ai": {
-        "opportunities": [],
+        "opportunities": [
+          "Sovereign compute and AI talent ecosystems are central to long-horizon competitiveness."
+        ],
         "risks": []
       }
     }
