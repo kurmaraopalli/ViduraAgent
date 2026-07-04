@@ -28,12 +28,16 @@
   },
   "global_scroll": [
     {
-      "headline": "Live market and news feeds are being refreshed; fallback content is active.",
+      "headline": "What to expect as Kevin Warsh leads his first Fed interest rate meeting",
       "impact": "Neutral"
     },
     {
-      "headline": "ViduraAgent will populate richer signals once live feeds respond normally.",
+      "headline": "Federal Reserve holds interest rates steady and hints at rate hike later this year",
       "impact": "Neutral"
+    },
+    {
+      "headline": "Fed holds rates steady, pares down statement to remove cutting bias",
+      "impact": "Negative"
     }
   ],
   "daily_pulse": {
