@@ -1,45 +1,32 @@
 {
-  "last_updated": "2026-07-03",
+  "last_updated": "2026-07-04",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 24331.4,
-      "change_pct": 0.68
+      "price": 24270.85,
+      "change_pct": 0.43
     },
     "SENSEX": {
-      "price": 77953.09,
-      "change_pct": 0.58
+      "price": 77763.91,
+      "change_pct": 0.34
     },
     "GOLD_USD": {
-      "price": 4183.4,
-      "change_pct": 2.48
+      "price": 4187.3,
+      "change_pct": 2.57
     },
     "BRENT": {
-      "price": 72.45,
-      "change_pct": 2.45
+      "price": 72.13,
+      "change_pct": 1.99
     },
     "USDINR": {
-      "price": 95.31,
-      "change_pct": -0.08
+      "price": 95.2,
+      "change_pct": -0.19
     }
   },
-  "global_scroll": [
-    {
-      "headline": "Federal Reserve holds interest rates steady and hints at rate hike later this year",
-      "impact": "Neutral"
-    },
-    {
-      "headline": "What to expect as Kevin Warsh leads his first Fed interest rate meeting",
-      "impact": "Neutral"
-    },
-    {
-      "headline": "ECB's rate hike sparks global alarm: Will Fed, BoE follow as inflation fears return?",
-      "impact": "Negative"
-    }
-  ],
+  "global_scroll": [],
   "daily_pulse": {
     "media_headline": "India markets stable today.",
     "social_sentiment": "Neutral",
