@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-04",
+  "last_updated": "2026-07-05",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
@@ -32,12 +32,12 @@
       "impact": "Neutral"
     },
     {
-      "headline": "Federal Reserve holds interest rates steady and hints at rate hike later this year",
-      "impact": "Neutral"
+      "headline": "ECB's rate hike sparks global alarm: Will Fed, BoE follow as inflation fears return?",
+      "impact": "Negative"
     },
     {
-      "headline": "Fed holds rates steady, pares down statement to remove cutting bias",
-      "impact": "Negative"
+      "headline": "Federal Reserve holds interest rates steady but leaves door open to hike",
+      "impact": "Neutral"
     }
   ],
   "daily_pulse": {
