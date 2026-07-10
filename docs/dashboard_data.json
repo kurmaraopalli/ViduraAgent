@@ -1,29 +1,29 @@
 {
-  "last_updated": "2026-07-09",
+  "last_updated": "2026-07-10",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 24052.0,
-      "change_pct": 0.65
-    },
-    "SENSEX": {
-      "price": 77060.26,
-      "change_pct": 0.73
-    },
-    "GOLD_USD": {
-      "price": 4102.2,
+      "price": 24159.35,
       "change_pct": 0.74
     },
+    "SENSEX": {
+      "price": 77409.97,
+      "change_pct": 0.87
+    },
+    "GOLD_USD": {
+      "price": 4123.7,
+      "change_pct": -0.3
+    },
     "BRENT": {
-      "price": 78.0,
-      "change_pct": -1.1
+      "price": 76.14,
+      "change_pct": -0.3
     },
     "USDINR": {
-      "price": 95.34,
-      "change_pct": -0.21
+      "price": 95.3,
+      "change_pct": -0.08
     }
   },
   "global_scroll": [
@@ -36,8 +36,8 @@
       "impact": "Negative"
     },
     {
-      "headline": "Fed holds rates steady, pares down statement to remove cutting bias",
-      "impact": "Negative"
+      "headline": "Federal Reserve holds interest rates steady but leaves door open to hike",
+      "impact": "Neutral"
     }
   ],
   "daily_pulse": {
