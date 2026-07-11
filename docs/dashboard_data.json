@@ -1,29 +1,29 @@
 {
-  "last_updated": "2026-07-10",
+  "last_updated": "2026-07-11",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 24159.35,
-      "change_pct": 0.74
+      "price": 24206.9,
+      "change_pct": 0.94
     },
     "SENSEX": {
-      "price": 77409.97,
-      "change_pct": 0.87
+      "price": 77569.39,
+      "change_pct": 1.08
     },
     "GOLD_USD": {
-      "price": 4123.7,
-      "change_pct": -0.3
+      "price": 4104.1,
+      "change_pct": -0.62
     },
     "BRENT": {
-      "price": 76.14,
-      "change_pct": -0.3
+      "price": 76.01,
+      "change_pct": -0.76
     },
     "USDINR": {
-      "price": 95.3,
-      "change_pct": -0.08
+      "price": 95.37,
+      "change_pct": -0.01
     }
   },
   "global_scroll": [
@@ -32,12 +32,12 @@
       "impact": "Neutral"
     },
     {
-      "headline": "Morgan Stanley warns on Warsh's Fed ahead of interest rate cut decision",
+      "headline": "ECB's rate hike sparks global alarm: Will Fed, BoE follow as inflation fears return?",
       "impact": "Negative"
     },
     {
-      "headline": "Federal Reserve holds interest rates steady but leaves door open to hike",
-      "impact": "Neutral"
+      "headline": "Morgan Stanley warns on Warsh's Fed ahead of interest rate cut decision",
+      "impact": "Negative"
     }
   ],
   "daily_pulse": {
