@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-11",
+  "last_updated": "2026-07-12",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
@@ -14,8 +14,8 @@
       "change_pct": 1.08
     },
     "GOLD_USD": {
-      "price": 4104.1,
-      "change_pct": -0.62
+      "price": 4113.7,
+      "change_pct": -0.38
     },
     "BRENT": {
       "price": 76.01,
@@ -32,12 +32,12 @@
       "impact": "Neutral"
     },
     {
-      "headline": "ECB's rate hike sparks global alarm: Will Fed, BoE follow as inflation fears return?",
+      "headline": "Fed Chief Kevin Warsh declines to hint at July rate decision, but says inflation 'too high'",
       "impact": "Negative"
     },
     {
-      "headline": "Morgan Stanley warns on Warsh's Fed ahead of interest rate cut decision",
-      "impact": "Negative"
+      "headline": "Will the Federal Reserve Raise or Lower Interest Rates in 2026? Here's What the Data Suggests.",
+      "impact": "Neutral"
     }
   ],
   "daily_pulse": {
