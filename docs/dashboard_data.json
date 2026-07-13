@@ -1,29 +1,29 @@
 {
-  "last_updated": "2026-07-12",
+  "last_updated": "2026-07-13",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 24206.9,
-      "change_pct": 0.94
+      "price": 24148.7,
+      "change_pct": -0.26
     },
     "SENSEX": {
-      "price": 77569.39,
-      "change_pct": 1.08
+      "price": 77387.9,
+      "change_pct": -0.23
     },
     "GOLD_USD": {
-      "price": 4113.7,
-      "change_pct": -0.38
+      "price": 4069.5,
+      "change_pct": -0.56
     },
     "BRENT": {
-      "price": 76.01,
-      "change_pct": -0.76
+      "price": 79.41,
+      "change_pct": 0.14
     },
     "USDINR": {
-      "price": 95.37,
-      "change_pct": -0.01
+      "price": 95.77,
+      "change_pct": 0.42
     }
   },
   "global_scroll": [
@@ -32,12 +32,12 @@
       "impact": "Neutral"
     },
     {
-      "headline": "Fed Chief Kevin Warsh declines to hint at July rate decision, but says inflation 'too high'",
+      "headline": "Morgan Stanley warns on Warsh's Fed ahead of interest rate cut decision",
       "impact": "Negative"
     },
     {
-      "headline": "Will the Federal Reserve Raise or Lower Interest Rates in 2026? Here's What the Data Suggests.",
-      "impact": "Neutral"
+      "headline": "Fed holds rates steady, pares down statement to remove cutting bias",
+      "impact": "Negative"
     }
   ],
   "daily_pulse": {
