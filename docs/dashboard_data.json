@@ -1,43 +1,43 @@
 {
-  "last_updated": "2026-07-14",
+  "last_updated": "2026-07-15",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 24088.5,
-      "change_pct": -0.5
+      "price": 24210.75,
+      "change_pct": 0.73
     },
     "SENSEX": {
-      "price": 77104.72,
-      "change_pct": -0.66
+      "price": 77599.82,
+      "change_pct": 0.71
     },
     "GOLD_USD": {
-      "price": 4027.3,
-      "change_pct": 0.33
+      "price": 4038.8,
+      "change_pct": 0.02
     },
     "BRENT": {
-      "price": 84.94,
-      "change_pct": 0.74
+      "price": 85.63,
+      "change_pct": -0.08
     },
     "USDINR": {
-      "price": 96.15,
-      "change_pct": 0.55
+      "price": 96.18,
+      "change_pct": -0.01
     }
   },
   "global_scroll": [
-    {
-      "headline": "Federal Reserve holds interest rates steady and hints at rate hike later this year",
-      "impact": "Neutral"
-    },
     {
       "headline": "Morgan Stanley warns on Warsh's Fed ahead of interest rate cut decision",
       "impact": "Negative"
     },
     {
-      "headline": "Fed holds rates steady, pares down statement to remove cutting bias",
-      "impact": "Negative"
+      "headline": "Federal Reserve holds interest rates steady and hints at rate hike later this year",
+      "impact": "Neutral"
+    },
+    {
+      "headline": "Will the Federal Reserve Raise or Lower Interest Rates in 2026? Here's What the Data Suggests.",
+      "impact": "Neutral"
     }
   ],
   "daily_pulse": {
