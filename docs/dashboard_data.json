@@ -1,39 +1,43 @@
 {
-  "last_updated": "2026-07-16",
+  "last_updated": "2026-07-17",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 24152.2,
-      "change_pct": 0.33
+      "price": 24258.4,
+      "change_pct": 0.74
     },
     "SENSEX": {
-      "price": 77318.63,
-      "change_pct": 0.17
+      "price": 77921.5,
+      "change_pct": 0.95
     },
     "GOLD_USD": {
-      "price": 4034.8,
-      "change_pct": -0.75
+      "price": 3981.4,
+      "change_pct": -0.06
     },
     "BRENT": {
-      "price": 84.5,
-      "change_pct": -0.93
+      "price": 84.95,
+      "change_pct": 0.01
     },
     "USDINR": {
-      "price": 96.31,
-      "change_pct": 0.07
+      "price": 96.33,
+      "change_pct": -0.01
     }
   },
   "global_scroll": [
     {
-      "headline": "Live market and news feeds are being refreshed; fallback content is active.",
+      "headline": "Live: Federal Reserve Chair Jerome Powell Says The Economy Is In A 'Really Good Place'",
       "impact": "Neutral"
     },
     {
-      "headline": "ViduraAgent will populate richer signals once live feeds respond normally.",
+      "headline": "What time will US Fed announce interest rate decision? What to expect from Kevin Warsh's first FOMC meeting?",
       "impact": "Neutral"
+    },
+    {
+      "headline": "ECB's rate hike sparks global alarm: Will Fed, BoE follow as inflation fears return?",
+      "impact": "Negative"
     }
   ],
   "daily_pulse": {
