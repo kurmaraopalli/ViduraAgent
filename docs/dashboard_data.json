@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-07-18",
+  "last_updated": "2026-07-19",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
@@ -14,8 +14,8 @@
       "change_pct": 1.25
     },
     "GOLD_USD": {
-      "price": 4012.7,
-      "change_pct": 0.43
+      "price": 4018.8,
+      "change_pct": 0.58
     },
     "BRENT": {
       "price": 88.1,
@@ -36,8 +36,8 @@
       "impact": "Neutral"
     },
     {
-      "headline": "ECB's rate hike sparks global alarm: Will Fed, BoE follow as inflation fears return?",
-      "impact": "Negative"
+      "headline": "Fed meeting today: When will US Fed announce interest rate decision and what to expect",
+      "impact": "Neutral"
     }
   ],
   "daily_pulse": {
