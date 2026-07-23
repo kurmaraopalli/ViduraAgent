@@ -1,42 +1,38 @@
 {
-  "last_updated": "2026-07-22",
+  "last_updated": "2026-07-23",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 24014.35,
-      "change_pct": -0.74
+      "price": 23987.65,
+      "change_pct": -0.01
     },
     "SENSEX": {
-      "price": 76814.02,
-      "change_pct": -0.85
+      "price": 76676.82,
+      "change_pct": -0.1
     },
     "GOLD_USD": {
-      "price": 4128.6,
-      "change_pct": -0.17
+      "price": 4126.3,
+      "change_pct": -0.03
     },
     "BRENT": {
-      "price": 92.39,
-      "change_pct": 0.23
+      "price": 96.03,
+      "change_pct": 0.5
     },
     "USDINR": {
-      "price": 96.45,
-      "change_pct": 0.23
+      "price": 96.53,
+      "change_pct": -0.03
     }
   },
   "global_scroll": [
     {
-      "headline": "Live: Federal Reserve Chair Jerome Powell Says The Economy Is In A 'Really Good Place'",
+      "headline": "Live market and news feeds are being refreshed; fallback content is active.",
       "impact": "Neutral"
     },
     {
-      "headline": "What time will US Fed announce interest rate decision? What to expect from Kevin Warsh's first FOMC meeting?",
-      "impact": "Neutral"
-    },
-    {
-      "headline": "Fed meeting today: When will US Fed announce interest rate decision and what to expect",
+      "headline": "ViduraAgent will populate richer signals once live feeds respond normally.",
       "impact": "Neutral"
     }
   ],
