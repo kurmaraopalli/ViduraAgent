@@ -1,38 +1,42 @@
 {
-  "last_updated": "2026-07-31",
+  "last_updated": "2026-08-01",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 24361.3,
-      "change_pct": 0.27
+      "price": 24383.6,
+      "change_pct": 0.36
     },
     "SENSEX": {
-      "price": 78000.4,
-      "change_pct": 0.09
+      "price": 78094.64,
+      "change_pct": 0.21
     },
     "GOLD_USD": {
-      "price": 4136.8,
-      "change_pct": -0.1
+      "price": 4049.1,
+      "change_pct": -2.03
     },
     "BRENT": {
-      "price": 87.0,
-      "change_pct": -1.14
+      "price": 90.12,
+      "change_pct": 2.35
     },
     "USDINR": {
-      "price": 95.4,
-      "change_pct": -0.28
+      "price": 95.39,
+      "change_pct": -0.29
     }
   },
   "global_scroll": [
     {
-      "headline": "Live market and news feeds are being refreshed; fallback content is active.",
+      "headline": "US Fed keeps rates steady, sees 50 bps rate cut in 2025",
+      "impact": "Negative"
+    },
+    {
+      "headline": "4 ways the Fed's decision to hold interest rates steady will impact your wallet",
       "impact": "Neutral"
     },
     {
-      "headline": "ViduraAgent will populate richer signals once live feeds respond normally.",
+      "headline": "Renewed Hormuz hostilities drive ECB rates rethink amid 'extremely volatile' outlook",
       "impact": "Neutral"
     }
   ],
