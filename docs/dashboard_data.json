@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-01",
+  "last_updated": "2026-08-02",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
@@ -14,8 +14,8 @@
       "change_pct": 0.21
     },
     "GOLD_USD": {
-      "price": 4049.1,
-      "change_pct": -2.03
+      "price": 4107.0,
+      "change_pct": -0.63
     },
     "BRENT": {
       "price": 90.12,
@@ -28,8 +28,8 @@
   },
   "global_scroll": [
     {
-      "headline": "US Fed keeps rates steady, sees 50 bps rate cut in 2025",
-      "impact": "Negative"
+      "headline": "The Fed cuts interest rates once again in its final decision of the year",
+      "impact": "Neutral"
     },
     {
       "headline": "4 ways the Fed's decision to hold interest rates steady will impact your wallet",
