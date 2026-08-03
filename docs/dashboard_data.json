@@ -1,38 +1,38 @@
 {
-  "last_updated": "2026-08-02",
+  "last_updated": "2026-08-03",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 24383.6,
-      "change_pct": 0.36
+      "price": 24596.15,
+      "change_pct": 0.94
     },
     "SENSEX": {
-      "price": 78094.64,
-      "change_pct": 0.21
+      "price": 78755.6,
+      "change_pct": 0.85
     },
     "GOLD_USD": {
-      "price": 4107.0,
-      "change_pct": -0.63
+      "price": 4116.9,
+      "change_pct": 0.24
     },
     "BRENT": {
       "price": 90.12,
       "change_pct": 2.35
     },
     "USDINR": {
-      "price": 95.39,
-      "change_pct": -0.29
+      "price": 95.22,
+      "change_pct": -0.17
     }
   },
   "global_scroll": [
     {
-      "headline": "The Fed cuts interest rates once again in its final decision of the year",
+      "headline": "The Fed holds interest rates steady in its first decision of the year",
       "impact": "Neutral"
     },
     {
-      "headline": "4 ways the Fed's decision to hold interest rates steady will impact your wallet",
+      "headline": "The Fed cuts interest rates once again in its final decision of the year",
       "impact": "Neutral"
     },
     {
