@@ -1,42 +1,38 @@
 {
-  "last_updated": "2026-08-03",
+  "last_updated": "2026-08-04",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 24596.15,
-      "change_pct": 0.94
+      "price": 24575.45,
+      "change_pct": -0.8
     },
     "SENSEX": {
-      "price": 78755.6,
-      "change_pct": 0.85
+      "price": 78670.13,
+      "change_pct": 0.04
     },
     "GOLD_USD": {
-      "price": 4116.9,
-      "change_pct": 0.24
+      "price": 4117.4,
+      "change_pct": -0.01
     },
     "BRENT": {
-      "price": 90.12,
-      "change_pct": 2.35
+      "price": 85.13,
+      "change_pct": 0.47
     },
     "USDINR": {
-      "price": 95.22,
-      "change_pct": -0.17
+      "price": 95.3,
+      "change_pct": -0.03
     }
   },
   "global_scroll": [
     {
-      "headline": "The Fed holds interest rates steady in its first decision of the year",
+      "headline": "Live market and news feeds are being refreshed; fallback content is active.",
       "impact": "Neutral"
     },
     {
-      "headline": "The Fed cuts interest rates once again in its final decision of the year",
-      "impact": "Neutral"
-    },
-    {
-      "headline": "Renewed Hormuz hostilities drive ECB rates rethink amid 'extremely volatile' outlook",
+      "headline": "ViduraAgent will populate richer signals once live feeds respond normally.",
       "impact": "Neutral"
     }
   ],
