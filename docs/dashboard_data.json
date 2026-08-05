@@ -1,29 +1,29 @@
 {
-  "last_updated": "2026-08-04",
+  "last_updated": "2026-08-05",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 24575.45,
-      "change_pct": -0.8
+      "price": 24641.45,
+      "change_pct": 0.11
     },
     "SENSEX": {
-      "price": 78670.13,
-      "change_pct": 0.04
+      "price": 78705.05,
+      "change_pct": 0.35
     },
     "GOLD_USD": {
-      "price": 4117.4,
-      "change_pct": -0.01
+      "price": 4194.8,
+      "change_pct": 0.16
     },
     "BRENT": {
-      "price": 85.13,
-      "change_pct": 0.47
+      "price": 78.91,
+      "change_pct": 0.8
     },
     "USDINR": {
-      "price": 95.3,
-      "change_pct": -0.03
+      "price": 95.06,
+      "change_pct": -0.32
     }
   },
   "global_scroll": [
