@@ -1,38 +1,42 @@
 {
-  "last_updated": "2026-08-06",
+  "last_updated": "2026-08-07",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 24629.05,
-      "change_pct": 0.02
+      "price": 24611.4,
+      "change_pct": -0.1
     },
     "SENSEX": {
-      "price": 78709.9,
-      "change_pct": 0.16
+      "price": 78707.86,
+      "change_pct": -0.31
     },
     "GOLD_USD": {
-      "price": 4313.0,
-      "change_pct": -0.28
+      "price": 4325.0,
+      "change_pct": 0.25
     },
     "BRENT": {
-      "price": 79.01,
-      "change_pct": -0.45
+      "price": 84.05,
+      "change_pct": 0.94
     },
     "USDINR": {
-      "price": 95.15,
-      "change_pct": 0.05
+      "price": 95.25,
+      "change_pct": 0.14
     }
   },
   "global_scroll": [
     {
-      "headline": "Live market and news feeds are being refreshed; fallback content is active.",
+      "headline": "4 ways the Fed's decision to hold interest rates steady will impact your wallet",
       "impact": "Neutral"
     },
     {
-      "headline": "ViduraAgent will populate richer signals once live feeds respond normally.",
+      "headline": "Kevin Warsh set to lead his first Federal Reserve interest rate meeting. Here's what to expect.",
+      "impact": "Neutral"
+    },
+    {
+      "headline": "Renewed Hormuz hostilities drive ECB rates rethink amid 'extremely volatile' outlook",
       "impact": "Neutral"
     }
   ],
