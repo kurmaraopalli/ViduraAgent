@@ -1,43 +1,39 @@
 {
-  "last_updated": "2026-08-09",
+  "last_updated": "2026-08-10",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 24570.65,
-      "change_pct": -0.27
+      "price": 24524.55,
+      "change_pct": -0.19
     },
     "SENSEX": {
-      "price": 78499.17,
-      "change_pct": -0.58
+      "price": 78510.67,
+      "change_pct": 0.01
     },
     "GOLD_USD": {
-      "price": 4340.7,
-      "change_pct": 0.41
+      "price": 4386.5,
+      "change_pct": -0.23
     },
     "BRENT": {
-      "price": 83.55,
-      "change_pct": 0.12
+      "price": 84.35,
+      "change_pct": -0.15
     },
     "USDINR": {
-      "price": 95.2,
-      "change_pct": 0.09
+      "price": 95.23,
+      "change_pct": 0.03
     }
   },
   "global_scroll": [
     {
-      "headline": "The Fed cuts interest rates once again in its final decision of the year",
+      "headline": "Live market and news feeds are being refreshed; fallback content is active.",
       "impact": "Neutral"
     },
     {
-      "headline": "4 ways the Fed's decision to hold interest rates steady will impact your wallet",
+      "headline": "ViduraAgent will populate richer signals once live feeds respond normally.",
       "impact": "Neutral"
-    },
-    {
-      "headline": "10-Year Treasury Yield Rises to Highest Level Since Jan. 2025",
-      "impact": "Positive"
     }
   ],
   "daily_pulse": {
