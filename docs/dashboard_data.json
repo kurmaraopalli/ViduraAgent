@@ -1,29 +1,29 @@
 {
-  "last_updated": "2026-08-12",
+  "last_updated": "2026-08-13",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 24396.5,
-      "change_pct": -0.31
+      "price": 24351.9,
+      "change_pct": -0.34
     },
     "SENSEX": {
-      "price": 78052.69,
-      "change_pct": -0.13
+      "price": 77788.2,
+      "change_pct": -0.23
     },
     "GOLD_USD": {
-      "price": 4458.1,
-      "change_pct": -0.42
+      "price": 4452.0,
+      "change_pct": -0.22
     },
     "BRENT": {
-      "price": 89.89,
-      "change_pct": 2.52
+      "price": 88.63,
+      "change_pct": -1.5
     },
     "USDINR": {
-      "price": 95.42,
-      "change_pct": -0.01
+      "price": 95.36,
+      "change_pct": 0.04
     }
   },
   "global_scroll": [
@@ -36,8 +36,8 @@
       "impact": "Neutral"
     },
     {
-      "headline": "10-Year Treasury Yield Rises to Highest Level Since Jan. 2025",
-      "impact": "Positive"
+      "headline": "It wasn't unanimous, but the Fed continued its pause on interest rates",
+      "impact": "Neutral"
     }
   ],
   "daily_pulse": {
