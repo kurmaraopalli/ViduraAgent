@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-15",
+  "last_updated": "2026-08-16",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
@@ -14,16 +14,16 @@
       "change_pct": -0.09
     },
     "GOLD_USD": {
-      "price": 4432.0,
-      "change_pct": 1.2
+      "price": 4380.4,
+      "change_pct": 0.02
     },
     "BRENT": {
-      "price": 88.59,
-      "change_pct": 1.69
+      "price": 88.52,
+      "change_pct": 1.61
     },
     "USDINR": {
-      "price": 95.42,
-      "change_pct": -0.01
+      "price": 95.43,
+      "change_pct": -0.0
     }
   },
   "global_scroll": [
