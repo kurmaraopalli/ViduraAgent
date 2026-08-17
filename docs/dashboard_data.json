@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-16",
+  "last_updated": "2026-08-17",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
@@ -14,30 +14,30 @@
       "change_pct": -0.09
     },
     "GOLD_USD": {
-      "price": 4380.4,
-      "change_pct": 0.02
+      "price": 4447.2,
+      "change_pct": 0.22
     },
     "BRENT": {
-      "price": 88.52,
-      "change_pct": 1.61
+      "price": 88.72,
+      "change_pct": 0.23
     },
     "USDINR": {
-      "price": 95.43,
-      "change_pct": -0.0
+      "price": 95.42,
+      "change_pct": 0.01
     }
   },
   "global_scroll": [
+    {
+      "headline": "The Fed holds interest rates steady in its first decision of the year",
+      "impact": "Neutral"
+    },
     {
       "headline": "The Fed cuts interest rates once again in its final decision of the year",
       "impact": "Neutral"
     },
     {
-      "headline": "4 ways the Fed's decision to hold interest rates steady will impact your wallet",
-      "impact": "Neutral"
-    },
-    {
-      "headline": "How AI Is Complicating Federal Reserve Interest-Rate Decisions",
-      "impact": "Neutral"
+      "headline": "What to expect from the last Fed meeting of 2025 — and what a rate cut could mean for your wallet",
+      "impact": "Negative"
     }
   ],
   "daily_pulse": {
