@@ -1,43 +1,43 @@
 {
-  "last_updated": "2026-08-17",
+  "last_updated": "2026-08-18",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 24366.0,
-      "change_pct": -0.12
+      "price": 24287.7,
+      "change_pct": -0.32
     },
     "SENSEX": {
-      "price": 78009.25,
-      "change_pct": -0.09
+      "price": 77728.16,
+      "change_pct": -0.36
     },
     "GOLD_USD": {
-      "price": 4447.2,
-      "change_pct": 0.22
+      "price": 4456.6,
+      "change_pct": 0.07
     },
     "BRENT": {
-      "price": 88.72,
-      "change_pct": 0.23
+      "price": 91.46,
+      "change_pct": 3.11
     },
     "USDINR": {
-      "price": 95.42,
-      "change_pct": 0.01
+      "price": 95.59,
+      "change_pct": -0.0
     }
   },
   "global_scroll": [
-    {
-      "headline": "The Fed holds interest rates steady in its first decision of the year",
-      "impact": "Neutral"
-    },
     {
       "headline": "The Fed cuts interest rates once again in its final decision of the year",
       "impact": "Neutral"
     },
     {
-      "headline": "What to expect from the last Fed meeting of 2025 — and what a rate cut could mean for your wallet",
-      "impact": "Negative"
+      "headline": "4 ways the Fed's decision to hold interest rates steady will impact your wallet",
+      "impact": "Neutral"
+    },
+    {
+      "headline": "How AI Is Complicating Federal Reserve Interest-Rate Decisions",
+      "impact": "Neutral"
     }
   ],
   "daily_pulse": {
