@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-22",
+  "last_updated": "2026-08-23",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
@@ -14,16 +14,16 @@
       "change_pct": 0.0
     },
     "GOLD_USD": {
-      "price": 4661.6,
-      "change_pct": 1.54
+      "price": 4624.1,
+      "change_pct": 0.72
     },
     "BRENT": {
-      "price": 93.87,
-      "change_pct": 0.28
+      "price": 94.39,
+      "change_pct": 0.83
     },
     "USDINR": {
-      "price": 95.69,
-      "change_pct": -0.01
+      "price": 95.71,
+      "change_pct": 0.02
     }
   },
   "global_scroll": [
@@ -36,7 +36,7 @@
       "impact": "Neutral"
     },
     {
-      "headline": "How AI Is Complicating Federal Reserve Interest-Rate Decisions",
+      "headline": "Renewed Hormuz hostilities drive ECB rates rethink amid 'extremely volatile' outlook",
       "impact": "Neutral"
     }
   ],
