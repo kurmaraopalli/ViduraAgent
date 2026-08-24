@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-23",
+  "last_updated": "2026-08-24",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
@@ -14,16 +14,16 @@
       "change_pct": 0.0
     },
     "GOLD_USD": {
-      "price": 4624.1,
-      "change_pct": 0.72
+      "price": 4692.9,
+      "change_pct": 0.26
     },
     "BRENT": {
-      "price": 94.39,
-      "change_pct": 0.83
+      "price": 93.14,
+      "change_pct": -1.32
     },
     "USDINR": {
-      "price": 95.71,
-      "change_pct": 0.02
+      "price": 95.64,
+      "change_pct": -0.05
     }
   },
   "global_scroll": [
@@ -36,7 +36,7 @@
       "impact": "Neutral"
     },
     {
-      "headline": "Renewed Hormuz hostilities drive ECB rates rethink amid 'extremely volatile' outlook",
+      "headline": "Soft Jobs Data Complicates Interest Rate Decisions For Fed",
       "impact": "Neutral"
     }
   ],
