@@ -1,39 +1,43 @@
 {
-  "last_updated": "2026-08-25",
+  "last_updated": "2026-08-26",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 24219.05,
-      "change_pct": -0.14
+      "price": 24334.55,
+      "change_pct": 0.48
     },
     "SENSEX": {
-      "price": 77369.11,
-      "change_pct": -0.22
+      "price": 77656.09,
+      "change_pct": 0.37
     },
     "GOLD_USD": {
-      "price": 4689.6,
-      "change_pct": -0.18
+      "price": 4706.1,
+      "change_pct": 0.38
     },
     "BRENT": {
-      "price": 92.33,
-      "change_pct": -0.76
+      "price": 85.06,
+      "change_pct": -8.01
     },
     "USDINR": {
-      "price": 95.74,
-      "change_pct": 0.01
+      "price": 95.4,
+      "change_pct": -0.0
     }
   },
   "global_scroll": [
     {
-      "headline": "Live market and news feeds are being refreshed; fallback content is active.",
+      "headline": "It wasn't unanimous, but the Fed continued its pause on interest rates",
       "impact": "Neutral"
     },
     {
-      "headline": "ViduraAgent will populate richer signals once live feeds respond normally.",
+      "headline": "How AI Is Complicating Federal Reserve Interest-Rate Decisions",
       "impact": "Neutral"
+    },
+    {
+      "headline": "Fed interest-rate decision rocks Wall Street with new inflation, hike fears",
+      "impact": "Negative"
     }
   ],
   "daily_pulse": {
