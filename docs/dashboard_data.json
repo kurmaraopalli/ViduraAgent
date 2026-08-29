@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-08-28",
+  "last_updated": "2026-08-29",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
@@ -14,29 +14,41 @@
       "change_pct": 0.43
     },
     "GOLD_USD": {
-      "price": 4612.9,
-      "change_pct": -0.4
+      "price": 4529.9,
+      "change_pct": -2.19
     },
     "BRENT": {
-      "price": 87.79,
-      "change_pct": -0.45
+      "price": 88.1,
+      "change_pct": -0.1
     },
     "USDINR": {
-      "price": 95.37,
-      "change_pct": -0.17
+      "price": 95.38,
+      "change_pct": -0.16
     }
   },
   "global_scroll": [
-    {
-      "headline": "The Fed cuts interest rates once again in its final decision of the year",
-      "impact": "Neutral"
-    },
     {
       "headline": "It wasn't unanimous, but the Fed continued its pause on interest rates",
       "impact": "Neutral"
     },
     {
       "headline": "How AI Is Complicating Federal Reserve Interest-Rate Decisions",
+      "impact": "Neutral"
+    },
+    {
+      "headline": "10-Year Treasury Yield Rises to Highest Level Since Jan. 2025",
+      "impact": "Positive"
+    },
+    {
+      "headline": "Data's Radical New Role In The Era Of Agentic AI",
+      "impact": "Neutral"
+    },
+    {
+      "headline": "Nigeria's return to Frontier Market status sparks stock market rally",
+      "impact": "Positive"
+    },
+    {
+      "headline": "FG lauds NGX Group, SEC, CBN, CSCS as FTSE reclassifies Nigeria to Frontier market status",
       "impact": "Neutral"
     }
   ],
