@@ -1,32 +1,36 @@
 {
-  "last_updated": "2026-08-30",
+  "last_updated": "2026-08-31",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 24175.65,
-      "change_pct": 0.35
+      "price": 24032.95,
+      "change_pct": -0.59
     },
     "SENSEX": {
-      "price": 77264.51,
-      "change_pct": 0.43
+      "price": 76906.3,
+      "change_pct": -0.46
     },
     "GOLD_USD": {
-      "price": 4529.9,
-      "change_pct": -2.19
+      "price": 4487.4,
+      "change_pct": 0.34
     },
     "BRENT": {
-      "price": 88.1,
-      "change_pct": -0.1
+      "price": 88.59,
+      "change_pct": -1.72
     },
     "USDINR": {
-      "price": 95.38,
-      "change_pct": -0.16
+      "price": 95.22,
+      "change_pct": -0.15
     }
   },
   "global_scroll": [
+    {
+      "headline": "Fed interest-rate decision rocks Wall Street's inflation fears",
+      "impact": "Negative"
+    },
     {
       "headline": "It wasn't unanimous, but the Fed continued its pause on interest rates",
       "impact": "Neutral"
@@ -34,10 +38,6 @@
     {
       "headline": "How AI Is Complicating Federal Reserve Interest-Rate Decisions",
       "impact": "Neutral"
-    },
-    {
-      "headline": "10-Year Treasury Yield Rises to Highest Level Since Jan. 2025",
-      "impact": "Positive"
     }
   ],
   "daily_pulse": {
