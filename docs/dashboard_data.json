@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-05",
+  "last_updated": "2026-09-06",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
@@ -14,8 +14,8 @@
       "change_pct": 0.48
     },
     "GOLD_USD": {
-      "price": 4429.8,
-      "change_pct": -1.86
+      "price": 4476.6,
+      "change_pct": -0.82
     },
     "BRENT": {
       "price": 96.28,
@@ -28,15 +28,15 @@
   },
   "global_scroll": [
     {
-      "headline": "Fed interest-rate decision rocks Wall Street's inflation fears",
-      "impact": "Negative"
-    },
-    {
-      "headline": "It wasn't unanimous, but the Fed continued its pause on interest rates",
+      "headline": "Fed interest rate decision: What founders should do now",
       "impact": "Neutral"
     },
     {
       "headline": "How AI Is Complicating Federal Reserve Interest-Rate Decisions",
+      "impact": "Neutral"
+    },
+    {
+      "headline": "It wasn't unanimous, but the Fed continued its pause on interest rates",
       "impact": "Neutral"
     }
   ],
