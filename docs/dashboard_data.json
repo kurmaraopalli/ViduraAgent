@@ -1,17 +1,17 @@
 {
-  "last_updated": "2026-09-06",
+  "last_updated": "2026-09-07",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 23897.7,
-      "change_pct": 0.1
+      "price": 23744.05,
+      "change_pct": -0.64
     },
     "SENSEX": {
-      "price": 76515.43,
-      "change_pct": 0.48
+      "price": 76055.91,
+      "change_pct": -0.6
     },
     "GOLD_USD": {
       "price": 4476.6,
@@ -22,21 +22,21 @@
       "change_pct": 0.29
     },
     "USDINR": {
-      "price": 94.49,
-      "change_pct": 0.02
+      "price": 94.46,
+      "change_pct": -0.02
     }
   },
   "global_scroll": [
+    {
+      "headline": "Divided Fed holds interest rates steady, but three members voted to hike",
+      "impact": "Neutral"
+    },
     {
       "headline": "Fed interest rate decision: What founders should do now",
       "impact": "Neutral"
     },
     {
       "headline": "How AI Is Complicating Federal Reserve Interest-Rate Decisions",
-      "impact": "Neutral"
-    },
-    {
-      "headline": "It wasn't unanimous, but the Fed continued its pause on interest rates",
       "impact": "Neutral"
     }
   ],
