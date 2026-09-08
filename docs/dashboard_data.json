@@ -1,35 +1,35 @@
 {
-  "last_updated": "2026-09-07",
+  "last_updated": "2026-09-08",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 23744.05,
-      "change_pct": -0.64
+      "price": 23656.05,
+      "change_pct": -0.52
     },
     "SENSEX": {
-      "price": 76055.91,
-      "change_pct": -0.6
+      "price": 75708.62,
+      "change_pct": -0.56
     },
     "GOLD_USD": {
-      "price": 4476.6,
-      "change_pct": -0.82
+      "price": 4451.4,
+      "change_pct": -0.56
     },
     "BRENT": {
-      "price": 96.28,
-      "change_pct": 0.29
+      "price": 98.59,
+      "change_pct": 2.4
     },
     "USDINR": {
-      "price": 94.46,
-      "change_pct": -0.02
+      "price": 94.74,
+      "change_pct": 0.28
     }
   },
   "global_scroll": [
     {
-      "headline": "Divided Fed holds interest rates steady, but three members voted to hike",
-      "impact": "Neutral"
+      "headline": "Fed interest-rate decision rocks Wall Street's inflation fears",
+      "impact": "Negative"
     },
     {
       "headline": "Fed interest rate decision: What founders should do now",
