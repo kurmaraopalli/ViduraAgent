@@ -1,42 +1,42 @@
 {
-  "last_updated": "2026-09-09",
+  "last_updated": "2026-09-10",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 23566.3,
-      "change_pct": -0.29
+      "price": 23444.8,
+      "change_pct": 0.06
     },
     "SENSEX": {
-      "price": 75217.11,
-      "change_pct": -0.48
+      "price": 74830.04,
+      "change_pct": 0.09
     },
     "GOLD_USD": {
-      "price": 4447.6,
-      "change_pct": 0.62
+      "price": 4457.2,
+      "change_pct": 0.12
     },
     "BRENT": {
-      "price": 100.1,
-      "change_pct": 0.81
+      "price": 100.83,
+      "change_pct": -0.17
     },
     "USDINR": {
-      "price": 95.08,
-      "change_pct": 0.29
+      "price": 95.29,
+      "change_pct": 0.17
     }
   },
   "global_scroll": [
     {
-      "headline": "Fed interest-rate decision rocks Wall Street's inflation fears",
-      "impact": "Negative"
-    },
-    {
-      "headline": "How AI Is Complicating Federal Reserve Interest-Rate Decisions",
+      "headline": "Fed interest rate decision: What founders should do now",
       "impact": "Neutral"
     },
     {
-      "headline": "Fed interest rate decision: What founders should do now",
+      "headline": "It wasn't unanimous, but the Fed continued its pause on interest rates",
+      "impact": "Neutral"
+    },
+    {
+      "headline": "How AI Is Complicating Federal Reserve Interest-Rate Decisions",
       "impact": "Neutral"
     }
   ],
