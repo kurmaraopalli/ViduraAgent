@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-09-13",
+  "last_updated": "2026-09-14",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
@@ -14,16 +14,16 @@
       "change_pct": -0.16
     },
     "GOLD_USD": {
-      "price": 4408.9,
-      "change_pct": 1.47
+      "price": 4355.7,
+      "change_pct": -0.34
     },
     "BRENT": {
-      "price": 104.61,
-      "change_pct": -3.59
+      "price": 107.83,
+      "change_pct": -0.05
     },
     "USDINR": {
-      "price": 95.55,
-      "change_pct": 0.12
+      "price": 95.54,
+      "change_pct": -0.0
     }
   },
   "global_scroll": [
@@ -36,8 +36,8 @@
       "impact": "Neutral"
     },
     {
-      "headline": "It wasn't unanimous, but the Fed continued its pause on interest rates",
-      "impact": "Neutral"
+      "headline": "Global interest rates are rising: Will RBI rates, home loan EMIs and investments be affected?",
+      "impact": "Positive"
     }
   ],
   "daily_pulse": {
