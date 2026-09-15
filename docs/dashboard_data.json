@@ -1,38 +1,38 @@
 {
-  "last_updated": "2026-09-14",
+  "last_updated": "2026-09-15",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 23398.1,
-      "change_pct": -0.34
+      "price": 23286.8,
+      "change_pct": -0.48
     },
     "SENSEX": {
-      "price": 74781.76,
-      "change_pct": -0.16
+      "price": 74531.87,
+      "change_pct": -0.33
     },
     "GOLD_USD": {
-      "price": 4355.7,
-      "change_pct": -0.34
+      "price": 4327.1,
+      "change_pct": -0.41
     },
     "BRENT": {
-      "price": 107.83,
-      "change_pct": -0.05
+      "price": 102.47,
+      "change_pct": -4.29
     },
     "USDINR": {
-      "price": 95.54,
-      "change_pct": -0.0
+      "price": 95.92,
+      "change_pct": 0.4
     }
   },
   "global_scroll": [
     {
-      "headline": "Fed interest rate decision: What founders should do now",
-      "impact": "Neutral"
+      "headline": "Fed interest-rate decision rocks Wall Street's inflation fears",
+      "impact": "Negative"
     },
     {
-      "headline": "How AI Is Complicating Federal Reserve Interest-Rate Decisions",
+      "headline": "It wasn't unanimous, but the Fed continued its pause on interest rates",
       "impact": "Neutral"
     },
     {
