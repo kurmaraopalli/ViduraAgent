@@ -1,43 +1,43 @@
 {
-  "last_updated": "2026-09-16",
+  "last_updated": "2026-09-17",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 23268.6,
-      "change_pct": 0.65
+      "price": 23314.4,
+      "change_pct": 0.42
     },
     "SENSEX": {
-      "price": 74394.45,
-      "change_pct": 0.53
+      "price": 74539.03,
+      "change_pct": 0.27
     },
     "GOLD_USD": {
-      "price": 4377.5,
-      "change_pct": 0.24
+      "price": 4369.4,
+      "change_pct": 0.78
     },
     "BRENT": {
-      "price": 107.66,
-      "change_pct": -0.45
+      "price": 104.47,
+      "change_pct": -1.18
     },
     "USDINR": {
-      "price": 95.94,
-      "change_pct": 0.09
+      "price": 95.89,
+      "change_pct": -0.05
     }
   },
   "global_scroll": [
     {
-      "headline": "Fed interest rate decision: What founders should do now",
+      "headline": "Fed interest-rate decision rocks Wall Street's inflation fears",
+      "impact": "Negative"
+    },
+    {
+      "headline": "It wasn't unanimous, but the Fed continued its pause on interest rates",
       "impact": "Neutral"
     },
     {
       "headline": "Global interest rates are rising: Will RBI rates, home loan EMIs and investments be affected?",
       "impact": "Positive"
-    },
-    {
-      "headline": "It wasn't unanimous, but the Fed continued its pause on interest rates",
-      "impact": "Neutral"
     }
   ],
   "daily_pulse": {
