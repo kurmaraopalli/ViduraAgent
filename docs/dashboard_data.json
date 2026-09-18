@@ -1,43 +1,43 @@
 {
-  "last_updated": "2026-09-17",
+  "last_updated": "2026-09-18",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 23314.4,
-      "change_pct": 0.42
-    },
-    "SENSEX": {
-      "price": 74539.03,
+      "price": 23332.3,
       "change_pct": 0.27
     },
+    "SENSEX": {
+      "price": 74528.76,
+      "change_pct": 0.29
+    },
     "GOLD_USD": {
-      "price": 4369.4,
-      "change_pct": 0.78
+      "price": 4431.7,
+      "change_pct": 0.8
     },
     "BRENT": {
-      "price": 104.47,
-      "change_pct": -1.18
+      "price": 102.28,
+      "change_pct": -1.59
     },
     "USDINR": {
-      "price": 95.89,
-      "change_pct": -0.05
+      "price": 95.81,
+      "change_pct": -0.11
     }
   },
   "global_scroll": [
     {
-      "headline": "Fed interest-rate decision rocks Wall Street's inflation fears",
-      "impact": "Negative"
-    },
-    {
-      "headline": "It wasn't unanimous, but the Fed continued its pause on interest rates",
+      "headline": "Federal Reserve raises interest rates for the first time since 2023",
       "impact": "Neutral"
     },
     {
       "headline": "Global interest rates are rising: Will RBI rates, home loan EMIs and investments be affected?",
       "impact": "Positive"
+    },
+    {
+      "headline": "Fed interest-rate decision rocks Wall Street's inflation fears",
+      "impact": "Negative"
     }
   ],
   "daily_pulse": {
