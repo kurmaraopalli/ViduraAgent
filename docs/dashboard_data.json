@@ -1,29 +1,29 @@
 {
-  "last_updated": "2026-09-28",
+  "last_updated": "2026-09-29",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 22804.2,
-      "change_pct": -1.45
+      "price": 22673.85,
+      "change_pct": -0.47
     },
     "SENSEX": {
-      "price": 72919.13,
-      "change_pct": -1.32
+      "price": 72325.82,
+      "change_pct": -0.61
     },
     "GOLD_USD": {
-      "price": 4180.1,
-      "change_pct": -1.19
+      "price": 4172.2,
+      "change_pct": 0.19
     },
     "BRENT": {
-      "price": 100.15,
-      "change_pct": 1.19
+      "price": 97.86,
+      "change_pct": -1.77
     },
     "USDINR": {
-      "price": 95.96,
-      "change_pct": 0.16
+      "price": 95.98,
+      "change_pct": 0.01
     }
   },
   "global_scroll": [
@@ -36,7 +36,7 @@
       "impact": "Positive"
     },
     {
-      "headline": "Rbi Repo Rate",
+      "headline": "Federal Reserve raises interest rates for the first time since 2023",
       "impact": "Neutral"
     }
   ],
