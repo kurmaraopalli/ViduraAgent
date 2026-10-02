@@ -1,32 +1,36 @@
 {
-  "last_updated": "2026-10-01",
+  "last_updated": "2026-10-02",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 22351.65,
-      "change_pct": -1.19
+      "price": 22421.95,
+      "change_pct": -0.88
     },
     "SENSEX": {
-      "price": 71593.41,
-      "change_pct": -1.22
+      "price": 71909.7,
+      "change_pct": -0.79
     },
     "GOLD_USD": {
-      "price": 4187.4,
-      "change_pct": -0.43
+      "price": 4214.0,
+      "change_pct": 0.2
     },
     "BRENT": {
-      "price": 100.61,
-      "change_pct": 3.9
+      "price": 99.5,
+      "change_pct": -2.67
     },
     "USDINR": {
-      "price": 96.22,
-      "change_pct": 0.42
+      "price": 96.3,
+      "change_pct": -0.01
     }
   },
   "global_scroll": [
+    {
+      "headline": "Federal Reserve raises interest rates for the first time since 2023",
+      "impact": "Neutral"
+    },
     {
       "headline": "Will RBI raise interest rates in October? Here's what experts have to say",
       "impact": "Neutral"
@@ -34,10 +38,6 @@
     {
       "headline": "Global interest rates are rising: Will RBI rates, home loan EMIs and investments be affected?",
       "impact": "Positive"
-    },
-    {
-      "headline": "Rbi Repo Rate",
-      "impact": "Neutral"
     }
   ],
   "daily_pulse": {
