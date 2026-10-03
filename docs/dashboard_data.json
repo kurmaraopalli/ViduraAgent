@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-02",
+  "last_updated": "2026-10-03",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
@@ -14,12 +14,12 @@
       "change_pct": -0.79
     },
     "GOLD_USD": {
-      "price": 4214.0,
-      "change_pct": 0.2
+      "price": 4162.3,
+      "change_pct": -1.03
     },
     "BRENT": {
-      "price": 99.5,
-      "change_pct": -2.67
+      "price": 102.25,
+      "change_pct": 0.02
     },
     "USDINR": {
       "price": 96.3,
@@ -28,8 +28,8 @@
   },
   "global_scroll": [
     {
-      "headline": "Federal Reserve raises interest rates for the first time since 2023",
-      "impact": "Neutral"
+      "headline": "RBI MPC may hike repo rate next week: Experts share the equity-debt strategy investors should consider",
+      "impact": "Positive"
     },
     {
       "headline": "Will RBI raise interest rates in October? Here's what experts have to say",
