@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-03",
+  "last_updated": "2026-10-04",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
@@ -28,15 +28,15 @@
   },
   "global_scroll": [
     {
-      "headline": "RBI MPC may hike repo rate next week: Experts share the equity-debt strategy investors should consider",
-      "impact": "Positive"
+      "headline": "Federal Reserve raises interest rates for the first time since 2023",
+      "impact": "Neutral"
     },
     {
       "headline": "Will RBI raise interest rates in October? Here's what experts have to say",
       "impact": "Neutral"
     },
     {
-      "headline": "Global interest rates are rising: Will RBI rates, home loan EMIs and investments be affected?",
+      "headline": "RBI MPC may hike repo rate next week: Experts share the equity-debt strategy investors should consider",
       "impact": "Positive"
     }
   ],
