@@ -1,43 +1,43 @@
 {
-  "last_updated": "2026-10-06",
+  "last_updated": "2026-10-07",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 22709.4,
-      "change_pct": 0.68
+      "price": 22632.25,
+      "change_pct": -0.63
     },
     "SENSEX": {
-      "price": 72845.04,
-      "change_pct": 0.64
+      "price": 72539.88,
+      "change_pct": -0.72
     },
     "GOLD_USD": {
-      "price": 4182.6,
-      "change_pct": 0.68
+      "price": 4151.8,
+      "change_pct": -0.44
     },
     "BRENT": {
-      "price": 99.16,
-      "change_pct": -1.55
+      "price": 101.09,
+      "change_pct": -0.46
     },
     "USDINR": {
-      "price": 96.39,
-      "change_pct": 0.09
+      "price": 96.77,
+      "change_pct": 0.43
     }
   },
   "global_scroll": [
     {
-      "headline": "Federal Reserve raises interest rates for the first time since 2023",
+      "headline": "RBI Repo Rate Hike: RBI Raises Repo Rate by 25 Basis Points, What It Means for You?",
       "impact": "Neutral"
     },
     {
-      "headline": "Will RBI raise interest rates in October? Here's what experts have to say",
+      "headline": "RBI MPC October 2026: Repo rate hiked 25 bps to 5.50% amid global uncertainty, Fed rate hike; first increase in over 3 years",
       "impact": "Neutral"
     },
     {
-      "headline": "RBI MPC may hike repo rate next week: Experts share the equity-debt strategy investors should consider",
-      "impact": "Positive"
+      "headline": "RBI Hikes Repo Rate to 5.5%: Loans Costlier, Inflation Fight",
+      "impact": "Neutral"
     }
   ],
   "daily_pulse": {
