@@ -1,29 +1,29 @@
 {
-  "last_updated": "2026-10-14",
+  "last_updated": "2026-10-15",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 22576.2,
-      "change_pct": -0.64
+      "price": 23022.2,
+      "change_pct": 1.77
     },
     "SENSEX": {
-      "price": 72677.23,
-      "change_pct": -0.49
+      "price": 74146.98,
+      "change_pct": 1.88
     },
     "GOLD_USD": {
-      "price": 4168.5,
-      "change_pct": -0.4
+      "price": 4164.7,
+      "change_pct": -0.02
     },
     "BRENT": {
-      "price": 106.38,
-      "change_pct": -0.08
+      "price": 103.8,
+      "change_pct": -0.39
     },
     "USDINR": {
-      "price": 95.03,
-      "change_pct": -0.26
+      "price": 94.96,
+      "change_pct": -0.19
     }
   },
   "global_scroll": [
@@ -32,12 +32,12 @@
       "impact": "Neutral"
     },
     {
-      "headline": "RBI raises interest rate for first time in three and a half years, loans to get costlier",
-      "impact": "Neutral"
-    },
-    {
       "headline": "Shutdown clouds Federal Reserve interest rate cut decision",
       "impact": "Negative"
+    },
+    {
+      "headline": "RBI raises interest rate for first time in three and a half years, loans to get costlier",
+      "impact": "Neutral"
     }
   ],
   "daily_pulse": {
