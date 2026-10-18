@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-17",
+  "last_updated": "2026-10-18",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
@@ -28,15 +28,15 @@
   },
   "global_scroll": [
     {
+      "headline": "Federal Reserve raises interest rates for the first time since 2023",
+      "impact": "Neutral"
+    },
+    {
       "headline": "RBI Repo Rate Hike: RBI Raises Repo Rate by 25 Basis Points, What It Means for You?",
       "impact": "Neutral"
     },
     {
       "headline": "Will RBI raise interest rates in October? Here's what experts have to say",
-      "impact": "Neutral"
-    },
-    {
-      "headline": "RBI raises interest rate for first time in three and a half years, loans to get costlier",
       "impact": "Neutral"
     }
   ],
