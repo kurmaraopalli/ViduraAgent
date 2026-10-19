@@ -1,29 +1,29 @@
 {
-  "last_updated": "2026-10-18",
+  "last_updated": "2026-10-19",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 23146.15,
-      "change_pct": 0.65
+      "price": 22871.0,
+      "change_pct": -1.19
     },
     "SENSEX": {
-      "price": 74729.27,
-      "change_pct": 0.56
+      "price": 73946.79,
+      "change_pct": -1.05
     },
     "GOLD_USD": {
-      "price": 4181.1,
-      "change_pct": -0.55
+      "price": 4202.3,
+      "change_pct": 0.16
     },
     "BRENT": {
-      "price": 109.86,
-      "change_pct": 4.47
+      "price": 107.13,
+      "change_pct": -0.55
     },
     "USDINR": {
-      "price": 94.96,
-      "change_pct": -0.09
+      "price": 94.94,
+      "change_pct": -0.01
     }
   },
   "global_scroll": [
@@ -32,11 +32,11 @@
       "impact": "Neutral"
     },
     {
-      "headline": "RBI Repo Rate Hike: RBI Raises Repo Rate by 25 Basis Points, What It Means for You?",
+      "headline": "RBI MPC October 2026: Repo rate hiked 25 bps to 5.50% amid global uncertainty, Fed rate hike; first increase in over 3 years",
       "impact": "Neutral"
     },
     {
-      "headline": "Will RBI raise interest rates in October? Here's what experts have to say",
+      "headline": "RBI Repo Rate Hike: RBI Raises Repo Rate by 25 Basis Points, What It Means for You?",
       "impact": "Neutral"
     }
   ],
