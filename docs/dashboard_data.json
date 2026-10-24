@@ -1,43 +1,43 @@
 {
-  "last_updated": "2026-10-23",
+  "last_updated": "2026-10-24",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 22408.1,
-      "change_pct": -1.23
+      "price": 22600.0,
+      "change_pct": -0.39
     },
     "SENSEX": {
-      "price": 72641.4,
-      "change_pct": -0.83
+      "price": 73123.83,
+      "change_pct": -0.17
     },
     "GOLD_USD": {
-      "price": 4033.0,
-      "change_pct": 0.11
+      "price": 4007.9,
+      "change_pct": -0.55
     },
     "BRENT": {
-      "price": 109.28,
-      "change_pct": -3.79
+      "price": 116.72,
+      "change_pct": 2.76
     },
     "USDINR": {
-      "price": 94.93,
-      "change_pct": 0.13
+      "price": 94.94,
+      "change_pct": 0.14
     }
   },
   "global_scroll": [
     {
-      "headline": "Shutdown clouds Federal Reserve interest rate cut decision",
-      "impact": "Negative"
-    },
-    {
-      "headline": "RBI MPC October 2026: Repo rate hiked 25 bps to 5.50% amid global uncertainty, Fed rate hike; first increase in over 3 years",
+      "headline": "RBI Hikes Repo Rate to 5.5%: Loans Costlier, Inflation Fight",
       "impact": "Neutral"
     },
     {
       "headline": "RBI MPC may hike repo rate next week: Experts share the equity-debt strategy investors should consider",
       "impact": "Positive"
+    },
+    {
+      "headline": "RBI MPC October 2026: Repo rate hiked 25 bps to 5.50% amid global uncertainty, Fed rate hike; first increase in over 3 years",
+      "impact": "Neutral"
     }
   ],
   "daily_pulse": {
