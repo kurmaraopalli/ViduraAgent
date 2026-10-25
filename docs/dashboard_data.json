@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-24",
+  "last_updated": "2026-10-25",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
@@ -18,8 +18,8 @@
       "change_pct": -0.55
     },
     "BRENT": {
-      "price": 116.72,
-      "change_pct": 2.76
+      "price": 111.7,
+      "change_pct": -1.66
     },
     "USDINR": {
       "price": 94.94,
@@ -28,16 +28,16 @@
   },
   "global_scroll": [
     {
-      "headline": "RBI Hikes Repo Rate to 5.5%: Loans Costlier, Inflation Fight",
-      "impact": "Neutral"
-    },
-    {
-      "headline": "RBI MPC may hike repo rate next week: Experts share the equity-debt strategy investors should consider",
-      "impact": "Positive"
+      "headline": "Shutdown clouds Federal Reserve interest rate cut decision",
+      "impact": "Negative"
     },
     {
       "headline": "RBI MPC October 2026: Repo rate hiked 25 bps to 5.50% amid global uncertainty, Fed rate hike; first increase in over 3 years",
       "impact": "Neutral"
+    },
+    {
+      "headline": "RBI rate hike bets rise after US Fed move: Why October policy is now a close call",
+      "impact": "Positive"
     }
   ],
   "daily_pulse": {
