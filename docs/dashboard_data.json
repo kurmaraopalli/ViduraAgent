@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-31",
+  "last_updated": "2026-11-01",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
@@ -18,8 +18,8 @@
       "change_pct": -2.62
     },
     "BRENT": {
-      "price": 117.64,
-      "change_pct": 4.97
+      "price": 113.43,
+      "change_pct": 1.21
     },
     "USDINR": {
       "price": 94.95,
@@ -28,16 +28,16 @@
   },
   "global_scroll": [
     {
+      "headline": "Shutdown clouds Federal Reserve interest rate cut decision",
+      "impact": "Negative"
+    },
+    {
+      "headline": "US Fed rate hike: Will RBI come under pressure? What it means for your FD, home loan EMI and savings",
+      "impact": "Neutral"
+    },
+    {
       "headline": "RBI MPC interest rate decision in focus: Can a 25 bps hike trigger a market sell-off?",
       "impact": "Neutral"
-    },
-    {
-      "headline": "RBI MPC October 2026: Repo rate hiked 25 bps to 5.50% amid global uncertainty, Fed rate hike; first increase in over 3 years",
-      "impact": "Neutral"
-    },
-    {
-      "headline": "RBI rate hike bets rise after US Fed move: Why October policy is now a close call",
-      "impact": "Positive"
     }
   ],
   "daily_pulse": {
