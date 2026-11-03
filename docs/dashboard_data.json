@@ -1,29 +1,29 @@
 {
-  "last_updated": "2026-11-02",
+  "last_updated": "2026-11-03",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 23331.1,
-      "change_pct": 1.21
+      "price": 23731.85,
+      "change_pct": 1.24
     },
     "SENSEX": {
-      "price": 75297.12,
-      "change_pct": 1.12
+      "price": 76600.64,
+      "change_pct": 1.2
     },
     "GOLD_USD": {
-      "price": 3905.8,
-      "change_pct": -0.11
+      "price": 3918.1,
+      "change_pct": -0.38
     },
     "BRENT": {
-      "price": 108.78,
-      "change_pct": -1.1
+      "price": 106.47,
+      "change_pct": 1.11
     },
     "USDINR": {
-      "price": 94.93,
-      "change_pct": -0.01
+      "price": 94.74,
+      "change_pct": -0.16
     }
   },
   "global_scroll": [
@@ -32,7 +32,7 @@
       "impact": "Negative"
     },
     {
-      "headline": "US Fed rate hike: Will RBI come under pressure? What it means for your FD, home loan EMI and savings",
+      "headline": "RBI MPC October 2026: Repo rate hiked 25 bps to 5.50% amid global uncertainty, Fed rate hike; first increase in over 3 years",
       "impact": "Neutral"
     },
     {
