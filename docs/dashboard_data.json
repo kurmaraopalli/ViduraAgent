@@ -1,42 +1,38 @@
 {
-  "last_updated": "2026-11-05",
+  "last_updated": "2026-11-06",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 24543.25,
-      "change_pct": 2.43
+      "price": 24918.2,
+      "change_pct": 1.56
     },
     "SENSEX": {
-      "price": 79402.32,
-      "change_pct": 2.72
+      "price": 80644.99,
+      "change_pct": 1.68
     },
     "GOLD_USD": {
-      "price": 4139.9,
-      "change_pct": -0.24
+      "price": 4088.0,
+      "change_pct": 0.84
     },
     "BRENT": {
-      "price": 95.56,
-      "change_pct": 2.1
+      "price": 96.91,
+      "change_pct": -2.76
     },
     "USDINR": {
-      "price": 94.54,
-      "change_pct": 0.01
+      "price": 93.84,
+      "change_pct": -0.66
     }
   },
   "global_scroll": [
     {
-      "headline": "Shutdown clouds Federal Reserve interest rate cut decision",
-      "impact": "Negative"
-    },
-    {
-      "headline": "US Fed rate hike: Will RBI come under pressure? What it means for your FD, home loan EMI and savings",
+      "headline": "Live market and news feeds are being refreshed; fallback content is active.",
       "impact": "Neutral"
     },
     {
-      "headline": "RBI MPC interest rate decision in focus: Can a 25 bps hike trigger a market sell-off?",
+      "headline": "ViduraAgent will populate richer signals once live feeds respond normally.",
       "impact": "Neutral"
     }
   ],
