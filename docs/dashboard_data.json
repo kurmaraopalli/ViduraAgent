@@ -1,13 +1,13 @@
 {
-  "last_updated": "2026-11-07",
+  "last_updated": "2026-11-08",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 25030.35,
-      "change_pct": 2.01
+      "price": 25072.45,
+      "change_pct": 2.18
     },
     "SENSEX": {
       "price": 81028.02,
@@ -28,15 +28,15 @@
   },
   "global_scroll": [
     {
+      "headline": "Goldman Sachs revamps Fed interest rate cut forecast for 2025",
+      "impact": "Negative"
+    },
+    {
       "headline": "Shutdown clouds Federal Reserve interest rate cut decision",
       "impact": "Negative"
     },
     {
-      "headline": "Week Ahead for FX, Bonds: Decisions From Fed, Other Central Banks in Focus",
-      "impact": "Neutral"
-    },
-    {
-      "headline": "RBI MPC interest rate decision in focus: Can a 25 bps hike trigger a market sell-off?",
+      "headline": "US Fed rate hike: Will RBI come under pressure? What it means for your FD, home loan EMI and savings",
       "impact": "Neutral"
     }
   ],
