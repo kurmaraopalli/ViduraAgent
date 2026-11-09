@@ -1,29 +1,29 @@
 {
-  "last_updated": "2026-11-08",
+  "last_updated": "2026-11-09",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 25072.45,
-      "change_pct": 2.18
+      "price": 25044.65,
+      "change_pct": 0.06
     },
     "SENSEX": {
-      "price": 81028.02,
-      "change_pct": 2.17
+      "price": 81065.26,
+      "change_pct": 0.05
     },
     "GOLD_USD": {
-      "price": 4074.9,
-      "change_pct": 0.52
+      "price": 4106.7,
+      "change_pct": -0.64
     },
     "BRENT": {
-      "price": 98.32,
-      "change_pct": -1.34
+      "price": 97.46,
+      "change_pct": -0.89
     },
     "USDINR": {
-      "price": 93.91,
-      "change_pct": -0.59
+      "price": 93.92,
+      "change_pct": 0.03
     }
   },
   "global_scroll": [
@@ -36,7 +36,7 @@
       "impact": "Negative"
     },
     {
-      "headline": "US Fed rate hike: Will RBI come under pressure? What it means for your FD, home loan EMI and savings",
+      "headline": "Week Ahead for FX, Bonds: Decisions From Fed, Other Central Banks in Focus",
       "impact": "Neutral"
     }
   ],
