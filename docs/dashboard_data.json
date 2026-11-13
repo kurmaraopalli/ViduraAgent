@@ -1,42 +1,42 @@
 {
-  "last_updated": "2026-11-12",
+  "last_updated": "2026-11-13",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 25299.35,
-      "change_pct": 0.18
+      "price": 25139.25,
+      "change_pct": -0.63
     },
     "SENSEX": {
-      "price": 81949.76,
-      "change_pct": 0.09
+      "price": 81490.32,
+      "change_pct": -0.51
     },
     "GOLD_USD": {
-      "price": 3948.2,
-      "change_pct": -0.81
+      "price": 3904.7,
+      "change_pct": -0.32
     },
     "BRENT": {
-      "price": 92.28,
-      "change_pct": 1.08
+      "price": 96.03,
+      "change_pct": 0.42
     },
     "USDINR": {
-      "price": 94.04,
-      "change_pct": 0.38
+      "price": 94.25,
+      "change_pct": 0.22
     }
   },
   "global_scroll": [
     {
-      "headline": "Goldman Sachs revamps Fed interest rate cut forecast for 2025",
-      "impact": "Negative"
+      "headline": "Global Equity Markets: Can The Stock Market Rally Continue Beyond AI?",
+      "impact": "Positive"
     },
     {
-      "headline": "US Fed holds rates: Will RBI get room to rethink policy",
-      "impact": "Neutral"
+      "headline": "FINTECH Media Group Expands Customizable Financial Media Terminal across Global Markets",
+      "impact": "Positive"
     },
     {
-      "headline": "Week Ahead for FX, Bonds: Decisions From Fed, Other Central Banks in Focus",
+      "headline": "Coursera to Participate in the RBC Capital Markets Global Technology, Internet, Media and Telecommunications Conference",
       "impact": "Neutral"
     }
   ],
