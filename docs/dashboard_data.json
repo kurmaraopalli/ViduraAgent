@@ -1,55 +1,51 @@
 {
-  "last_updated": "2026-11-13",
+  "last_updated": "2026-11-14",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 25139.25,
-      "change_pct": -0.63
+      "price": 25144.3,
+      "change_pct": -0.61
     },
     "SENSEX": {
-      "price": 81490.32,
-      "change_pct": -0.51
+      "price": 81592.45,
+      "change_pct": -0.39
     },
     "GOLD_USD": {
-      "price": 3904.7,
-      "change_pct": -0.32
+      "price": 3886.3,
+      "change_pct": -0.79
     },
     "BRENT": {
-      "price": 96.03,
-      "change_pct": 0.42
+      "price": 95.84,
+      "change_pct": 0.22
     },
     "USDINR": {
-      "price": 94.25,
-      "change_pct": 0.22
+      "price": 94.24,
+      "change_pct": 0.21
     }
   },
   "global_scroll": [
     {
-      "headline": "Global Equity Markets: Can The Stock Market Rally Continue Beyond AI?",
-      "impact": "Positive"
+      "headline": "Live market and news feeds are being refreshed; fallback content is active.",
+      "impact": "Neutral"
     },
     {
-      "headline": "FINTECH Media Group Expands Customizable Financial Media Terminal across Global Markets",
-      "impact": "Positive"
-    },
-    {
-      "headline": "Coursera to Participate in the RBC Capital Markets Global Technology, Internet, Media and Telecommunications Conference",
+      "headline": "ViduraAgent will populate richer signals once live feeds respond normally.",
       "impact": "Neutral"
     }
   ],
   "daily_pulse": {
-    "media_headline": "India macro indicators remain in focus amid policy and liquidity shifts.",
+    "media_headline": "Sensex today | Stock Market Highlights: Stock markets on fire; Sensex jumps 1,718 points, Nifty reclaims 25,000",
     "social_sentiment": "Bullish",
     "trending_tags": [
-      "#India",
-      "#Macro",
-      "#Indicators",
-      "#Remain",
-      "#Focus",
-      "#Policy"
+      "#Sensex",
+      "#Nifty",
+      "#Today",
+      "#Stock",
+      "#Market",
+      "#Highlights"
     ]
   },
   "horizons": {
