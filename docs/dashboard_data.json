@@ -1,29 +1,29 @@
 {
-  "last_updated": "2026-11-15",
+  "last_updated": "2026-11-16",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 25144.3,
-      "change_pct": -0.61
+      "price": 25291.1,
+      "change_pct": 0.58
     },
     "SENSEX": {
-      "price": 81592.45,
-      "change_pct": -0.39
+      "price": 81881.9,
+      "change_pct": 0.35
     },
     "GOLD_USD": {
-      "price": 3886.3,
-      "change_pct": -0.79
+      "price": 3858.1,
+      "change_pct": -0.31
     },
     "BRENT": {
-      "price": 95.84,
-      "change_pct": 0.22
+      "price": 92.58,
+      "change_pct": -2.82
     },
     "USDINR": {
-      "price": 94.24,
-      "change_pct": 0.21
+      "price": 93.91,
+      "change_pct": -0.34
     }
   },
   "global_scroll": [
@@ -37,15 +37,15 @@
     }
   ],
   "daily_pulse": {
-    "media_headline": "Sensex today | Stock Market Highlights: Stock markets on fire; Sensex jumps 1,718 points, Nifty reclaims 25,000",
+    "media_headline": "Sensex Today | Stock Market Live: Sensex gains 450 points, Nifty at 25,270; FCMG, banks shine, auto, metals drag",
     "social_sentiment": "Bullish",
     "trending_tags": [
       "#Sensex",
       "#Nifty",
       "#Stock",
-      "#Market",
       "#Today",
-      "#Highlights"
+      "#Market",
+      "#Points"
     ]
   },
   "horizons": {
