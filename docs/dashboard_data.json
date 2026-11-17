@@ -1,51 +1,55 @@
 {
-  "last_updated": "2026-11-16",
+  "last_updated": "2026-11-17",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 25291.1,
-      "change_pct": 0.58
+      "price": 25387.4,
+      "change_pct": 0.38
     },
     "SENSEX": {
-      "price": 81881.9,
-      "change_pct": 0.35
+      "price": 82532.19,
+      "change_pct": 0.52
     },
     "GOLD_USD": {
-      "price": 3858.1,
-      "change_pct": -0.31
+      "price": 3859.4,
+      "change_pct": -0.46
     },
     "BRENT": {
-      "price": 92.58,
-      "change_pct": -2.82
+      "price": 92.46,
+      "change_pct": 0.78
     },
     "USDINR": {
-      "price": 93.91,
-      "change_pct": -0.34
+      "price": 93.46,
+      "change_pct": -0.48
     }
   },
   "global_scroll": [
     {
-      "headline": "Live market and news feeds are being refreshed; fallback content is active.",
+      "headline": "Goldman Sachs revamps Fed interest rate cut forecast for 2025",
+      "impact": "Negative"
+    },
+    {
+      "headline": "US Fed holds rates: Will RBI get room to rethink policy",
       "impact": "Neutral"
     },
     {
-      "headline": "ViduraAgent will populate richer signals once live feeds respond normally.",
+      "headline": "Week Ahead for FX, Bonds: Decisions From Fed, Other Central Banks in Focus",
       "impact": "Neutral"
     }
   ],
   "daily_pulse": {
-    "media_headline": "Sensex Today | Stock Market Live: Sensex gains 450 points, Nifty at 25,270; FCMG, banks shine, auto, metals drag",
+    "media_headline": "India macro indicators remain in focus amid policy and liquidity shifts.",
     "social_sentiment": "Bullish",
     "trending_tags": [
-      "#Sensex",
-      "#Nifty",
-      "#Stock",
-      "#Today",
-      "#Market",
-      "#Points"
+      "#India",
+      "#Macro",
+      "#Indicators",
+      "#Remain",
+      "#Focus",
+      "#Policy"
     ]
   },
   "horizons": {
