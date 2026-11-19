@@ -1,38 +1,42 @@
 {
-  "last_updated": "2026-11-18",
+  "last_updated": "2026-11-19",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 25227.95,
-      "change_pct": -0.63
+      "price": 25514.3,
+      "change_pct": 1.14
     },
     "SENSEX": {
-      "price": 82031.81,
-      "change_pct": -0.61
+      "price": 83021.75,
+      "change_pct": 1.21
     },
     "GOLD_USD": {
-      "price": 3773.1,
-      "change_pct": -0.36
+      "price": 3730.9,
+      "change_pct": 0.18
     },
     "BRENT": {
-      "price": 89.49,
-      "change_pct": -3.22
+      "price": 89.58,
+      "change_pct": 0.29
     },
     "USDINR": {
-      "price": 93.44,
-      "change_pct": -0.02
+      "price": 93.29,
+      "change_pct": -0.18
     }
   },
   "global_scroll": [
     {
-      "headline": "Live market and news feeds are being refreshed; fallback content is active.",
+      "headline": "Goldman Sachs revamps Fed interest rate cut forecast for 2025",
+      "impact": "Negative"
+    },
+    {
+      "headline": "US Fed holds rates: Will RBI get room to rethink policy",
       "impact": "Neutral"
     },
     {
-      "headline": "ViduraAgent will populate richer signals once live feeds respond normally.",
+      "headline": "Week Ahead for FX, Bonds: Decisions From Fed, Other Central Banks in Focus",
       "impact": "Neutral"
     }
   ],
@@ -64,13 +68,9 @@
       },
       "ai": {
         "opportunities": [
-          "KIEP lifts 2025 world growth forecast to 3.2% on AI, U.S., India strength",
-          "India's listed AI market could gain USD 100 billion from IPOs over next 5 years: Goldman Sachs",
-          "India may gain as global AI investment cycle slows: Report"
+          "AI adoption is gradually moving from pilots toward broader enterprise deployment."
         ],
-        "risks": [
-          "The $5.5 trillion AI mirage: Can India turn Wall Street's panic into profit?"
-        ]
+        "risks": []
       }
     },
     "ten_year": {
