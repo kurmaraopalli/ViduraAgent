@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-21",
+  "last_updated": "2026-11-22",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
@@ -18,8 +18,8 @@
       "change_pct": -0.5
     },
     "BRENT": {
-      "price": 92.57,
-      "change_pct": 2.8
+      "price": 89.95,
+      "change_pct": -0.11
     },
     "USDINR": {
       "price": 92.67,
@@ -28,16 +28,16 @@
   },
   "global_scroll": [
     {
-      "headline": "Global inflation expectations hit two-year low as fund managers turn cautious",
+      "headline": "Semiconductor Supply Chain Market to Grow from USD 479.58 Billion in 2025 to USD 728.54 Billion by 2035, at a CAGR of 4.27% - SNS Insider",
       "impact": "Neutral"
     },
     {
-      "headline": "Inflation Ticks Higher As High Oil Prices Haunt Fuel Pumps And Industry Costs",
+      "headline": "Introducing CCHP: Actively Managed Exposure To China's Semiconductor Supply Chain",
       "impact": "Neutral"
     },
     {
-      "headline": "Inflation remained elevated in October, CPI report shows",
-      "impact": "Neutral"
+      "headline": "AI Infrastructure Boom Creates Compelling Growth Opportunities Across Semiconductor Supply Chain",
+      "impact": "Positive"
     }
   ],
   "daily_pulse": {
