@@ -1,43 +1,43 @@
 {
-  "last_updated": "2026-11-22",
+  "last_updated": "2026-11-23",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 25800.6,
-      "change_pct": 1.12
+      "price": 25349.65,
+      "change_pct": -1.75
     },
     "SENSEX": {
-      "price": 83919.71,
-      "change_pct": 1.08
+      "price": 82435.99,
+      "change_pct": -1.77
     },
     "GOLD_USD": {
-      "price": 3515.4,
-      "change_pct": -0.5
+      "price": 3624.2,
+      "change_pct": 0.45
     },
     "BRENT": {
-      "price": 89.95,
-      "change_pct": -0.11
+      "price": 88.82,
+      "change_pct": -1.31
     },
     "USDINR": {
-      "price": 92.67,
-      "change_pct": -0.65
+      "price": 92.91,
+      "change_pct": 0.27
     }
   },
   "global_scroll": [
     {
-      "headline": "Semiconductor Supply Chain Market to Grow from USD 479.58 Billion in 2025 to USD 728.54 Billion by 2035, at a CAGR of 4.27% - SNS Insider",
+      "headline": "Global inflation expectations hit two-year low as fund managers turn cautious",
       "impact": "Neutral"
     },
     {
-      "headline": "Introducing CCHP: Actively Managed Exposure To China's Semiconductor Supply Chain",
+      "headline": "Inflation remained elevated in October, CPI report shows",
       "impact": "Neutral"
     },
     {
-      "headline": "AI Infrastructure Boom Creates Compelling Growth Opportunities Across Semiconductor Supply Chain",
-      "impact": "Positive"
+      "headline": "Inflation Ticks Higher As High Oil Prices Haunt Fuel Pumps And Industry Costs",
+      "impact": "Neutral"
     }
   ],
   "daily_pulse": {
