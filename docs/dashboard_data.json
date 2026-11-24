@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-23",
+  "last_updated": "2026-11-24",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
@@ -14,42 +14,38 @@
       "change_pct": -1.77
     },
     "GOLD_USD": {
-      "price": 3624.2,
-      "change_pct": 0.45
+      "price": 3630.8,
+      "change_pct": 0.0
     },
     "BRENT": {
-      "price": 88.82,
-      "change_pct": -1.31
+      "price": 86.94,
+      "change_pct": 0.93
     },
     "USDINR": {
-      "price": 92.91,
-      "change_pct": 0.27
+      "price": 92.9,
+      "change_pct": -0.0
     }
   },
   "global_scroll": [
     {
-      "headline": "Global inflation expectations hit two-year low as fund managers turn cautious",
+      "headline": "Live market and news feeds are being refreshed; fallback content is active.",
       "impact": "Neutral"
     },
     {
-      "headline": "Inflation remained elevated in October, CPI report shows",
-      "impact": "Neutral"
-    },
-    {
-      "headline": "Inflation Ticks Higher As High Oil Prices Haunt Fuel Pumps And Industry Costs",
+      "headline": "ViduraAgent will populate richer signals once live feeds respond normally.",
       "impact": "Neutral"
     }
   ],
   "daily_pulse": {
-    "media_headline": "India macro indicators remain in focus amid policy and liquidity shifts.",
-    "social_sentiment": "Bullish",
+    "media_headline": "Stock market outlook today, 23 Nov: Sensex, Nifty prediction - DJIA, S&P, NASDAQ, GIFT Nifty, Kospi, Nikkei, Taiwan cues",
+    "social_sentiment": "Neutral",
     "trending_tags": [
-      "#India",
-      "#Macro",
-      "#Indicators",
-      "#Remain",
-      "#Focus",
-      "#Policy"
+      "#Sensex",
+      "#Nifty",
+      "#Stock",
+      "#Market",
+      "#Today",
+      "#Highlights"
     ]
   },
   "horizons": {
