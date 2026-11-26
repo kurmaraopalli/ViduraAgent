@@ -1,38 +1,42 @@
 {
-  "last_updated": "2026-11-25",
+  "last_updated": "2026-11-26",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 25819.25,
-      "change_pct": 1.79
+      "price": 25884.5,
+      "change_pct": 0.25
     },
     "SENSEX": {
-      "price": 83938.28,
-      "change_pct": 1.82
+      "price": 84328.59,
+      "change_pct": 0.46
     },
     "GOLD_USD": {
-      "price": 3554.0,
-      "change_pct": 0.14
+      "price": 3587.0,
+      "change_pct": 1.07
     },
     "BRENT": {
-      "price": 88.05,
-      "change_pct": 0.64
+      "price": 91.0,
+      "change_pct": 4.01
     },
     "USDINR": {
-      "price": 92.22,
-      "change_pct": -0.73
+      "price": 92.54,
+      "change_pct": 0.35
     }
   },
   "global_scroll": [
     {
-      "headline": "Live market and news feeds are being refreshed; fallback content is active.",
+      "headline": "Global inflation expectations hit two-year low as fund managers turn cautious",
       "impact": "Neutral"
     },
     {
-      "headline": "ViduraAgent will populate richer signals once live feeds respond normally.",
+      "headline": "Inflation remained elevated in October, CPI report shows",
+      "impact": "Neutral"
+    },
+    {
+      "headline": "Inflation Ticks Higher As High Oil Prices Haunt Fuel Pumps And Industry Costs",
       "impact": "Neutral"
     }
   ],
