@@ -1,42 +1,42 @@
 {
-  "last_updated": "2026-11-26",
+  "last_updated": "2026-11-27",
   "publisher": {
     "name": "Kurma Rao Palli",
     "profile_url": "https://kurmaraopalli.github.io/About-Me/"
   },
   "market_snapshot": {
     "NIFTY50": {
-      "price": 25884.5,
-      "change_pct": 0.25
+      "price": 25607.2,
+      "change_pct": -1.07
     },
     "SENSEX": {
-      "price": 84328.59,
-      "change_pct": 0.46
+      "price": 83339.26,
+      "change_pct": -1.17
     },
     "GOLD_USD": {
-      "price": 3587.0,
-      "change_pct": 1.07
+      "price": 3707.1,
+      "change_pct": 4.45
     },
     "BRENT": {
-      "price": 91.0,
-      "change_pct": 4.01
+      "price": 92.0,
+      "change_pct": 5.15
     },
     "USDINR": {
-      "price": 92.54,
-      "change_pct": 0.35
+      "price": 92.98,
+      "change_pct": 0.59
     }
   },
   "global_scroll": [
-    {
-      "headline": "Global inflation expectations hit two-year low as fund managers turn cautious",
-      "impact": "Neutral"
-    },
     {
       "headline": "Inflation remained elevated in October, CPI report shows",
       "impact": "Neutral"
     },
     {
-      "headline": "Inflation Ticks Higher As High Oil Prices Haunt Fuel Pumps And Industry Costs",
+      "headline": "Global inflation expectations hit two-year low as fund managers turn cautious",
+      "impact": "Neutral"
+    },
+    {
+      "headline": "Here's the inflation breakdown for September 2026 — in one chart",
       "impact": "Neutral"
     }
   ],
